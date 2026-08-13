@@ -49,8 +49,9 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
 .pill{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px}
 .pill.red{background:#fee2e2;color:#b91c1c} .pill.green{background:#dcfce7;color:#15803d}
 .plwrap{padding:2px 15px 13px;border-top:1px solid #f0f1f3}
-.plrow{padding:9px 0;border-bottom:1px dashed #eef0f2} .plrow:last-child{border-bottom:none}
+.plrow{padding:9px 0;border-bottom:1px solid #f0f1f3;margin-bottom:8px} .plrow:last-child{border-bottom:none}
 .plname{font-weight:600;font-size:13px;margin-bottom:5px}
+.client-label{color:#6b7280;font-weight:400;font-size:12px}
 .mini.red{background:#fee2e2;color:#b91c1c;font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:5px}
 .chip{display:inline-block;font-size:11.5px;background:#f1f3f5;color:#374151;padding:3px 8px;border-radius:6px;margin:2px 4px 2px 0}
 .chip.live{background:#e0f2fe;color:#075985;font-weight:600}
@@ -160,21 +161,29 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
 <div class="panel" id="health">
   <div class="phead">Client health</div>
   <div class="pcap">38 active clients with an open role, 29 have at least one role under 3 in play. Emptiest first. Open a client to see each role and how its candidates break down</div>
-  <details class="client">
-      <summary><span class="cname">Clickbait Agency</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Clickbait Agency - Creative Strategist</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+  <div class="plrow">
+          <div class="plname"><span class="client-label">250 LLC</span> 250 LLC - Media Buyer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">14 Sourcing</span>
             <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
+            <span class="chip">2 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
+            <span class="chip grey">8 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Clickbait Agency - Video Editor</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
+          <div class="plname"><span class="client-label">Andor Willow  </span> Andor Willow   - Customer Support Agent</div>
+          <div class="plstatus"><span class="chip green">Healthy</span></div>
+          <div class="plbreak"><span class="chip live">12 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">3 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">6 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Clickbait Agency</span> Clickbait Agency - Video Editor</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">1 Sourcing</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
@@ -182,11 +191,8 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Luminance</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Luminance - Supply Chain Manager</div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Clickbait Agency</span> Clickbait Agency - Creative Strategist</div>
           <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">0 Sourcing</span>
             <span class="chip">0 Approved Int</span>
@@ -196,275 +202,37 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Luminance - UGC Manager </div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">10 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">ErgoLab</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">ErgoLab - Email Marketer</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">7 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Feelgoods</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Feelgoods - Video Editor</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">30 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">9 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Mailer Profit</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Mailer Profit - Retention Manager</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">18 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">3 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Rosabella</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Rosabella - Chief of Staff</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">5 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">4 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">TernSetups</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">TernSetups - Creative Strategist</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">0 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Eddieron</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Eddieron - Technical Operations Engineer</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">2 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Eddieron - Creative Strategist</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">0 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Everstride </span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Everstride  - Head of Operations</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">3 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Everstride  - Ecommerce Manager</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">4 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Hume</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Hume - Creative Lead</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">0 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Hume - Growth Manager</div>
+          <div class="plname"><span class="client-label">Cupids</span> Cupids - Head Of Growth</div>
           <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">3 Sourcing</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Pelsbarn</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Pelsbarn - Affiliate Marketer</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">7 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Pelsbarn - Creative Strategist</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">10 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">The Lion Advisory</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">The Lion Advisory - Head of Advertising</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">1 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">The Lion Advisory - Operations Manager, (agency)</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">5 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
             <span class="chip">1 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">4 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">D-Doubleu</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">D-Doubleu - Creative Strategist</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Cura</span> Cura - Graphic Designer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">14 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Cura</span> Cura - Head Of Graphic Design</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Gard Pro</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Gard Pro - Creative Strategist</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">5 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">4 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">MDalgorithms</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">MDalgorithms - Growth Marketer</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">19 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">15 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Prime Prometics</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Prime Prometics - Video Editor</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">18 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Quietlab</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Quietlab - Head Of Growth</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">10 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">5 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Cura</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Cura - Lead Video Editor</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">6 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Cura - Video Editor</div>
+          <div class="plname"><span class="client-label">Cura</span> Cura - Video Editor</div>
           <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">28 Sourcing</span>
             <span class="chip">0 Approved Int</span>
@@ -474,275 +242,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">15 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Cura - Graphic Designer</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">14 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">4 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Cura - Head Of Graphic Design</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">7 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">250 LLC</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">250 LLC - Media Buyer</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">14 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">2 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">8 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Cupids</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Cupids - Head Of Growth</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">3 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">4 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Moov</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Moov - Product Manager</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">0 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Nattyplussupps</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Nattyplussupps - CRO Manager</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">13 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Venom Scent</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Venom Scent - Creative Strategist</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">8 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Ziella</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Ziella - Creative Strategist</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">16 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">1 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">13 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">HIStrips</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">HIStrips - Chief Financial Officer</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">4 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">HIStrips - Subscription Strategist</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">12 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">HIStrips - Creative Strategist (fractional)</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
-          <div class="plbreak"><span class="chip live">18 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">2 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">7 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Strawberry</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Strawberry - Creative Strategist</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">20 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">24 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Strawberry - Landing Page Builder &amp; Designer</div>
-          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">13 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">2 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Pestlab</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Pestlab - Landing Page Builder &amp; Designer</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">3 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Pestlab - Creative Strategist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Need to push for a hire</span></div>
-          <div class="plbreak"><span class="chip live">16 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">22 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Hansohome</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Hansohome - Creative Strategist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span></div>
-          <div class="plbreak"><span class="chip live">20 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">2 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">4 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Hydrohealth</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Hydrohealth - Copywriter</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
-          <div class="plbreak"><span class="chip live">8 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">3 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Novidanaturals</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Novidanaturals - Creative Strategist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span></div>
-          <div class="plbreak"><span class="chip live">18 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">3 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">5 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Simpliscaled</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Simpliscaled - CRO Specialist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
-          <div class="plbreak"><span class="chip live">8 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">3 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Sunuris</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Sunuris - Creative Strategist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span></div>
-          <div class="plbreak"><span class="chip live">10 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">2 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">6 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Andor Willow  </span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Andor Willow   - Customer Support Agent</div>
-          <div class="plstatus"><span class="chip green">Healthy</span></div>
-          <div class="plbreak"><span class="chip live">12 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">3 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">6 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Maggie's Tanks</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Maggie's Tanks - CRO Specialist</div>
-          <div class="plstatus"><span class="chip blue">New</span></div>
-          <div class="plbreak"><span class="chip live">9 Sourcing</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Maggie's Tanks - UGC Manager</div>
+          <div class="plname"><span class="client-label">Cura</span> Cura - Lead Video Editor</div>
           <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">6 Sourcing</span>
             <span class="chip">0 Approved Int</span>
@@ -752,30 +252,127 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">1 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Maggie's Tanks - Creative Strategist</div>
+          <div class="plname"><span class="client-label">D-Doubleu</span> D-Doubleu - Creative Strategist</div>
           <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">11 Sourcing</span>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Eddieron</span> Eddieron - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Eddieron</span> Eddieron - Technical Operations Engineer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">2 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Edenlabs</span> Edenlabs - Jr Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs client feedback</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">4 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">1 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">2 Rejected</span></div>
+            <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Maggie's Tanks - Video Editor</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span><span class="chip orange">Need to push for a hire</span></div>
+          <div class="plname"><span class="client-label">Edenlabs</span> Edenlabs - Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
           <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">4 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">ErgoLab</span> ErgoLab - Email Marketer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Everstride </span> Everstride  - Ecommerce Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">4 Sourcing</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
             <span class="chip">0 Interview</span>
-            <span class="chip">2 Assessment</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Everstride </span> Everstride  - Head of Operations</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Feelgoods</span> Feelgoods - Video Editor</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">30 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">9 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Gard Pro</span> Gard Pro - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
             <span class="chip">1 Final</span>
-            <span class="chip grey">3 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Hike Footwear</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Hike Footwear - Head of Partnerships </div>
+            <span class="chip grey">4 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Hansohome</span> Hansohome - Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span></div>
+          <div class="plbreak"><span class="chip live">20 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">2 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Hike Footwear</span> Hike Footwear - Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">3 Introduced</span>
+            <span class="chip">2 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Hike Footwear</span> Hike Footwear - Head of Partnerships </div>
           <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">7 Sourcing</span>
             <span class="chip">0 Approved Int</span>
@@ -785,20 +382,97 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Hike Footwear - Creative Strategist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span></div>
-          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+          <div class="plname"><span class="client-label">HIStrips</span> HIStrips - Creative Strategist (fractional)</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
             <span class="chip">0 Approved Int</span>
-            <span class="chip">3 Introduced</span>
+            <span class="chip">1 Introduced</span>
             <span class="chip">2 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
+            <span class="chip grey">7 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">HIStrips</span> HIStrips - Subscription Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">12 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">HIStrips</span> HIStrips - Chief Financial Officer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">4 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Hume</span> Hume - Growth Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Luxe Cosmetics</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Luxe Cosmetics - Copywriter</div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Hume</span> Hume - Creative Lead</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Hydrohealth</span> Hydrohealth - Copywriter</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
+          <div class="plbreak"><span class="chip live">8 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">3 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Luminance</span> Luminance - UGC Manager </div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Luminance</span> Luminance - Supply Chain Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Luxe Cosmetics</span> Luxe Cosmetics - Video Editor</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
+          <div class="plbreak"><span class="chip live">19 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">2 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Luxe Cosmetics</span> Luxe Cosmetics - Copywriter</div>
           <div class="plstatus"><span class="chip green">Healthy</span></div>
           <div class="plbreak"><span class="chip live">5 Sourcing</span>
             <span class="chip">0 Approved Int</span>
@@ -808,20 +482,167 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Luxe Cosmetics - Video Editor</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
-          <div class="plbreak"><span class="chip live">19 Sourcing</span>
+          <div class="plname"><span class="client-label">Maggie's Tanks</span> Maggie's Tanks - Video Editor</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span><span class="chip orange">Need to push for a hire</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">2 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">3 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Maggie's Tanks</span> Maggie's Tanks - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">11 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">1 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">2 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Selene</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Selene - Creative Strategist</div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Maggie's Tanks</span> Maggie's Tanks - CRO Specialist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">9 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Maggie's Tanks</span> Maggie's Tanks - UGC Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">6 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Mailer Profit</span> Mailer Profit - Retention Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">3 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">MDalgorithms</span> MDalgorithms - Growth Marketer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">19 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">15 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Moov</span> Moov - Product Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Nattyplussupps</span> Nattyplussupps - CRO Manager</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">13 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Novidanaturals</span> Novidanaturals - Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span></div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">3 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">5 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Pelsbarn</span> Pelsbarn - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Pelsbarn</span> Pelsbarn - Affiliate Marketer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Pestlab</span> Pestlab - Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Need to push for a hire</span></div>
+          <div class="plbreak"><span class="chip live">16 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">22 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Pestlab</span> Pestlab - Landing Page Builder &amp; Designer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Prime Prometics</span> Prime Prometics - Video Editor</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Quietlab</span> Quietlab - Head Of Growth</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">5 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Rosabella</span> Rosabella - Chief of Staff</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Selene</span> Selene - Creative Strategist</div>
           <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
           <div class="plbreak"><span class="chip live">4 Sourcing</span>
             <span class="chip">0 Approved Int</span>
@@ -830,31 +651,97 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">1 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">1 Rejected</span></div>
-        </div></div>
-    </details><details class="client">
-      <summary><span class="cname">Edenlabs</span></summary>
-      <div class="plwrap"><div class="plrow">
-          <div class="plname">Edenlabs - Creative Strategist</div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Simpliscaled</span> Simpliscaled - CRO Specialist</div>
           <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs push on interviews/assessments</span></div>
-          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+          <div class="plbreak"><span class="chip live">8 Sourcing</span>
             <span class="chip">0 Approved Int</span>
-            <span class="chip">4 Introduced</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">3 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Strawberry</span> Strawberry - Landing Page Builder &amp; Designer</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">13 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">2 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Strawberry</span> Strawberry - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">20 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">24 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Sunuris</span> Sunuris - Creative Strategist</div>
+          <div class="plstatus"><span class="chip green">Healthy</span></div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">2 Introduced</span>
             <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">6 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">TernSetups</span> TernSetups - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">The Lion Advisory</span> The Lion Advisory - Operations Manager, (agency)</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">The Lion Advisory</span> The Lion Advisory - Head of Advertising</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">1 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">1 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Edenlabs - Jr Creative Strategist</div>
-          <div class="plstatus"><span class="chip green">Healthy</span><span class="chip orange">Needs client feedback</span></div>
-          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+          <div class="plname"><span class="client-label">Venom Scent</span> Venom Scent - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">8 Sourcing</span>
             <span class="chip">0 Approved Int</span>
-            <span class="chip">4 Introduced</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname"><span class="client-label">Ziella</span> Ziella - Creative Strategist</div>
+          <div class="plstatus"><span class="chip red">Not healthy</span><span class="chip orange">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">16 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">1 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
-        </div></div>
-    </details>
+            <span class="chip grey">13 Rejected</span></div>
+        </div>
 </div>
 
 <div class="panel" id="interview">
