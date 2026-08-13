@@ -1,823 +1,970 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiry | Client Metrics Dashboard</title>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Metrics &middot; August 12th</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f6f8;color:#1a1d23;font-size:14px;line-height:1.5}
-.page{max-width:1200px;margin:0 auto;padding:24px 20px}
-.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.header h1{font-size:20px;font-weight:700;color:#1a1d23;letter-spacing:-0.3px}
-.header .date{font-size:12px;color:#6b7280;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:4px 10px}
+:root{--bg:#f5f6f8;--card:#ffffff;--border:#e5e7eb;--ink:#1f2430;--muted:#6b7280;--shadow:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 22px 60px}
+h1{font-size:22px;margin:0 0 2px;font-weight:700}
+.sub{color:var(--muted);font-size:13px;margin-bottom:22px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:18px 18px 16px}
+.stat .n{font-size:30px;font-weight:700;letter-spacing:-.5px}
+.stat .l{color:var(--muted);font-size:12.5px;margin-top:3px}
+.stat .sub{color:var(--muted);font-size:11px;margin-top:7px;line-height:1.35;opacity:.85}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tab{border:none;cursor:pointer;font:inherit;font-weight:600;font-size:13px;padding:9px 15px;border-radius:999px;background:#eceef1;color:#4b5563;transition:.12s}
+.tab:hover{background:#e2e5ea}
+.tab.active{color:#fff}
+.tab[data-t="funnel"].active{background:#3b82f6}
+.tab[data-t="health"].active{background:#0ea5e9}
+.tab[data-t="interview"].active{background:#06b6d4}
+.tab[data-t="assessment"].active{background:#8b5cf6}
+.tab[data-t="shortage"].active{background:#f59e0b}
+.tab[data-t="close"].active{background:#22c55e}
+.panel{display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:22px}
+.panel.active{display:block}
+.phead{font-size:16px;font-weight:700;margin:0 0 3px}
+.pcap{color:var(--muted);font-size:13px;margin-bottom:18px}
+.muted{color:var(--muted)} .small{font-size:12.5px}
+.frow{display:grid;grid-template-columns:120px 1fr 44px;align-items:center;gap:12px;margin:9px 0}
+.flabel{font-weight:600;font-size:13px}
+.ftrack{background:#f1f3f5;border-radius:8px;height:26px;overflow:hidden}
+.fbar{height:100%;border-radius:8px;transition:width .3s}
+.fval{font-weight:700;text-align:right}
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.block{border:1px solid var(--border);border-radius:12px;padding:16px}
+.block h3{margin:0 0 10px;font-size:14px}
+.winlist,.losslist{list-style:none;padding:0;margin:0}
+.winlist li,.losslist li{padding:6px 0;border-bottom:1px solid #f0f1f3;font-size:13px}
+.winlist li:last-child,.losslist li:last-child{border-bottom:none}
+.block.win h3{color:#16a34a} .block.loss h3{color:#dc2626}
+.client{border:1px solid var(--border);border-radius:11px;margin-bottom:9px;overflow:hidden;background:#fff}
+.client summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:13px 15px}
+.client summary::-webkit-details-marker{display:none}
+.cname{font-weight:600;flex:0 0 auto;min-width:150px}
+.csummary{color:var(--muted);font-size:12.5px;flex:1}
+.pill{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px}
+.pill.red{background:#fee2e2;color:#b91c1c} .pill.green{background:#dcfce7;color:#15803d}
+.plwrap{padding:2px 15px 13px;border-top:1px solid #f0f1f3}
+.plrow{padding:9px 0;border-bottom:1px dashed #eef0f2} .plrow:last-child{border-bottom:none}
+.plname{font-weight:600;font-size:13px;margin-bottom:5px}
+.mini.red{background:#fee2e2;color:#b91c1c;font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:5px}
+.chip{display:inline-block;font-size:11.5px;background:#f1f3f5;color:#374151;padding:3px 8px;border-radius:6px;margin:2px 4px 2px 0}
+.chip.live{background:#e0f2fe;color:#075985;font-weight:600}
+.chip.grey{background:#f3f4f6;color:#9ca3af} .chip.tot{background:#eef2ff;color:#4338ca}
+.ivrole{border:1px solid var(--border);border-radius:11px;padding:12px 14px;margin-bottom:10px}
+.ivhead{font-weight:700;font-size:13.5px;margin-bottom:6px}
+.cnt{color:var(--muted);font-weight:600}
+.candline{display:grid;grid-template-columns:22px minmax(0,1fr) auto 48px;align-items:center;gap:8px;padding:5px 0;border-top:1px solid #f4f5f7;font-size:13px}
+.candline:first-of-type{border-top:none}
+.dot{width:22px;text-align:center;font-size:11px}
+.cn{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .cst{color:var(--muted);font-size:12.5px;text-align:right;white-space:nowrap} .cd{text-align:right;color:#4b5563;font-variant-numeric:tabular-nums}
+.dot,.sdot{display:inline-block;width:22px;text-align:center}
+.cn,.sname,.cname,.plname,.srole,.cst{white-space:nowrap}
+.cn,.sname{overflow:hidden;text-overflow:ellipsis}
+.all-candidates{padding:0;margin:0}
+.ivstage{border:1px solid var(--border);border-radius:11px;padding:12px 14px;margin-bottom:12px}
+.ivstage.done{border-left:4px solid #06b6d4}
+.ivstage.sched{border-left:4px solid #38bdf8}
+.ivstage.tosched{border-left:4px solid #cbd5e1}
+.stgrow{display:grid;grid-template-columns:22px minmax(0,1fr) minmax(0,1.1fr) 60px;align-items:center;gap:8px;padding:3px 0;border-top:1px solid #f4f5f7;font-size:12.5px}
+.stgrow:first-of-type{border-top:none}
+.sdot{width:22px;text-align:center;font-size:11px}
+.sname{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srole{color:var(--muted);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sdays{text-align:right;color:#4b5563;font-variant-numeric:tabular-nums}
+.stage-label{display:inline-block;background:#f1f3f5;color:#4b5563;font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;margin-right:4px}
+.tier{border:1px solid var(--border);border-left-width:4px;border-radius:11px;padding:14px 16px;margin-bottom:14px}
+.tier.red{border-left-color:#ef4444} .tier.amber{border-left-color:#f59e0b} .tier.blue{border-left-color:#3b82f6} .tier.green{border-left-color:#22c55e}
+.tierhead{margin-bottom:10px}
+.tiername{font-weight:700;font-size:14px}
+.tiercount{display:inline-block;background:#f1f3f5;color:#4b5563;font-weight:700;font-size:12px;padding:1px 8px;border-radius:999px;margin-left:6px}
+.tierdesc{color:var(--muted);font-size:12.5px;margin-top:2px}
+.stbl{width:100%;border-collapse:collapse;font-size:13px}
+.stbl th{text-align:left;color:var(--muted);font-size:11.5px;font-weight:600;padding:5px 8px;border-bottom:1px solid var(--border)}
+.stbl td{padding:6px 8px;border-bottom:1px solid #f4f5f7}
+.stbl td.num{text-align:center;font-variant-numeric:tabular-nums;width:70px;color:#4b5563}
+.stbl td.csm{color:#4b5563;font-size:12.5px}
+.stbl tr:last-child td{border-bottom:none}
+.ctsec{margin-bottom:16px}
+.cthead{font-weight:700;font-size:14px;margin-bottom:6px}
+.cthd{color:var(--muted);font-weight:400;font-size:12.5px;margin-left:6px}
+</style></head>
+<body><div class="wrap">
+<h1>Client Metrics</h1>
+<div class="sub">Live snapshot &middot; August 12th &middot; active clients only, candidates counted on roles we are actively working</div>
 
-/* Stat strip */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
-.stat-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:18px 20px}
-.stat-card .label{font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
-.stat-card .value{font-size:30px;font-weight:700;color:#1a1d23;line-height:1}
-.stat-card .sub{font-size:11px;color:#9ca3af;margin-top:6px}
-.stat-card.green .value{color:#059669}
-.stat-card.red .value{color:#dc2626}
-.stat-card.blue .value{color:#2563eb}
-.stat-card.amber .value{color:#d97706}
-
-/* Tabs */
-.tabs-wrapper{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden}
-.tab-nav{display:flex;border-bottom:1px solid #e5e7eb;overflow-x:auto}
-.tab-nav input[type=radio]{display:none}
-.tab-nav label{flex:1;min-width:120px;text-align:center;padding:12px 8px;font-size:12px;font-weight:600;color:#6b7280;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.15s}
-.tab-nav label:hover{color:#374151;background:#f9fafb}
-#t1:checked ~ .tab-nav label[for=t1],
-#t2:checked ~ .tab-nav label[for=t2],
-#t3:checked ~ .tab-nav label[for=t3],
-#t4:checked ~ .tab-nav label[for=t4],
-#t5:checked ~ .tab-nav label[for=t5],
-#t6:checked ~ .tab-nav label[for=t6]{color:#2563eb;border-bottom-color:#2563eb}
-.tab-panel{display:none;padding:24px}
-#t1:checked ~ .tab-panels .panel1,
-#t2:checked ~ .tab-panels .panel2,
-#t3:checked ~ .tab-panels .panel3,
-#t4:checked ~ .tab-panels .panel4,
-#t5:checked ~ .tab-panels .panel5,
-#t6:checked ~ .tab-panels .panel6{display:block}
-
-/* Funnel */
-.funnel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
-.funnel-card{border-radius:8px;padding:16px;text-align:center}
-.funnel-card .stage{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
-.funnel-card .count{font-size:32px;font-weight:800;line-height:1}
-.fc-sourcing{background:#eff6ff;color:#1e40af}.fc-sourcing .count{color:#2563eb}
-.fc-intro{background:#f0fdf4;color:#14532d}.fc-intro .count{color:#16a34a}
-.fc-interview{background:#fefce8;color:#713f12}.fc-interview .count{color:#ca8a04}
-.fc-assessment{background:#fff7ed;color:#7c2d12}.fc-assessment .count{color:#ea580c}
-.fc-trial{background:#fdf4ff;color:#581c87}.fc-trial .count{color:#9333ea}
-.fc-negotiation{background:#fff1f2;color:#881337}.fc-negotiation .count{color:#e11d48}
-.funnel-summary{margin-top:20px;background:#f9fafb;border-radius:8px;padding:14px 18px;font-size:13px;color:#374151}
-.funnel-summary strong{color:#1a1d23}
-
-/* Client health */
-.health-section-hdr{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;margin-bottom:12px}
-.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px}
-.badge.uncovered{background:#fef2f2;color:#991b1b}
-.badge.covered{background:#f0fdf4;color:#15803d}
-details{margin-bottom:8px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
-details summary{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;list-style:none;background:#fafafa}
-details summary::-webkit-details-marker{display:none}
-details summary:hover{background:#f3f4f6}
-.summary-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
-.summary-right{display:flex;align-items:center;gap:12px;font-size:12px;color:#6b7280;flex-shrink:0}
-.summary-right .in-play-num{font-size:14px;font-weight:700;color:#1a1d23}
-.client-name{font-size:13px;font-weight:600;color:#1a1d23}
-.role-count{font-size:11px;color:#9ca3af}
-.placement-rows{padding:12px 14px;background:#fff;border-top:1px solid #f3f4f6}
-.placement-row{display:grid;grid-template-columns:1fr auto auto auto auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:12px}
-.placement-row:last-child{border-bottom:none}
-.placement-row .role-name{color:#374151;font-weight:500}
-.bucket-pill{display:inline-block;padding:2px 7px;border-radius:10px;font-size:11px;font-weight:600}
-.bp-matched{background:#eff6ff;color:#1d4ed8}
-.bp-approved{background:#fdf4ff;color:#7e22ce}
-.bp-intro{background:#f0fdf4;color:#166534}
-.bp-rejected{background:#fef2f2;color:#991b1b}
-
-/* Interview / Assessment */
-.section-hdr{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:8px;margin-top:20px;padding-bottom:6px;border-bottom:1px solid #f3f4f6}
-.section-hdr:first-child{margin-top:0}
-.cand-row{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#fafafa;border-radius:6px;margin-bottom:6px}
-.cand-name{font-size:13px;font-weight:600;color:#1a1d23}
-.cand-role{font-size:11px;color:#6b7280;margin-top:2px}
-.day-dot{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-size:11px;font-weight:700;flex-shrink:0}
-.dot-green{background:#f0fdf4;color:#16a34a}
-.dot-amber{background:#fffbeb;color:#d97706}
-.dot-red{background:#fef2f2;color:#dc2626}
-
-/* Shortage */
-.shortage-tier{margin-bottom:20px}
-.tier-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.tier-badge{font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px}
-.tb-t1{background:#fef2f2;color:#991b1b}
-.tb-t2{background:#fff7ed;color:#c2410c}
-.tb-t3{background:#fefce8;color:#854d0e}
-.tb-t4{background:#f0fdf4;color:#166534}
-.tier-count{font-size:12px;color:#6b7280}
-.shortage-table{width:100%;border-collapse:collapse;font-size:12px}
-.shortage-table th{text-align:left;padding:6px 10px;color:#9ca3af;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.3px;border-bottom:2px solid #f3f4f6}
-.shortage-table td{padding:8px 10px;border-bottom:1px solid #f9fafb;color:#374151}
-.shortage-table tr:last-child td{border-bottom:none}
-.shortage-table .num{font-weight:700;text-align:center}
-.shortage-table .num.zero{color:#dc2626}
-.shortage-table .num.positive{color:#2563eb}
-.shortage-table .role-cell{font-weight:500;color:#1a1d23}
-.shortage-table .client-cell{color:#6b7280}
-
-/* Close to hire */
-.cth-section{margin-bottom:24px}
-.cth-card{background:#fafafa;border:1px solid #f3f4f6;border-radius:8px;padding:12px 16px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
-.cth-info .cname{font-size:13px;font-weight:600;color:#1a1d23}
-.cth-info .crole{font-size:11px;color:#6b7280;margin-top:2px}
-.cth-days{font-size:12px;font-weight:700;color:#6b7280;flex-shrink:0}
-
-/* Empty states */
-.empty{text-align:center;padding:32px;color:#9ca3af;font-size:13px}
-
-@media(max-width:700px){
-  .stats{grid-template-columns:1fr 1fr}
-  .funnel-grid{grid-template-columns:1fr 1fr}
-  .placement-row{grid-template-columns:1fr 1fr}
-}
-</style>
-</head>
-<body>
-<div class="page">
-
-<div class="header">
-  <h1>Hiry - Client Metrics Dashboard</h1>
-  <div class="date">August 10th, 2026</div>
+<div class="strip">
+  <div class="stat"><div class="n">38</div><div class="l">Active clients</div></div>
+  <div class="stat"><div class="n">58</div><div class="l">Open roles</div></div>
+  <div class="stat"><div class="n">88</div><div class="l">Candidates in play</div><div class="sub">Introduced to the client or further along (interview, assessment, trial, negotiation). Excludes people still being sourced and anyone rejected.</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">Hires last 7 days</div></div>
 </div>
 
-<!-- STAT STRIP -->
-<div class="stats">
-  <div class="stat-card blue">
-    <div class="label">Active Clients</div>
-    <div class="value">37</div>
-    <div class="sub">with at least 1 open role</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Open Roles</div>
-    <div class="value">56</div>
-    <div class="sub">active placements</div>
-  </div>
-  <div class="stat-card amber">
-    <div class="label">Candidates In Play</div>
-    <div class="value">89</div>
-    <div class="sub">in play = introduced through negotiation, not rejected</div>
-  </div>
-  <div class="stat-card green">
-    <div class="label">Hires Last 7 Days</div>
-    <div class="value">4</div>
-    <div class="sub">250 LLC, Maggie's Tanks x2, Nattyplussupps</div>
+<div class="tabs">
+  <button class="tab active" data-t="funnel">Pipeline funnel</button>
+  <button class="tab" data-t="health">Client health</button>
+  <button class="tab" data-t="interview">Interview</button>
+  <button class="tab" data-t="assessment">Assessment</button>
+  <button class="tab" data-t="shortage">Candidate shortage</button>
+  <button class="tab" data-t="close">Close to hire</button>
+</div>
+
+<div class="panel active" id="funnel">
+  <div class="phead">Pipeline funnel</div>
+  <div class="pcap">Where every live candidate sits across the hiring stages. Rejected and dead candidates are left out entirely</div>
+  <div class="frow">
+      <div class="flabel">Sourcing</div>
+      <div class="ftrack"><div class="fbar" style="width:100%;background:#94a3b8"></div></div>
+      <div class="fval">354</div>
+    </div><div class="frow">
+      <div class="flabel">Introduced</div>
+      <div class="ftrack"><div class="fbar" style="width:14%;background:#3b82f6"></div></div>
+      <div class="fval">51</div>
+    </div><div class="frow">
+      <div class="flabel">Interview</div>
+      <div class="ftrack"><div class="fbar" style="width:7%;background:#06b6d4"></div></div>
+      <div class="fval">26</div>
+    </div><div class="frow">
+      <div class="flabel">Assessment</div>
+      <div class="ftrack"><div class="fbar" style="width:3%;background:#8b5cf6"></div></div>
+      <div class="fval">8</div>
+    </div><div class="frow">
+      <div class="flabel">Trial</div>
+      <div class="ftrack"><div class="fbar" style="width:3%;background:#f59e0b"></div></div>
+      <div class="fval">3</div>
+    </div><div class="frow">
+      <div class="flabel">Negotiation</div>
+      <div class="ftrack"><div class="fbar" style="width:3%;background:#ec4899"></div></div>
+      <div class="fval">0</div>
+    </div><div class="frow">
+      <div class="flabel">Hired</div>
+      <div class="ftrack"><div class="fbar" style="width:3%;background:#22c55e"></div></div>
+      <div class="fval">1</div>
+    </div>
+  <div class="blocks">
+    <div class="block win"><h3>Hires &middot; last 7 days</h3>
+      <div class="muted small" style="margin:-4px 0 8px">Roles we successfully filled in the last 7 days</div>
+      <ul class="winlist"><li><b>Jerone Medina</b> <span class="muted">&middot; Maggie's Tanks - Operations Manager &middot; closed August 6th</span></li><li><b>Rolando A. Nellas</b> <span class="muted">&middot; 250 LLC - Video Editor &middot; closed August 5th</span></li><li><b>Adrian Grzybowski</b> <span class="muted">&middot; Maggie's Tanks - Head Of Growth &middot; closed August 5th</span></li><li><b>Sher Ali</b> <span class="muted">&middot; Nattyplussupps - Video Editor &middot; closed August 5th</span></li></ul></div>
+    <div class="block loss"><h3>Churned &middot; last 7 days</h3>
+      <div class="muted small" style="margin:-4px 0 8px">Roles a client cancelled in the last 7 days</div>
+      <ul class="losslist"><li>Swissklip USA - Amazon Marketer <span class="muted">&middot; cancelled August 12th</span></li><li>Rosabella - Finance Manager <span class="muted">&middot; cancelled August 10th</span></li><li>Hume - Creative Strategist <span class="muted">&middot; cancelled August 6th</span></li><li>Pridola (Skult) - Finance Controller <span class="muted">&middot; cancelled August 5th</span></li></ul></div>
   </div>
 </div>
 
-<!-- TABS -->
-<div class="tabs-wrapper">
-  <input type="radio" name="tabs" id="t1" checked>
-  <input type="radio" name="tabs" id="t2">
-  <input type="radio" name="tabs" id="t3">
-  <input type="radio" name="tabs" id="t4">
-  <input type="radio" name="tabs" id="t5">
-  <input type="radio" name="tabs" id="t6">
-  <div class="tab-nav">
-    <label for="t1">Pipeline Funnel</label>
-    <label for="t2">Client Health</label>
-    <label for="t3">Interview</label>
-    <label for="t4">Assessment</label>
-    <label for="t5">Candidate Shortage</label>
-    <label for="t6">Close to Hire</label>
-  </div>
-  <div class="tab-panels">
-
-    <!-- PANEL 1: PIPELINE FUNNEL -->
-    <div class="tab-panel panel1">
-      <div class="funnel-grid">
-        <div class="funnel-card fc-sourcing">
-          <div class="stage">Sourcing / Pre-Intro</div>
-          <div class="count">376</div>
-        </div>
-        <div class="funnel-card fc-intro">
-          <div class="stage">Introduced</div>
-          <div class="count">33</div>
-        </div>
-        <div class="funnel-card fc-interview">
-          <div class="stage">Interview</div>
-          <div class="count">36</div>
-        </div>
-        <div class="funnel-card fc-assessment">
-          <div class="stage">Assessment</div>
-          <div class="count">8</div>
-        </div>
-        <div class="funnel-card fc-trial">
-          <div class="stage">Trial</div>
-          <div class="count">3</div>
-        </div>
-        <div class="funnel-card fc-negotiation">
-          <div class="stage">Negotiation</div>
-          <div class="count">9</div>
-        </div>
-      </div>
-      <div class="funnel-summary">
-        <strong>89 candidates in play</strong> across 56 active roles for 37 clients.
-        Funnel excludes all rejected-rated candidates. Hired roles not counted (4 closed this week).
-        0 churns in the last 7 days.
-      </div>
-    </div>
-
-    <!-- PANEL 2: CLIENT HEALTH -->
-    <div class="tab-panel panel2">
-      <p style="font-size:12px;color:#6b7280;margin-bottom:16px">
-        Sorted by total candidates in play (lowest first). <span class="badge uncovered">Uncovered</span> = any role with fewer than 3 in play.
-        <span class="badge covered">Covered</span> = all roles have 3 or more.
-        Per-placement buckets: Matched (sourcing pool) | Approved (close-to-intro pool) | Intro+ (introduced through negotiation) | Rejected.
-      </p>
-
-      <!-- UNCOVERED CLIENTS -->
-      <div class="section-hdr">Uncovered (29)</div>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Everstride</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Ecommerce Manager</span><span class="bucket-pill bp-matched">4 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Head of Operations</span><span class="bucket-pill bp-matched">2 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Hume</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Lead</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Growth Manager</span><span class="bucket-pill bp-matched">2 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Luminance</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">UGC Manager</span><span class="bucket-pill bp-matched">11 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Supply Chain Manager</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Rosabella</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Finance Manager</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">9 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Chief of Staff</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">250 LLC</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Media Buyer</span><span class="bucket-pill bp-matched">4 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">7 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">D-Doubleu</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">4 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">ErgoLab</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Email Marketer</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Mailer Profit</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Retention Manager</span><span class="bucket-pill bp-matched">10 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">3 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Nattyplussupps</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">0</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">CRO Manager</span><span class="bucket-pill bp-matched">11 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Eddieron</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Technical Operations Engineer</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">The Lion Advisory</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Head of Advertising</span><span class="bucket-pill bp-matched">1 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Operations Manager</span><span class="bucket-pill bp-matched">3 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Gard Pro</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Quietlab</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Head of Growth</span><span class="bucket-pill bp-matched">4 Matched</span><span class="bucket-pill bp-approved">2 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">5 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Sunuris</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">7 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">6 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Swissklip USA</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Amazon Marketer</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">9 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Venom Scent</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">1</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">7 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Andor Willow</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">2</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Customer Support Agent</span><span class="bucket-pill bp-matched">8 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Feelgoods</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">2</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Video Editor</span><span class="bucket-pill bp-matched">7 Matched</span><span class="bucket-pill bp-approved">9 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">7 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Novidanaturals</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">2</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">11 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Pestlab</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">2</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">22 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Ziella</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">2</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">3 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">13 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Cura</span><span class="role-count">4 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">3</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Video Editor</span><span class="bucket-pill bp-matched">9 Matched</span><span class="bucket-pill bp-approved">16 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">13 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Lead Video Editor</span><span class="bucket-pill bp-matched">2 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Graphic Designer</span><span class="bucket-pill bp-matched">5 Matched</span><span class="bucket-pill bp-approved">8 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Head of Graphic Design</span><span class="bucket-pill bp-matched">6 Matched</span><span class="bucket-pill bp-approved">2 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Pelsbarn</span><span class="role-count">3 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">3</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Supply Chain Manager</span><span class="bucket-pill bp-matched">1 Matched</span><span class="bucket-pill bp-approved">5 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Content Coordinator</span><span class="bucket-pill bp-matched">14 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">3 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Social Media Manager</span><span class="bucket-pill bp-matched">1 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">HIStrips</span><span class="role-count">3 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">5</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Retention Strategist</span><span class="bucket-pill bp-matched">6 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Chief Financial Officer</span><span class="bucket-pill bp-matched">1 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">10 Matched</span><span class="bucket-pill bp-approved">5 Approved</span><span class="bucket-pill bp-intro">5 Intro+</span><span class="bucket-pill bp-rejected">5 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Maggie's Tanks</span><span class="role-count">3 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">5</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">7 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Video Editor</span><span class="bucket-pill bp-matched">6 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">3 Rej</span></div>
-          <div class="placement-row"><span class="role-name">UGC Manager</span><span class="bucket-pill bp-matched">5 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">0 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Edenlabs</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">5</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Jr Creative Strategist</span><span class="bucket-pill bp-matched">7 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">8 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Hike Footwear</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">5</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Head of Partnerships</span><span class="bucket-pill bp-matched">5 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">6 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">4 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Luxe Cosmetics</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">5</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Video Editor</span><span class="bucket-pill bp-matched">13 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Copywriter</span><span class="bucket-pill bp-matched">3 Matched</span><span class="bucket-pill bp-approved">2 Approved</span><span class="bucket-pill bp-intro">2 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge uncovered">Uncovered</span><span class="client-name">Strawberry</span><span class="role-count">2 roles</span></div>
-          <div class="summary-right"><span class="in-play-num">10</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Landing Page Builder &amp; Designer</span><span class="bucket-pill bp-matched">3 Matched</span><span class="bucket-pill bp-approved">2 Approved</span><span class="bucket-pill bp-intro">1 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">5 Matched</span><span class="bucket-pill bp-approved">2 Approved</span><span class="bucket-pill bp-intro">9 Intro+</span><span class="bucket-pill bp-rejected">15 Rej</span></div>
-        </div>
-      </details>
-
-      <!-- COVERED CLIENTS -->
-      <div class="section-hdr" style="margin-top:24px">Covered (8)</div>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Hansohome</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">3</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">13 Matched</span><span class="bucket-pill bp-approved">3 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">4 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Hydrohealth</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">3</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Copywriter</span><span class="bucket-pill bp-matched">4 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">MDalgorithms</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">3</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Growth Marketer</span><span class="bucket-pill bp-matched">2 Matched</span><span class="bucket-pill bp-approved">1 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">14 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Moov</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">3</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Product Manager</span><span class="bucket-pill bp-matched">0 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">3 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Cupids</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">4</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Head of Growth</span><span class="bucket-pill bp-matched">5 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">4 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Selene</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">4</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Creative Strategist</span><span class="bucket-pill bp-matched">5 Matched</span><span class="bucket-pill bp-approved">4 Approved</span><span class="bucket-pill bp-intro">4 Intro+</span><span class="bucket-pill bp-rejected">1 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Simpliscaled</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">5</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">CRO Specialist</span><span class="bucket-pill bp-matched">7 Matched</span><span class="bucket-pill bp-approved">0 Approved</span><span class="bucket-pill bp-intro">5 Intro+</span><span class="bucket-pill bp-rejected">0 Rej</span></div>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <div class="summary-left"><span class="badge covered">Covered</span><span class="client-name">Prime Prometics</span><span class="role-count">1 role</span></div>
-          <div class="summary-right"><span class="in-play-num">6</span> in play</div>
-        </summary>
-        <div class="placement-rows">
-          <div class="placement-row"><span class="role-name">Video Editor</span><span class="bucket-pill bp-matched">8 Matched</span><span class="bucket-pill bp-approved">7 Approved</span><span class="bucket-pill bp-intro">6 Intro+</span><span class="bucket-pill bp-rejected">2 Rej</span></div>
-        </div>
-      </details>
-    </div>
-
-    <!-- PANEL 3: INTERVIEW -->
-    <div class="tab-panel panel3">
-
-      <div class="section-hdr">Interview to Schedule - 09 (25)</div>
-      <div class="cand-row"><div><div class="cand-name">Emma Boutcher</div><div class="cand-role">Moov - Product Manager</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Agne Ginaite</div><div class="cand-role">MDalgorithms - Growth Marketer</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jaouad Lahlali</div><div class="cand-role">Selene - Creative Strategist</div></div><div class="day-dot dot-amber">11d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Cyrie Bical</div><div class="cand-role">Andor Willow - Customer Support Agent</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Saad Rais</div><div class="cand-role">Cura - Video Editor</div></div><div class="day-dot dot-green">5d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Lewis Rumsby</div><div class="cand-role">Selene - Creative Strategist</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Santiago Sanchez Acosta</div><div class="cand-role">Hansohome - Creative Strategist</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jaouad Lahlali</div><div class="cand-role">Hansohome - Creative Strategist</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jan Romanski</div><div class="cand-role">Edenlabs - Jr Creative Strategist</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Tomas Ezequiel Benitez</div><div class="cand-role">Cura - Video Editor</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Deividas Zelenius</div><div class="cand-role">Hike Footwear - Creative Strategist</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Areeb Bin Azhar</div><div class="cand-role">Sunuris - Creative Strategist</div></div><div class="day-dot dot-amber">11d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Agne Ginaite</div><div class="cand-role">Cupids - Head of Growth</div></div><div class="day-dot dot-green">3d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Lewis Rumsby</div><div class="cand-role">Strawberry - Creative Strategist</div></div><div class="day-dot dot-green">3d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jaime Santos</div><div class="cand-role">Simpliscaled - CRO Specialist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Baris Akgun</div><div class="cand-role">Simpliscaled - CRO Specialist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Luis Fernando Grigolon Rodrigues</div><div class="cand-role">Simpliscaled - CRO Specialist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Mykolas Baubinas</div><div class="cand-role">Edenlabs - Creative Strategist</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Emannuel Arcanjo Tavares Saldanha</div><div class="cand-role">Simpliscaled - CRO Specialist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Kelsey Eyers</div><div class="cand-role">Hike Footwear - Head of Partnerships</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Ronjim B. Javier</div><div class="cand-role">Hike Footwear - Creative Strategist</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jaouad Lahlali</div><div class="cand-role">Strawberry - Creative Strategist</div></div><div class="day-dot dot-amber">18d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Lewis Rumsby</div><div class="cand-role">Venom Scent - Creative Strategist</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Pat Gibson</div><div class="cand-role">Cupids - Head of Growth</div></div><div class="day-dot dot-green">3d</div></div>
-      <div class="cand-row"><div><div class="cand-name">BG Jeevan</div><div class="cand-role">Strawberry - Creative Strategist</div></div><div class="day-dot dot-red">59d</div></div>
-
-      <div class="section-hdr">Interview Scheduled - 10 (5)</div>
-      <div class="cand-row"><div><div class="cand-name">Michael Gorodi</div><div class="cand-role">HIStrips - Creative Strategist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Sid Sri</div><div class="cand-role">HIStrips - Creative Strategist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Mykolas Baubinas</div><div class="cand-role">Novidanaturals - Creative Strategist</div></div><div class="day-dot dot-amber">12d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Angel Bunch M. Franco</div><div class="cand-role">The Lion Advisory - Operations Manager</div></div><div class="day-dot dot-red">36d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Goutaman Ramachandran</div><div class="cand-role">Pestlab - Creative Strategist</div></div><div class="day-dot dot-green">3d</div></div>
-
-      <div class="section-hdr">Interview Completed - 11 (6)</div>
-      <div class="cand-row"><div><div class="cand-name">John Paul Sagun</div><div class="cand-role">Andor Willow - Customer Support Agent</div></div><div class="day-dot dot-green">2d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Agne Apanaviciute</div><div class="cand-role">Simpliscaled - CRO Specialist</div></div><div class="day-dot dot-amber">10d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Yusuf Kapoor</div><div class="cand-role">Hydrohealth - Copywriter</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jarnail Gill</div><div class="cand-role">Cupids - Head of Growth</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Jan Romanski</div><div class="cand-role">Hydrohealth - Copywriter</div></div><div class="day-dot dot-green">0d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Arvind Manohar</div><div class="cand-role">Hydrohealth - Copywriter</div></div><div class="day-dot dot-green">4d</div></div>
-
-      <p style="font-size:11px;color:#9ca3af;margin-top:12px">Dot key: green = 7d or under, amber = 8-14d, red = 15d+</p>
-    </div>
-
-    <!-- PANEL 4: ASSESSMENT -->
-    <div class="tab-panel panel4">
-
-      <div class="section-hdr">To Send (3)</div>
-      <div class="cand-row"><div><div class="cand-name">Wade Welles Betchayda Parreno</div><div class="cand-role">Luxe Cosmetics - Video Editor</div></div><div class="day-dot dot-green">6d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Deividas Zelenius</div><div class="cand-role">Selene - Creative Strategist</div></div><div class="day-dot dot-green">4d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Muhammad Anas</div><div class="cand-role">Luxe Cosmetics - Video Editor</div></div><div class="day-dot dot-green">5d</div></div>
-
-      <div class="section-hdr">Shared (4)</div>
-      <div class="cand-row"><div><div class="cand-name">Franz Ivan M. Son</div><div class="cand-role">Feelgoods - Video Editor</div></div><div class="day-dot dot-amber">17d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Lewis Rumsby</div><div class="cand-role">Maggie's Tanks - Creative Strategist</div></div><div class="day-dot dot-green">3d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Dragan Klevernic</div><div class="cand-role">Maggie's Tanks - Video Editor</div></div><div class="day-dot dot-green">6d</div></div>
-      <div class="cand-row"><div><div class="cand-name">Desserie Riegn Cruz</div><div class="cand-role">Maggie's Tanks - Video Editor</div></div><div class="day-dot dot-green">6d</div></div>
-
-      <div class="section-hdr">In Progress (1)</div>
-      <div class="cand-row"><div><div class="cand-name">Kia Canja</div><div class="cand-role">Ziella - Creative Strategist</div></div><div class="day-dot dot-red">58d</div></div>
-
-      <div class="section-hdr">Completed (0)</div>
-      <div class="empty">No completed assessments</div>
-
-      <p style="font-size:11px;color:#9ca3af;margin-top:12px">Dot key: green = 7d or under, amber = 8-14d, red = 15d+</p>
-    </div>
-
-    <!-- PANEL 5: CANDIDATE SHORTAGE -->
-    <div class="tab-panel panel5">
-      <p style="font-size:12px;color:#6b7280;margin-bottom:20px">Roles with fewer than 3 viable candidates (rejected excluded). Sorted most urgent first.</p>
-
-      <div class="shortage-tier">
-        <div class="tier-hdr">
-          <span class="tier-badge tb-t1">Tier 1 - Truly Empty</span>
-          <span class="tier-count">7 roles - 0 viable, no fresh pipeline</span>
-        </div>
-        <table class="shortage-table">
-          <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>Client</th></tr></thead>
-          <tbody>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Creative Lead</td><td class="client-cell">Hume</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Supply Chain Manager</td><td class="client-cell">Luminance</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Finance Manager</td><td class="client-cell">Rosabella</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Chief of Staff</td><td class="client-cell">Rosabella</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Retention Manager</td><td class="client-cell">Mailer Profit</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Head of Advertising</td><td class="client-cell">The Lion Advisory</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Email Marketer</td><td class="client-cell">ErgoLab</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="shortage-tier">
-        <div class="tier-hdr">
-          <span class="tier-badge tb-t2">Tier 2 - Sourcing in Motion</span>
-          <span class="tier-count">6 roles - 0 viable, fresh sourcing only</span>
-        </div>
-        <table class="shortage-table">
-          <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>Client</th></tr></thead>
-          <tbody>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num positive">2</td><td class="role-cell">Growth Manager</td><td class="client-cell">Hume</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num positive">1</td><td class="role-cell">Retention Strategist</td><td class="client-cell">HIStrips</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num positive">1</td><td class="role-cell">Chief Financial Officer</td><td class="client-cell">HIStrips</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num positive">5</td><td class="role-cell">UGC Manager</td><td class="client-cell">Maggie's Tanks</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num positive">11</td><td class="role-cell">UGC Manager</td><td class="client-cell">Luminance</td></tr>
-            <tr><td class="num zero">0</td><td class="num zero">0</td><td class="num positive">4</td><td class="role-cell">Creative Strategist</td><td class="client-cell">D-Doubleu</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="shortage-tier">
-        <div class="tier-hdr">
-          <span class="tier-badge tb-t3">Tier 3 - Intro Incoming</span>
-          <span class="tier-count">9 roles - 0 viable, fresh close-to-intro pipeline</span>
-        </div>
-        <table class="shortage-table">
-          <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>Client</th></tr></thead>
-          <tbody>
-            <tr><td class="num zero">0</td><td class="num positive">1</td><td class="num positive">1</td><td class="role-cell">CRO Manager</td><td class="client-cell">Nattyplussupps</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">1</td><td class="num positive">4</td><td class="role-cell">Ecommerce Manager</td><td class="client-cell">Everstride</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">1</td><td class="num positive">2</td><td class="role-cell">Head of Operations</td><td class="client-cell">Everstride</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">1</td><td class="num positive">2</td><td class="role-cell">Lead Video Editor</td><td class="client-cell">Cura</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">1</td><td class="num positive">6</td><td class="role-cell">Head of Graphic Design</td><td class="client-cell">Cura</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">5</td><td class="num positive">1</td><td class="role-cell">Supply Chain Manager</td><td class="client-cell">Pelsbarn</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">2</td><td class="num positive">14</td><td class="role-cell">Content Coordinator</td><td class="client-cell">Pelsbarn</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">1</td><td class="num positive">0</td><td class="role-cell">Technical Operations Engineer</td><td class="client-cell">Eddieron</td></tr>
-            <tr><td class="num zero">0</td><td class="num positive">3</td><td class="num positive">4</td><td class="role-cell">Media Buyer</td><td class="client-cell">250 LLC</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="shortage-tier">
-        <div class="tier-hdr">
-          <span class="tier-badge tb-t4">Tier 4 - Some in Play</span>
-          <span class="tier-count">19 roles - 1-2 viable candidates</span>
-        </div>
-        <table class="shortage-table">
-          <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>Client</th></tr></thead>
-          <tbody>
-            <tr><td class="num positive">2</td><td class="num positive">16</td><td class="num positive">9</td><td class="role-cell">Video Editor</td><td class="client-cell">Cura</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">8</td><td class="num positive">5</td><td class="role-cell">Graphic Designer</td><td class="client-cell">Cura</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">3</td><td class="num positive">8</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Edenlabs</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">0</td><td class="num positive">0</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Eddieron</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">3</td><td class="num positive">11</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Novidanaturals</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">1</td><td class="num positive">8</td><td class="role-cell">Customer Support Agent</td><td class="client-cell">Andor Willow</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">1</td><td class="num positive">7</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Maggie's Tanks</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">2</td><td class="num positive">3</td><td class="role-cell">Copywriter</td><td class="client-cell">Luxe Cosmetics</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">9</td><td class="num positive">7</td><td class="role-cell">Video Editor</td><td class="client-cell">Feelgoods</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">2</td><td class="num positive">3</td><td class="role-cell">Landing Page Builder</td><td class="client-cell">Strawberry</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">2</td><td class="num positive">4</td><td class="role-cell">Head of Growth</td><td class="client-cell">Quietlab</td></tr>
-            <tr><td class="num positive">1</td><td class="num zero">0</td><td class="num zero">0</td><td class="role-cell">Amazon Marketer</td><td class="client-cell">Swissklip USA</td></tr>
-            <tr><td class="num positive">2</td><td class="num positive">1</td><td class="num zero">0</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Pestlab</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">3</td><td class="num zero">0</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Gard Pro</td></tr>
-            <tr><td class="num positive">1</td><td class="num zero">0</td><td class="num positive">5</td><td class="role-cell">Head of Partnerships</td><td class="client-cell">Hike Footwear</td></tr>
-            <tr><td class="num positive">1</td><td class="num zero">0</td><td class="num positive">3</td><td class="role-cell">Operations Manager</td><td class="client-cell">The Lion Advisory</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">1</td><td class="num positive">7</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Sunuris</td></tr>
-            <tr><td class="num positive">2</td><td class="num zero">0</td><td class="num positive">3</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Ziella</td></tr>
-            <tr><td class="num positive">1</td><td class="num positive">1</td><td class="num positive">7</td><td class="role-cell">Creative Strategist</td><td class="client-cell">Venom Scent</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- PANEL 6: CLOSE TO HIRE -->
-    <div class="tab-panel panel6">
-
-      <div class="section-hdr">Negotiation (9)</div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Lewis Rumsby</div><div class="crole">HIStrips - Creative Strategist</div></div><div class="cth-days">9d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Mateo Joya Uribe</div><div class="crole">HIStrips - Creative Strategist</div></div><div class="cth-days">9d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Kyra Garcia</div><div class="crole">HIStrips - Creative Strategist</div></div><div class="cth-days">9d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Ermal Smajli</div><div class="crole">Prime Prometics - Video Editor</div></div><div class="cth-days">29d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Hawkins Hermosa</div><div class="crole">Prime Prometics - Video Editor</div></div><div class="cth-days">30d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Ronjim B. Javier</div><div class="crole">Strawberry - Creative Strategist</div></div><div class="cth-days">34d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Sher Ali</div><div class="crole">Prime Prometics - Video Editor</div></div><div class="cth-days">30d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Desserie Riegn Cruz</div><div class="crole">Prime Prometics - Video Editor</div></div><div class="cth-days">30d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Joshua Santiago</div><div class="crole">Prime Prometics - Video Editor</div></div><div class="cth-days">30d</div></div>
-
-      <div class="section-hdr">Trial (3)</div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Matthias Turner</div><div class="crole">Eddieron - Creative Strategist</div></div><div class="cth-days">2d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Nik Jancic</div><div class="crole">Pestlab - Creative Strategist</div></div><div class="cth-days">3d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Joanne Rapunzel Sandejas</div><div class="crole">Gard Pro - Creative Strategist</div></div><div class="cth-days">3d</div></div>
-
-      <div class="section-hdr">Interview Completed (6)</div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">John Paul Sagun</div><div class="crole">Andor Willow - Customer Support Agent</div></div><div class="cth-days">2d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Agne Apanaviciute</div><div class="crole">Simpliscaled - CRO Specialist</div></div><div class="cth-days">10d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Yusuf Kapoor</div><div class="crole">Hydrohealth - Copywriter</div></div><div class="cth-days">0d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Jarnail Gill</div><div class="crole">Cupids - Head of Growth</div></div><div class="cth-days">0d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Jan Romanski</div><div class="crole">Hydrohealth - Copywriter</div></div><div class="cth-days">0d</div></div>
-      <div class="cth-card"><div class="cth-info"><div class="cname">Arvind Manohar</div><div class="crole">Hydrohealth - Copywriter</div></div><div class="cth-days">4d</div></div>
-
-    </div>
-
-  </div><!-- tab-panels -->
-</div><!-- tabs-wrapper -->
-
-<div style="text-align:center;font-size:11px;color:#d1d5db;margin-top:20px;padding-bottom:8px">
-  Generated August 10th, 2026 - Hiry Metrics Dashboard - Read only
+<div class="panel" id="health">
+  <div class="phead">Client health</div>
+  <div class="pcap">38 active clients with an open role, 29 have at least one role under 3 in play. Emptiest first. Open a client to see each role and how its candidates break down</div>
+  <details class="client">
+      <summary><span class="cname">Clickbait Agency</span>
+        <span class="csummary">0 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Clickbait Agency - Creative Strategist <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Clickbait Agency - Video Editor <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">1 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Luminance</span>
+        <span class="csummary">0 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Luminance - Supply Chain Manager <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Luminance - UGC Manager  <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">ErgoLab</span>
+        <span class="csummary">0 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">ErgoLab - Email Marketer <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Feelgoods</span>
+        <span class="csummary">0 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Feelgoods - Video Editor <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">30 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">9 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Mailer Profit</span>
+        <span class="csummary">0 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Mailer Profit - Retention Manager <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">3 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Rosabella</span>
+        <span class="csummary">0 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Rosabella - Chief of Staff <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">TernSetups</span>
+        <span class="csummary">0 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">TernSetups - Creative Strategist <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Eddieron</span>
+        <span class="csummary">1 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Eddieron - Technical Operations Engineer <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">2 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Eddieron - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Everstride </span>
+        <span class="csummary">1 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Everstride  - Head of Operations <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Everstride  - Ecommerce Manager</div>
+          <div class="plbreak"><span class="chip live">4 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Hume</span>
+        <span class="csummary">1 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Hume - Creative Lead <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Hume - Growth Manager</div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Pelsbarn</span>
+        <span class="csummary">1 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Pelsbarn - Affiliate Marketer <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Pelsbarn - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">The Lion Advisory</span>
+        <span class="csummary">1 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">The Lion Advisory - Head of Advertising <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">1 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">The Lion Advisory - Operations Manager, (agency)</div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">D-Doubleu</span>
+        <span class="csummary">1 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">D-Doubleu - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Gard Pro</span>
+        <span class="csummary">1 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Gard Pro - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">MDalgorithms</span>
+        <span class="csummary">1 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">MDalgorithms - Growth Marketer</div>
+          <div class="plbreak"><span class="chip live">19 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">15 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Prime Prometics</span>
+        <span class="csummary">1 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Prime Prometics - Video Editor</div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Quietlab</span>
+        <span class="csummary">1 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Quietlab - Head Of Growth</div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">5 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Cura</span>
+        <span class="csummary">2 in play &middot; 4 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Cura - Lead Video Editor <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">6 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Cura - Video Editor <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">28 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">15 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Cura - Graphic Designer</div>
+          <div class="plbreak"><span class="chip live">14 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Cura - Head Of Graphic Design</div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">250 LLC</span>
+        <span class="csummary">2 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">250 LLC - Media Buyer</div>
+          <div class="plbreak"><span class="chip live">14 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">2 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">8 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Cupids</span>
+        <span class="csummary">2 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Cupids - Head Of Growth</div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Moov</span>
+        <span class="csummary">2 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Moov - Product Manager</div>
+          <div class="plbreak"><span class="chip live">0 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Nattyplussupps</span>
+        <span class="csummary">2 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Nattyplussupps - CRO Manager</div>
+          <div class="plbreak"><span class="chip live">13 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Venom Scent</span>
+        <span class="csummary">2 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Venom Scent - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">8 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Ziella</span>
+        <span class="csummary">2 in play &middot; 1 role</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Ziella - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">16 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">1 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">13 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">HIStrips</span>
+        <span class="csummary">3 in play &middot; 3 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">HIStrips - Chief Financial Officer <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">4 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">HIStrips - Subscription Strategist <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">12 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">HIStrips - Creative Strategist (fractional)</div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">2 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">7 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Strawberry</span>
+        <span class="csummary">3 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Strawberry - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">20 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">24 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Strawberry - Landing Page Builder &amp; Designer</div>
+          <div class="plbreak"><span class="chip live">13 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">2 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Pestlab</span>
+        <span class="csummary">3 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Pestlab - Landing Page Builder &amp; Designer <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">3 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Pestlab - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">16 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">22 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Hansohome</span>
+        <span class="csummary">3 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Hansohome - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">20 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">2 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Hydrohealth</span>
+        <span class="csummary">3 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Hydrohealth - Copywriter</div>
+          <div class="plbreak"><span class="chip live">8 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">3 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Novidanaturals</span>
+        <span class="csummary">3 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Novidanaturals - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">18 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">3 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">5 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Simpliscaled</span>
+        <span class="csummary">3 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Simpliscaled - CRO Specialist</div>
+          <div class="plbreak"><span class="chip live">8 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">3 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Sunuris</span>
+        <span class="csummary">3 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Sunuris - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">10 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">2 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">6 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Andor Willow  </span>
+        <span class="csummary">4 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Andor Willow   - Customer Support Agent</div>
+          <div class="plbreak"><span class="chip live">12 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">3 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">6 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Maggie's Tanks</span>
+        <span class="csummary">5 in play &middot; 4 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Maggie's Tanks - CRO Specialist <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">9 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Maggie's Tanks - UGC Manager <span class="mini red">0 in play</span></div>
+          <div class="plbreak"><span class="chip live">6 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Maggie's Tanks - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">11 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">1 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Maggie's Tanks - Video Editor</div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">2 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">3 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Hike Footwear</span>
+        <span class="csummary">6 in play &middot; 2 roles</span>
+        <span class="pill red">uncovered role</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Hike Footwear - Head of Partnerships </div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Hike Footwear - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">3 Introduced</span>
+            <span class="chip">2 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Luxe Cosmetics</span>
+        <span class="csummary">6 in play &middot; 2 roles</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Luxe Cosmetics - Copywriter</div>
+          <div class="plbreak"><span class="chip live">5 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">3 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Luxe Cosmetics - Video Editor</div>
+          <div class="plbreak"><span class="chip live">19 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">2 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">2 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Selene</span>
+        <span class="csummary">9 in play &middot; 1 role</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Selene - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">4 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">6 Introduced</span>
+            <span class="chip">2 Interview</span>
+            <span class="chip">1 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div></div>
+    </details><details class="client">
+      <summary><span class="cname">Edenlabs</span>
+        <span class="csummary">10 in play &middot; 2 roles</span>
+        <span class="pill green">covered</span></summary>
+      <div class="plwrap"><div class="plrow">
+          <div class="plname">Edenlabs - Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">4 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Edenlabs - Jr Creative Strategist</div>
+          <div class="plbreak"><span class="chip live">7 Sourcing</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">4 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">1 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div></div>
+    </details>
 </div>
 
-</div><!-- page -->
-</body>
-</html>
+<div class="panel" id="interview">
+  <div class="phead">Interview</div>
+  <div class="pcap">Everyone in the interview stage, grouped by where they are, most advanced first, longest-waiting first inside each. &#128308; stuck 14+ days, &#128992; stuck 7+ days. 26 candidates</div>
+  <div class="ivstage tosched"><div class="ivhead">Interview to schedule <span class="cnt">(12)</span></div><div class="stgrow"><span class="sdot">🟠</span><span class="sname">Jaouad Lahlali</span><span class="srole">Selene - Creative Strategist</span><span class="sdays">14d</span></div><div class="stgrow"><span class="sdot">🟠</span><span class="sname">Jaime Santos</span><span class="srole">Simpliscaled - CRO Specialist</span><span class="sdays">13d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Emma Boutcher</span><span class="srole">Moov - Product Manager</span><span class="sdays">7d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Mykolas Baubinas</span><span class="srole">Edenlabs - Creative Strategist</span><span class="sdays">7d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Pat Gibson</span><span class="srole">Cupids - Head Of Growth</span><span class="sdays">6d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Kelsey Eyers</span><span class="srole">Hike Footwear - Head of Partnerships </span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Lewis Rumsby</span><span class="srole">Venom Scent - Creative Strategist</span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Ronjim B. Javier</span><span class="srole">Hike Footwear - Creative Strategist</span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Matt Stenning</span><span class="srole">Nattyplussupps - CRO Manager</span><span class="sdays">1d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Areeb Bin Azhar</span><span class="srole">Sunuris - Creative Strategist</span><span class="sdays">0d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Jericho Pahayahay</span><span class="srole">Andor Willow   - Customer Support Agent</span><span class="sdays">0d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Santiago Sanchez Acosta</span><span class="srole">Hansohome - Creative Strategist</span><span class="sdays">0d</span></div></div><div class="ivstage sched"><div class="ivhead">Interview scheduled <span class="cnt">(9)</span></div><div class="stgrow"><span class="sdot">🔴</span><span class="sname">Angel Bunch M. Franco</span><span class="srole">The Lion Advisory - Operations Manager, (agency)</span><span class="sdays">39d</span></div><div class="stgrow"><span class="sdot">🟠</span><span class="sname">Sid Sri</span><span class="srole">HIStrips - Creative Strategist (fractional)</span><span class="sdays">13d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Cyrie Bical</span><span class="srole">Andor Willow   - Customer Support Agent</span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Goutaman Ramachandran</span><span class="srole">Pestlab - Creative Strategist</span><span class="sdays">1d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Deividas Zelenius</span><span class="srole">Hike Footwear - Creative Strategist</span><span class="sdays">0d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Emannuel Arcanjo Tavares Saldanha</span><span class="srole">Simpliscaled - CRO Specialist</span><span class="sdays">0d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Jaouad Lahlali</span><span class="srole">Hansohome - Creative Strategist</span><span class="sdays">0d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Luís Fernando Grigolon Rodrigues</span><span class="srole">Simpliscaled - CRO Specialist</span><span class="sdays">0d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Michael Gorodi</span><span class="srole">HIStrips - Creative Strategist (fractional)</span><span class="sdays">0d</span></div></div><div class="ivstage done"><div class="ivhead">Interview completed <span class="cnt">(5)</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Arvind Manohar</span><span class="srole">Hydrohealth - Copywriter</span><span class="sdays">7d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">John Paul Sagun</span><span class="srole">Andor Willow   - Customer Support Agent</span><span class="sdays">5d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Jan Romański</span><span class="srole">Hydrohealth - Copywriter</span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Yusuf Kapoor</span><span class="srole">Hydrohealth - Copywriter</span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Lewis Rumsby</span><span class="srole">Selene - Creative Strategist</span><span class="sdays">0d</span></div></div>
+</div>
+
+<div class="panel" id="assessment">
+  <div class="phead">Assessment</div>
+  <div class="pcap">Candidates in the assessment stage, grouped by stage in pipeline order, longest-waiting first within each. &#128308; stuck 14+ days, &#128992; stuck 7+ days. 8 candidates</div>
+  <div class="ivstage tosched"><div class="ivhead">Assessment to send <span class="cnt">(4)</span></div><div class="stgrow"><span class="sdot">🟠</span><span class="sname">Wade Welles Betchayda Parreno</span><span class="srole">Luxe Cosmetics - Video Editor</span><span class="sdays">9d</span></div><div class="stgrow"><span class="sdot">🟠</span><span class="sname">Muhammad Anas</span><span class="srole">Luxe Cosmetics - Video Editor</span><span class="sdays">8d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Deividas Zelenius</span><span class="srole">Selene - Creative Strategist</span><span class="sdays">7d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Jan Romański</span><span class="srole">Edenlabs - Jr Creative Strategist</span><span class="sdays">0d</span></div></div><div class="ivstage sched"><div class="ivhead">Assessment shared <span class="cnt">(1)</span></div><div class="stgrow"><span class="sdot">🟠</span><span class="sname">Dragan Klevernić</span><span class="srole">Maggie's Tanks - Video Editor</span><span class="sdays">9d</span></div></div><div class="ivstage sched"><div class="ivhead">Assessment in progress <span class="cnt">(1)</span></div><div class="stgrow"><span class="sdot">🔴</span><span class="sname">Kia Canja</span><span class="srole">Ziella - Creative Strategist</span><span class="sdays">61d</span></div></div><div class="ivstage done"><div class="ivhead">Assessment completed <span class="cnt">(2)</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Desserie Riegn Cruz</span><span class="srole">Maggie's Tanks - Video Editor</span><span class="sdays">2d</span></div><div class="stgrow"><span class="sdot"></span><span class="sname">Lewis Rumsby</span><span class="srole">Maggie's Tanks - Creative Strategist</span><span class="sdays">2d</span></div></div>
+</div>
+
+<div class="panel" id="shortage">
+  <div class="phead">Candidate shortage</div>
+  <div class="pcap">Roles with fewer than 3 candidates in play, grouped by how close they are to filling. In play = live viable candidates, Close to intro = fresh candidates at Approved Internally, Verification or Waiting For Interview, Sourcing = fresh candidates earlier in the funnel (all fresh pools moved in the last 14 days). 43 roles short</div>
+  <div class="tier red">
+      <div class="tierhead"><span class="tiername">Truly empty</span> <span class="tiercount">8</span>
+        <div class="tierdesc">Nothing anywhere, source these from scratch now</div></div>
+      <table class="stbl"><thead><tr><th>In play</th><th>Close to intro</th><th>Sourcing</th><th>Role</th><th>Owner</th></tr></thead>
+      <tbody><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>Clickbait Agency - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>HIStrips - Chief Financial Officer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>Hume - Creative Lead</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>Luminance - Supply Chain Manager</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>Mailer Profit - Retention Manager</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>Rosabella - Chief of Staff</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>TernSetups - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">0</td>
+          <td>The Lion Advisory - Head of Advertising</td><td class="csm"><span class="muted">no tag</span></td></tr></tbody></table></div><div class="tier amber">
+      <div class="tierhead"><span class="tiername">Sourcing in motion</span> <span class="tiercount">8</span>
+        <div class="tierdesc">Being worked, still early, nobody near intro yet</div></div>
+      <table class="stbl"><thead><tr><th>In play</th><th>Close to intro</th><th>Sourcing</th><th>Role</th><th>Owner</th></tr></thead>
+      <tbody><tr><td class="num">0</td><td class="num">0</td><td class="num">1</td>
+          <td>Clickbait Agency - Video Editor</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">7</td>
+          <td>ErgoLab - Email Marketer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">7</td>
+          <td>Feelgoods - Video Editor</td><td class="csm">Awaiting Client Feedback</td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">2</td>
+          <td>Luminance - UGC Manager </td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">9</td>
+          <td>Maggie's Tanks - CRO Specialist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">1</td>
+          <td>Maggie's Tanks - UGC Manager</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">6</td>
+          <td>Pelsbarn - Affiliate Marketer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">0</td><td class="num">3</td>
+          <td>Pestlab - Landing Page Builder &amp; Designer</td><td class="csm"><span class="muted">no tag</span></td></tr></tbody></table></div><div class="tier blue">
+      <div class="tierhead"><span class="tiername">Intro incoming</span> <span class="tiercount">5</span>
+        <div class="tierdesc">Someone is about to be introduced, lowest sourcing priority</div></div>
+      <table class="stbl"><thead><tr><th>In play</th><th>Close to intro</th><th>Sourcing</th><th>Role</th><th>Owner</th></tr></thead>
+      <tbody><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
+          <td>Cura - Lead Video Editor</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
+          <td>Cura - Video Editor</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
+          <td>Eddieron - Technical Operations Engineer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
+          <td>Everstride  - Head of Operations</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
+          <td>HIStrips - Subscription Strategist</td><td class="csm">Need More Sourcing</td></tr></tbody></table></div><div class="tier green">
+      <div class="tierhead"><span class="tiername">Some in play</span> <span class="tiercount">22</span>
+        <div class="tierdesc">1 or 2 already live, partly covered but still under three</div></div>
+      <table class="stbl"><thead><tr><th>In play</th><th>Close to intro</th><th>Sourcing</th><th>Role</th><th>Owner</th></tr></thead>
+      <tbody><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
+          <td>Cura - Graphic Designer</td><td class="csm">Awaiting Candidate Feedback</td></tr><tr><td class="num">1</td><td class="num">1</td><td class="num">0</td>
+          <td>Cura - Head Of Graphic Design</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">3</td>
+          <td>D-Doubleu - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
+          <td>Eddieron - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">1</td><td class="num">2</td>
+          <td>Everstride  - Ecommerce Manager</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
+          <td>Gard Pro - Creative Strategist</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">1</td><td class="num">1</td><td class="num">0</td>
+          <td>Hike Footwear - Head of Partnerships </td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">2</td>
+          <td>Hume - Growth Manager</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">1</td><td class="num">0</td>
+          <td>MDalgorithms - Growth Marketer</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">9</td>
+          <td>Pelsbarn - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
+          <td>Prime Prometics - Video Editor</td><td class="csm">Awaiting Client Feedback</td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
+          <td>Quietlab - Head Of Growth</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">1</td>
+          <td>Strawberry - Creative Strategist</td><td class="csm">Awaiting Client Feedback</td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">2</td>
+          <td>The Lion Advisory - Operations Manager, (agency)</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">2</td><td class="num">1</td><td class="num">0</td>
+          <td>250 LLC - Media Buyer</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">1</td>
+          <td>Cupids - Head Of Growth</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">2</td><td class="num">1</td><td class="num">1</td>
+          <td>Maggie's Tanks - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">0</td>
+          <td>Moov - Product Manager</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">2</td><td class="num">1</td><td class="num">3</td>
+          <td>Nattyplussupps - CRO Manager</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">2</td>
+          <td>Strawberry - Landing Page Builder &amp; Designer</td><td class="csm">Awaiting Client Feedback</td></tr><tr><td class="num">2</td><td class="num">1</td><td class="num">2</td>
+          <td>Venom Scent - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">0</td>
+          <td>Ziella - Creative Strategist</td><td class="csm">Need More Sourcing</td></tr></tbody></table></div>
+</div>
+
+<div class="panel" id="close">
+  <div class="phead">Close to hire</div>
+  <div class="pcap">Candidates in the final stretch, closest to signing first. 8 in late stages</div>
+  <div class="ctsec"><div class="cthead">Trial <span class="cnt">(3)</span> <span class="cthd">On a paid trial right now</span></div><div class="candline"><span class="dot"></span><span class="cn">Joanne Rapunzel Sandejas</span><span class="cst">Gard Pro - Creative Strategist &middot; Trial in progress</span><span class="cd">6d</span></div><div class="candline"><span class="dot"></span><span class="cn">Nik Jancic</span><span class="cst">Pestlab - Creative Strategist &middot; Trial in progress</span><span class="cd">6d</span></div><div class="candline"><span class="dot"></span><span class="cn">Matthias Turner</span><span class="cst">Eddieron - Creative Strategist &middot; Trial to start</span><span class="cd">5d</span></div></div><div class="ctsec"><div class="cthead">Interview done <span class="cnt">(5)</span> <span class="cthd">Interview wrapped, awaiting the next step</span></div><div class="candline"><span class="dot"></span><span class="cn">Arvind Manohar</span><span class="cst">Hydrohealth - Copywriter &middot; Interview completed</span><span class="cd">7d</span></div><div class="candline"><span class="dot"></span><span class="cn">John Paul Sagun</span><span class="cst">Andor Willow   - Customer Support Agent &middot; Interview completed</span><span class="cd">5d</span></div><div class="candline"><span class="dot"></span><span class="cn">Jan Romański</span><span class="cst">Hydrohealth - Copywriter &middot; Interview completed</span><span class="cd">2d</span></div><div class="candline"><span class="dot"></span><span class="cn">Yusuf Kapoor</span><span class="cst">Hydrohealth - Copywriter &middot; Interview completed</span><span class="cd">2d</span></div><div class="candline"><span class="dot"></span><span class="cn">Lewis Rumsby</span><span class="cst">Selene - Creative Strategist &middot; Interview completed</span><span class="cd">0d</span></div></div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    document.getElementById(b.dataset.t).classList.add('active');
+  });
+});
+</script>
+</body></html>
