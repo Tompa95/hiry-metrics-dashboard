@@ -66,6 +66,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
 .legend-item{display:flex;align-items:baseline;gap:8px;font-size:12.5px;color:#4b5563;padding:3px 0;line-height:1.45}
 .legend-item .chip{flex:0 0 auto;margin:0}
 .legend-note{font-size:12px;color:#6b7280;border-top:1px solid #e5e7eb;padding-top:10px}
+.legend-note-inline{flex:0 0 auto;font-size:11.5px;font-weight:700;color:#6b7280;background:#eceef1;padding:3px 8px;border-radius:6px}
 .kpi-section{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;padding:16px;background:#f9fafb;border-radius:12px;border:1px solid var(--border)}
 .kpi-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .kpi-card{text-align:center;padding:12px;background:#fff;border-radius:8px;border:1px solid #e5e7eb}
@@ -125,7 +126,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
 <div class="strip">
   <div class="stat"><div class="n">35</div><div class="l">Active clients</div></div>
   <div class="stat"><div class="n">55</div><div class="l">Open roles</div></div>
-  <div class="stat"><div class="n">96</div><div class="l">Candidates in play</div><div class="sub">Introduced to the client or further along (interview, assessment, trial, negotiation). Excludes people still being sourced and anyone rejected.</div></div>
+  <div class="stat"><div class="n">97</div><div class="l">Candidates in play</div><div class="sub">Introduced to the client or further along (interview, assessment, trial, negotiation). Excludes people still being sourced and anyone rejected.</div></div>
   <div class="stat"><div class="n">2</div><div class="l">Hires last 7 days</div></div>
 </div>
 
@@ -144,11 +145,11 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
   <div class="frow">
       <div class="flabel">Sourcing</div>
       <div class="ftrack"><div class="fbar" style="width:100%;background:#94a3b8"></div></div>
-      <div class="fval">359</div>
+      <div class="fval">349</div>
     </div><div class="frow">
       <div class="flabel">Introduced</div>
       <div class="ftrack"><div class="fbar" style="width:16%;background:#3b82f6"></div></div>
-      <div class="fval">56</div>
+      <div class="fval">57</div>
     </div><div class="frow">
       <div class="flabel">Interview</div>
       <div class="ftrack"><div class="fbar" style="width:7%;background:#06b6d4"></div></div>
@@ -191,15 +192,15 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
   </div>
   <div class="kpi-breakdown">
     <div class="kpi-bar">
-      <div class="kpi-segment" style="width:13%;background:#fee2e2;"></div>
-      <div class="kpi-segment" style="width:13%;background:#fed7aa;"></div>
-      <div class="kpi-segment" style="width:51%;background:#dcfce7;"></div>
+      <div class="kpi-segment" style="width:24%;background:#fee2e2;"></div>
+      <div class="kpi-segment" style="width:0%;background:#fed7aa;"></div>
+      <div class="kpi-segment" style="width:53%;background:#dcfce7;"></div>
       <div class="kpi-segment" style="width:24%;background:#dbeafe;"></div>
     </div>
     <div class="kpi-legend">
-      <div><span class="leg-dot" style="background:#fee2e2"></span>Not Healthy 13%</div>
-      <div><span class="leg-dot" style="background:#fed7aa"></span>Thin 13%</div>
-      <div><span class="leg-dot" style="background:#dcfce7"></span>Healthy 51%</div>
+      <div><span class="leg-dot" style="background:#fee2e2"></span>Not Healthy 24%</div>
+      <div><span class="leg-dot" style="background:#fed7aa"></span>Thin 0%</div>
+      <div><span class="leg-dot" style="background:#dcfce7"></span>Healthy 53%</div>
       <div><span class="leg-dot" style="background:#dbeafe"></span>New 24%</div>
     </div>
   </div>
@@ -207,14 +208,15 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
 <div class="status-legend">
   <div class="legend-block">
     <div class="legend-title">Role health, how deep the pipeline is</div>
-    <div class="legend-item"><span class="chip red">Not healthy</span> nobody past matching yet, zero candidates approved, introduced, interviewing, in assessment or in final stages</div>
-    <div class="legend-item"><span class="chip orange">Thin</span> only 1 candidate past matching, and fewer than 5 fresh people still in matching, so one drop-off leaves it empty</div>
-    <div class="legend-item"><span class="chip green">Healthy</span> 2 or more candidates past matching, or more than 5 fresh people in matching who moved in the last 2 weeks</div>
+    <div class="legend-item"><span class="chip red">Not healthy</span> under 2 candidates past matching, and 3 or fewer fresh people left in matching, so there is nothing coming and nothing to send</div>
+    <div class="legend-item"><span class="chip orange">Thin</span> exactly 1 candidate past matching, with only 4 or 5 fresh people behind them, so one drop-off leaves it empty</div>
+    <div class="legend-item"><span class="chip green">Healthy</span> 2 or more candidates past matching, or more than 5 fresh people still in matching. Depth past matching always wins, a role in interviews is never marked down for a thin top of funnel</div>
     <div class="legend-item"><span class="chip blue">New</span> role opened less than 2 weeks ago, too early to judge, no action needed yet</div>
   </div>
   <div class="legend-block">
     <div class="legend-title">What the role needs next</div>
-    <div class="legend-item"><span class="chip action-low">Needs matching</span> fewer than 2 candidates past matching, so the team has to find and put people forward</div>
+    <div class="legend-item"><span class="chip action-low">Needs matching</span> the role is Not healthy or Thin, so the team has to find and put people forward. Always shows on its own, the rest is too low to act on yet</div>
+    <div class="legend-item"><span class="legend-note-inline">Fresh</span> means the candidate changed status within the last 2 weeks. A stale pool does not count towards health</div>
     <div class="legend-item"><span class="chip action-med">Needs client feedback</span> 2 or more people sitting introduced for 3+ days with no answer from the client</div>
     <div class="legend-item"><span class="chip action-high">Needs push on interviews/assessments</span> someone has been stuck in an interview or assessment step for 7+ days</div>
     <div class="legend-item"><span class="chip action-urgent">Need to push for a hire</span> someone is in trial or negotiation, closest to signing, keep it moving</div>
@@ -222,6 +224,26 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
   <div class="legend-note">Candidates rated Rejected, plus offer ghosted and offer rejected, are left out of every stage count and only show under Rejected</div>
 </div>
 <div class="plrow">
+          <div class="plname">Cura - Video Editor <span class="chip red">Not healthy</span></div>
+          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">24 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">18 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Cura - Graphic Designer <span class="chip red">Not healthy</span></div>
+          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">13 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">5 Rejected</span></div>
+        </div><div class="plrow">
           <div class="plname">Cura - Lead Video Editor <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">5 Matching</span>
@@ -241,6 +263,26 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Everstride  - Ecommerce Manager <span class="chip red">Not healthy</span></div>
+          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">3 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">1 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Gard Pro - Creative Strategist <span class="chip red">Not healthy</span></div>
+          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
+          <div class="plbreak"><span class="chip live">3 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">6 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">HIStrips - Subscription Strategist <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
@@ -264,13 +306,13 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
         </div><div class="plrow">
           <div class="plname">Maggie's Tanks - UGC Manager <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">6 Matching</span>
+          <div class="plbreak"><span class="chip live">5 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">3 Rejected</span></div>
+            <span class="chip grey">4 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Mailer Profit - Retention Manager <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
@@ -292,57 +334,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">9 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">Cupids - Head Of Growth <span class="chip orange">Thin</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">5 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">1 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">5 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Cura - Video Editor <span class="chip orange">Thin</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">24 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">18 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Cura - Graphic Designer <span class="chip orange">Thin</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">13 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">5 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Everstride  - Ecommerce Manager <span class="chip orange">Thin</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">3 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">1 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Gard Pro - Creative Strategist <span class="chip orange">Thin</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">3 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">6 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">The Lion Advisory - Head of Advertising <span class="chip orange">Thin</span></div>
+          <div class="plname">The Lion Advisory - Head of Advertising <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">1 Matching</span>
             <span class="chip">0 Approved Int</span>
@@ -352,7 +344,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">The Lion Advisory - Operations Manager, (agency) <span class="chip orange">Thin</span></div>
+          <div class="plname">The Lion Advisory - Operations Manager, (agency) <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
           <div class="plbreak"><span class="chip live">5 Matching</span>
             <span class="chip">0 Approved Int</span>
@@ -392,6 +384,16 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">1 Final</span>
             <span class="chip grey">12 Rejected</span></div>
         </div><div class="plrow">
+          <div class="plname">Cupids - Head Of Growth <span class="chip green">Healthy</span></div>
+          <div class="plstatus"></div>
+          <div class="plbreak"><span class="chip live">4 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">1 Introduced</span>
+            <span class="chip">1 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">0 Final</span>
+            <span class="chip grey">5 Rejected</span></div>
+        </div><div class="plrow">
           <div class="plname">Cura - Head Of Graphic Design <span class="chip green">Healthy</span></div>
           <div class="plstatus"></div>
           <div class="plbreak"><span class="chip live">6 Matching</span>
@@ -424,13 +426,13 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
         </div><div class="plrow">
           <div class="plname">Everstride  - Head of Operations <span class="chip green">Healthy</span></div>
           <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">7 Matching</span>
+          <div class="plbreak"><span class="chip live">6 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">2 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
+            <span class="chip grey">1 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Feelgoods - Video Editor <span class="chip green">Healthy</span></div>
           <div class="plstatus"></div>
@@ -473,7 +475,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip grey">1 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Hume - Growth Manager <span class="chip green">Healthy</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
+          <div class="plstatus"></div>
           <div class="plbreak"><span class="chip live">6 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
@@ -493,7 +495,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip grey">5 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Luminance - UGC Manager  <span class="chip green">Healthy</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
+          <div class="plstatus"></div>
           <div class="plbreak"><span class="chip live">11 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
@@ -664,13 +666,13 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
         </div><div class="plrow">
           <div class="plname">D-Doubleu - Creative Strategist <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">7 Matching</span>
+          <div class="plbreak"><span class="chip live">6 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">2 Introduced</span>
             <span class="chip">1 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
+            <span class="chip grey">1 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Eddieron - Creative Strategist <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
@@ -684,13 +686,13 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
         </div><div class="plrow">
           <div class="plname">ErgoLab - Email Marketer <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">7 Matching</span>
+          <div class="plbreak"><span class="chip live">5 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
+            <span class="chip grey">2 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Hume - Creative Lead <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
@@ -734,23 +736,23 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
         </div><div class="plrow">
           <div class="plname">Pelsbarn - Creative Strategist <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">8 Matching</span>
+          <div class="plbreak"><span class="chip live">7 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">2 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
+            <span class="chip grey">2 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Pelsbarn - Affiliate Marketer <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">6 Matching</span>
+          <div class="plbreak"><span class="chip live">4 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">1 Rejected</span></div>
+            <span class="chip grey">3 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Pestlab - Landing Page Builder &amp; Designer <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
@@ -764,13 +766,13 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
         </div><div class="plrow">
           <div class="plname">TernSetups - Creative Strategist <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">7 Matching</span>
+          <div class="plbreak"><span class="chip live">6 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">0 Introduced</span>
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
+            <span class="chip grey">1 Rejected</span></div>
         </div>
 </div>
 
@@ -816,15 +818,14 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
           <td>Eddieron - Technical Operations Engineer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">2</td><td class="num">0</td>
           <td>ErgoLab - Email Marketer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
           <td>HIStrips - Subscription Strategist</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">2</td>
-          <td>Luminance - UGC Manager </td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">1</td>
+          <td>Luminance - UGC Manager </td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">1</td><td class="num">0</td>
           <td>Pelsbarn - Affiliate Marketer</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">0</td><td class="num">2</td><td class="num">2</td>
           <td>TernSetups - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr></tbody></table></div><div class="tier green">
       <div class="tierhead"><span class="tiername">Some in play</span> <span class="tiercount">24</span>
         <div class="tierdesc">1 or 2 already live, partly covered but still under three</div></div>
       <table class="stbl"><thead><tr><th>In play</th><th>Close to intro</th><th>Sourcing</th><th>Role</th><th>Owner</th></tr></thead>
       <tbody><tr><td class="num">1</td><td class="num">1</td><td class="num">2</td>
-          <td>Clickbait Agency - Video Editor</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">1</td>
-          <td>Cupids - Head Of Growth</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
+          <td>Clickbait Agency - Video Editor</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
           <td>Cura - Graphic Designer</td><td class="csm">Awaiting Candidate Feedback</td></tr><tr><td class="num">1</td><td class="num">1</td><td class="num">0</td>
           <td>Cura - Video Editor</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">0</td><td class="num">0</td>
           <td>Eddieron - Creative Strategist</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">1</td><td class="num">1</td><td class="num">1</td>
@@ -836,6 +837,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
           <td>The Lion Advisory - Operations Manager, (agency)</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">0</td>
           <td>250 LLC - Media Buyer</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">0</td>
           <td>250 LLC - Video Editor</td><td class="csm">Awaiting Client Feedback</td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">1</td>
+          <td>Cupids - Head Of Growth</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">1</td>
           <td>Cura - Head Of Graphic Design</td><td class="csm">Need More Sourcing</td></tr><tr><td class="num">2</td><td class="num">1</td><td class="num">4</td>
           <td>Everstride  - Head of Operations</td><td class="csm"><span class="muted">no tag</span></td></tr><tr><td class="num">2</td><td class="num">0</td><td class="num">4</td>
           <td>Feelgoods - Video Editor</td><td class="csm">Awaiting Client Feedback</td></tr><tr><td class="num">2</td><td class="num">1</td><td class="num">1</td>
