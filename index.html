@@ -58,6 +58,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
 .chip.grey{background:#f3f4f6;color:#9ca3af} .chip.tot{background:#eef2ff;color:#4338ca}
 .chip.green{background:#dcfce7;color:#15803d;font-weight:600} .chip.red{background:#fecaca;color:#991b1b;font-weight:600} .chip.blue{background:#dbeafe;color:#1e40af;font-weight:600} .chip.orange{background:#fed7aa;color:#b45309;font-weight:600}
 .chip.action-low{background:#fef08a;color:#854d0e;font-weight:600} .chip.action-med{background:#fed7aa;color:#92400e;font-weight:600} .chip.action-high{background:#fdba74;color:#9a3412;font-weight:600} .chip.action-urgent{background:#fb7185;color:#831843;font-weight:600}
+.chip.stage-late{background:#ede9fe;color:#5b21b6;font-weight:700}
 .plstatus{margin-bottom:6px;padding-top:2px}
 .status-legend{background:#f9fafb;border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:22px}
 .legend-block{margin-bottom:14px}
@@ -192,16 +193,16 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
   </div>
   <div class="kpi-breakdown">
     <div class="kpi-bar">
-      <div class="kpi-segment" style="width:24%;background:#fee2e2;"></div>
+      <div class="kpi-segment" style="width:20%;background:#fee2e2;"></div>
       <div class="kpi-segment" style="width:0%;background:#fed7aa;"></div>
-      <div class="kpi-segment" style="width:53%;background:#dcfce7;"></div>
-      <div class="kpi-segment" style="width:24%;background:#dbeafe;"></div>
+      <div class="kpi-segment" style="width:58%;background:#dcfce7;"></div>
+      <div class="kpi-segment" style="width:22%;background:#dbeafe;"></div>
     </div>
     <div class="kpi-legend">
-      <div><span class="leg-dot" style="background:#fee2e2"></span>Not Healthy 24%</div>
+      <div><span class="leg-dot" style="background:#fee2e2"></span>Not Healthy 20%</div>
       <div><span class="leg-dot" style="background:#fed7aa"></span>Thin 0%</div>
-      <div><span class="leg-dot" style="background:#dcfce7"></span>Healthy 53%</div>
-      <div><span class="leg-dot" style="background:#dbeafe"></span>New 24%</div>
+      <div><span class="leg-dot" style="background:#dcfce7"></span>Healthy 58%</div>
+      <div><span class="leg-dot" style="background:#dbeafe"></span>New 22%</div>
     </div>
   </div>
 </div>
@@ -210,11 +211,12 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
     <div class="legend-title">Role health, how deep the pipeline is</div>
     <div class="legend-item"><span class="chip red">Not healthy</span> under 2 candidates past matching, and 3 or fewer fresh people left in matching, so there is nothing coming and nothing to send</div>
     <div class="legend-item"><span class="chip orange">Thin</span> exactly 1 candidate past matching, with only 4 or 5 fresh people behind them, so one drop-off leaves it empty</div>
-    <div class="legend-item"><span class="chip green">Healthy</span> 2 or more candidates past matching, or more than 5 fresh people still in matching. Depth past matching always wins, a role in interviews is never marked down for a thin top of funnel</div>
+    <div class="legend-item"><span class="chip green">Healthy</span> the role is in final selection or trial, or it has 2 or more candidates past matching, or more than 5 fresh people still in matching. Depth always wins, a role in interviews is never marked down for a thin top of funnel</div>
     <div class="legend-item"><span class="chip blue">New</span> role opened less than 2 weeks ago, too early to judge, no action needed yet</div>
   </div>
   <div class="legend-block">
     <div class="legend-title">What the role needs next</div>
+    <div class="legend-item"><span class="chip stage-late">In final selection</span><span class="chip stage-late">In trial</span> the role itself is at that fulfilment status in Airtable. Always counts as Healthy whatever the candidate numbers say, the pipeline already did its job</div>
     <div class="legend-item"><span class="chip action-low">Needs matching</span> the role is Not healthy or Thin, so the team has to find and put people forward. Always shows on its own, the rest is too low to act on yet</div>
     <div class="legend-item"><span class="legend-note-inline">Fresh</span> means the candidate changed status within the last 2 weeks. A stale pool does not count towards health</div>
     <div class="legend-item"><span class="chip action-med">Needs client feedback</span> 2 or more people sitting introduced for 3+ days with no answer from the client</div>
@@ -273,16 +275,6 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">1 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Gard Pro - Creative Strategist <span class="chip red">Not healthy</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">3 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">6 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">HIStrips - Subscription Strategist <span class="chip red">Not healthy</span></div>
           <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
@@ -344,16 +336,6 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Final</span>
             <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
-          <div class="plname">The Lion Advisory - Operations Manager, (agency) <span class="chip red">Not healthy</span></div>
-          <div class="plstatus"><span class="chip action-low">Needs matching</span></div>
-          <div class="plbreak"><span class="chip live">5 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">4 Rejected</span></div>
-        </div><div class="plrow">
           <div class="plname">250 LLC - Video Editor <span class="chip green">Healthy</span></div>
           <div class="plstatus"><span class="chip action-urgent">Need to push for a hire</span></div>
           <div class="plbreak"><span class="chip live">18 Matching</span>
@@ -375,7 +357,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip grey">18 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Andor Willow   - Customer Support Agent <span class="chip green">Healthy</span></div>
-          <div class="plstatus"><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plstatus"><span class="chip stage-late">In final selection</span><span class="chip action-urgent">Need to push for a hire</span></div>
           <div class="plbreak"><span class="chip live">6 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
@@ -402,6 +384,16 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Interview</span>
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
+            <span class="chip grey">0 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Eddieron - Creative Strategist <span class="chip green">Healthy</span></div>
+          <div class="plstatus"><span class="chip stage-late">In trial</span><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plbreak"><span class="chip live">0 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
             <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Edenlabs - Creative Strategist <span class="chip green">Healthy</span></div>
@@ -443,6 +435,16 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">17 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">Gard Pro - Creative Strategist <span class="chip green">Healthy</span></div>
+          <div class="plstatus"><span class="chip stage-late">In trial</span><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plbreak"><span class="chip live">3 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">6 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Hansohome - Creative Strategist <span class="chip green">Healthy</span></div>
           <div class="plstatus"></div>
@@ -565,7 +567,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip grey">14 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Pestlab - Creative Strategist <span class="chip green">Healthy</span></div>
-          <div class="plstatus"><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plstatus"><span class="chip stage-late">In trial</span><span class="chip action-urgent">Need to push for a hire</span></div>
           <div class="plbreak"><span class="chip live">1 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
@@ -575,7 +577,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip grey">37 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Prime Prometics - Video Editor <span class="chip green">Healthy</span></div>
-          <div class="plstatus"><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plstatus"><span class="chip stage-late">In final selection</span><span class="chip action-urgent">Need to push for a hire</span></div>
           <div class="plbreak"><span class="chip live">15 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
@@ -615,7 +617,7 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip grey">11 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Strawberry - Creative Strategist <span class="chip green">Healthy</span></div>
-          <div class="plstatus"><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plstatus"><span class="chip stage-late">In final selection</span><span class="chip action-urgent">Need to push for a hire</span></div>
           <div class="plbreak"><span class="chip live">4 Matching</span>
             <span class="chip">0 Approved Int</span>
             <span class="chip">1 Introduced</span>
@@ -633,6 +635,16 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">10 Rejected</span></div>
+        </div><div class="plrow">
+          <div class="plname">The Lion Advisory - Operations Manager, (agency) <span class="chip green">Healthy</span></div>
+          <div class="plstatus"><span class="chip stage-late">In final selection</span><span class="chip action-urgent">Need to push for a hire</span></div>
+          <div class="plbreak"><span class="chip live">5 Matching</span>
+            <span class="chip">0 Approved Int</span>
+            <span class="chip">0 Introduced</span>
+            <span class="chip">0 Interview</span>
+            <span class="chip">0 Assessment</span>
+            <span class="chip">1 Final</span>
+            <span class="chip grey">4 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">Ziella - Creative Strategist <span class="chip green">Healthy</span></div>
           <div class="plstatus"></div>
@@ -673,16 +685,6 @@ h1{font-size:22px;margin:0 0 2px;font-weight:700}
             <span class="chip">0 Assessment</span>
             <span class="chip">0 Final</span>
             <span class="chip grey">1 Rejected</span></div>
-        </div><div class="plrow">
-          <div class="plname">Eddieron - Creative Strategist <span class="chip blue">New</span></div>
-          <div class="plstatus"></div>
-          <div class="plbreak"><span class="chip live">0 Matching</span>
-            <span class="chip">0 Approved Int</span>
-            <span class="chip">0 Introduced</span>
-            <span class="chip">0 Interview</span>
-            <span class="chip">0 Assessment</span>
-            <span class="chip">1 Final</span>
-            <span class="chip grey">0 Rejected</span></div>
         </div><div class="plrow">
           <div class="plname">ErgoLab - Email Marketer <span class="chip blue">New</span></div>
           <div class="plstatus"></div>
