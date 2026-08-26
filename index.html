@@ -3,826 +3,853 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiry Client Metrics - August 24th, 2026</title>
+<title>Hiry Client Metrics Dashboard</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f6f8;color:#1a1a2e;min-height:100vh}
-.page{max-width:1200px;margin:0 auto;padding:24px}
-h1{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
-.subtitle{font-size:13px;color:#6b7280;margin-bottom:24px}
-.top-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
-.stat-card{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid #e5e7eb}
-.stat-card .label{font-size:12px;color:#6b7280;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
-.stat-card .value{font-size:32px;font-weight:700;color:#1a1a2e;line-height:1}
-.stat-card .sublabel{font-size:11px;color:#9ca3af;margin-top:6px;line-height:1.4}
-.stat-card.green .value{color:#059669}
-.stat-card.blue .value{color:#2563eb}
-.stat-card.orange .value{color:#d97706}
-.stat-card.red .value{color:#dc2626}
-/* Tabs */
-.tabs-wrapper{position:relative}
-input[type=radio]{display:none}
-.tab-labels{display:flex;gap:0;background:#fff;border-radius:10px 10px 0 0;border:1px solid #e5e7eb;border-bottom:none;overflow:hidden}
-.tab-label{padding:12px 20px;font-size:13px;font-weight:500;color:#6b7280;cursor:pointer;border-right:1px solid #e5e7eb;white-space:nowrap;transition:background .15s,color .15s}
-.tab-label:last-child{border-right:none}
-.tab-label:hover{background:#f9fafb;color:#374151}
-.tab-content{display:none;background:#fff;border-radius:0 0 12px 12px;border:1px solid #e5e7eb;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-#t1:checked ~ .tabs-wrapper label[for=t1]{background:#2563eb;color:#fff}
-#t2:checked ~ .tabs-wrapper label[for=t2]{background:#2563eb;color:#fff}
-#t3:checked ~ .tabs-wrapper label[for=t3]{background:#2563eb;color:#fff}
-#t4:checked ~ .tabs-wrapper label[for=t4]{background:#2563eb;color:#fff}
-#t5:checked ~ .tabs-wrapper label[for=t5]{background:#2563eb;color:#fff}
-#t6:checked ~ .tabs-wrapper label[for=t6]{background:#2563eb;color:#fff}
-#t1:checked ~ .tabs-wrapper #c1{display:block}
-#t2:checked ~ .tabs-wrapper #c2{display:block}
-#t3:checked ~ .tabs-wrapper #c3{display:block}
-#t4:checked ~ .tabs-wrapper #c4{display:block}
-#t5:checked ~ .tabs-wrapper #c5{display:block}
-#t6:checked ~ .tabs-wrapper #c6{display:block}
-/* Funnel */
-.funnel{display:flex;flex-direction:column;gap:10px;max-width:600px;margin:0 auto}
-.funnel-row{display:flex;align-items:center;gap:14px}
-.funnel-bar-wrap{flex:1;background:#f3f4f6;border-radius:6px;overflow:hidden;height:36px}
-.funnel-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 12px;font-size:13px;font-weight:600;color:#fff;min-width:40px;transition:width .3s}
-.funnel-label{width:130px;font-size:13px;color:#374151;font-weight:500;text-align:right}
-.funnel-count{width:40px;font-size:14px;font-weight:700;color:#1a1a2e;text-align:right}
-.f-sourcing .funnel-bar{background:#6366f1}
-.f-intro .funnel-bar{background:#2563eb}
-.f-interview .funnel-bar{background:#0891b2}
-.f-assessment .funnel-bar{background:#7c3aed}
-.f-trial .funnel-bar{background:#d97706}
-.f-negotiation .funnel-bar{background:#059669}
-/* Client Health */
-.client-list{display:flex;flex-direction:column;gap:8px}
-details{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
-details summary{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;list-style:none;font-size:13px;font-weight:500}
-details summary::-webkit-details-marker{display:none}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:600}
-.badge.uncov{background:#fef3c7;color:#92400e}
-.badge.cov{background:#d1fae5;color:#065f46}
-.client-name-cell{flex:1;font-weight:600;color:#1a1a2e}
-.viable-count{font-size:12px;color:#6b7280;margin-left:auto}
-.pl-breakdown{padding:12px 16px 14px;display:flex;flex-direction:column;gap:6px;border-top:1px solid #e5e7eb}
-.pl-row{display:grid;grid-template-columns:1fr auto auto auto auto;gap:8px;align-items:center;font-size:12px;padding:4px 0;border-bottom:1px dotted #e5e7eb}
-.pl-row:last-child{border-bottom:none}
-.pl-role{color:#374151;font-weight:500}
-.pl-num{text-align:center;min-width:48px}
-.pl-header{display:grid;grid-template-columns:1fr auto auto auto auto;gap:8px;font-size:11px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.04em;padding:6px 0 8px;border-bottom:1px solid #e5e7eb;margin-bottom:4px}
-/* Candidate list */
-.section-title{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:10px;margin-top:20px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
-.section-title:first-child{margin-top:0}
-.cand-list{display:flex;flex-direction:column;gap:4px}
-.cand-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#f9fafb;border-radius:6px;font-size:13px}
-.cand-name{font-weight:500;flex:1}
-.cand-role{color:#6b7280;font-size:12px}
-.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.dot.red{background:#dc2626}
-.dot.amber{background:#f59e0b}
-.dot.green{background:#10b981}
-/* Shortage table */
-.shortage-table{width:100%;border-collapse:collapse;font-size:13px}
-.shortage-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.04em;border-bottom:2px solid #e5e7eb}
-.shortage-table td{padding:8px 12px;border-bottom:1px solid #f3f4f6}
-.shortage-table tr:last-child td{border-bottom:none}
-.tier-label{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:10px;margin-top:20px;padding:8px 12px;border-radius:6px}
-.tier-label:first-child{margin-top:0}
-.tier-label.t1{background:#fef2f2;color:#dc2626;border-left:3px solid #dc2626}
-.tier-label.t2{background:#fff7ed;color:#c2410c;border-left:3px solid #f97316}
-.tier-label.t3{background:#fffbeb;color:#92400e;border-left:3px solid #f59e0b}
-.tier-label.t4{background:#f0fdf4;color:#166534;border-left:3px solid #22c55e}
-.count-badge{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:700;background:rgba(255,255,255,.6);margin-left:6px}
-/* Hire/churn list */
-.event-list{display:flex;flex-direction:column;gap:6px}
-.event-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#f9fafb;border-radius:8px;font-size:13px}
-.event-row .role{font-weight:500;flex:1}
-.event-row .client{color:#6b7280}
-.event-row .date{font-size:12px;color:#9ca3af}
-.hire-dot{width:8px;height:8px;border-radius:50%;background:#059669;flex-shrink:0}
-.churn-dot{width:8px;height:8px;border-radius:50%;background:#dc2626;flex-shrink:0}
-.empty-state{text-align:center;color:#9ca3af;font-size:13px;padding:24px;background:#f9fafb;border-radius:8px}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6f8; color: #1a1d23; min-height: 100vh; }
+  a { color: inherit; text-decoration: none; }
+
+  /* Header */
+  .header { background: #fff; border-bottom: 1px solid #e8eaed; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .header-logo { font-size: 20px; font-weight: 700; color: #2563eb; letter-spacing: -0.5px; }
+  .header-date { font-size: 13px; color: #6b7280; }
+
+  /* Top Strip */
+  .top-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 20px 24px; }
+  .stat-card { background: #fff; border-radius: 12px; padding: 18px 20px; border: 1px solid #e8eaed; }
+  .stat-label { font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 6px; }
+  .stat-value { font-size: 32px; font-weight: 700; color: #1a1d23; line-height: 1; }
+  .stat-sub { font-size: 12px; color: #6b7280; margin-top: 6px; }
+  .stat-sub span { display: block; }
+  .stat-hire { color: #16a34a; font-weight: 600; }
+  .stat-churn { color: #6b7280; }
+
+  /* Tabs */
+  .tabs-container { padding: 0 24px; }
+  .tab-nav { display: flex; gap: 2px; background: #e8eaed; border-radius: 10px; padding: 3px; width: fit-content; }
+  .tab-btn { background: none; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; color: #6b7280; transition: all 0.15s; white-space: nowrap; }
+  .tab-btn.active { background: #fff; color: #1a1d23; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .tab-btn:hover:not(.active) { color: #374151; }
+
+  .tab-content { display: none; padding: 20px 24px; }
+  .tab-content.active { display: block; }
+
+  /* Section */
+  .section-title { font-size: 15px; font-weight: 600; color: #374151; margin-bottom: 12px; }
+
+  /* Funnel */
+  .funnel-wrap { background: #fff; border-radius: 12px; border: 1px solid #e8eaed; padding: 24px; max-width: 560px; }
+  .funnel-bar { display: flex; align-items: center; margin-bottom: 14px; gap: 12px; }
+  .funnel-label { font-size: 13px; color: #374151; width: 150px; flex-shrink: 0; font-weight: 500; }
+  .funnel-track { flex: 1; height: 28px; background: #f3f4f6; border-radius: 6px; overflow: hidden; position: relative; }
+  .funnel-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 12px; font-weight: 600; color: #fff; min-width: 30px; transition: width 0.4s; }
+  .funnel-count { font-size: 14px; font-weight: 700; color: #1a1d23; width: 36px; text-align: right; }
+  .f1 { background: #3b82f6; }
+  .f2 { background: #6366f1; }
+  .f3 { background: #8b5cf6; }
+  .f4 { background: #a855f7; }
+  .f5 { background: #ec4899; }
+  .f6 { background: #f43f5e; }
+  .funnel-total { font-size: 13px; color: #6b7280; margin-top: 12px; border-top: 1px solid #f3f4f6; padding-top: 12px; }
+  .funnel-total strong { color: #1a1d23; }
+
+  /* Client Health */
+  .client-table { background: #fff; border-radius: 12px; border: 1px solid #e8eaed; overflow: hidden; }
+  .client-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .client-table th { background: #f9fafb; padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; font-weight: 600; border-bottom: 1px solid #e8eaed; }
+  .client-table td { padding: 11px 14px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+  .client-table tr:last-child td { border-bottom: none; }
+  .client-table tr:hover td { background: #fafafa; }
+  .badge-uncovered { display: inline-block; background: #fef2f2; color: #dc2626; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+  .badge-covered { display: inline-block; background: #f0fdf4; color: #16a34a; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+  .placement-row { font-size: 12px; color: #6b7280; padding: 4px 14px 4px 28px; border-bottom: 1px solid #f9fafb; background: #fafafa; }
+  .placement-row:last-child { border-bottom: none; }
+  .csm-tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; font-weight: 500; margin-left: 4px; }
+  .csm-awaitclient { background: #fffbeb; color: #92400e; border: 1px solid #fcd34d; }
+  .csm-needmore { background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; }
+  .client-name { font-weight: 600; color: #1a1d23; }
+  .num-pill { display: inline-block; background: #f3f4f6; border-radius: 4px; padding: 1px 6px; font-weight: 600; color: #374151; }
+  .expand-btn { background: none; border: none; cursor: pointer; color: #6b7280; font-size: 11px; padding: 0 4px; }
+
+  /* Interview / Assessment Cards */
+  .stage-section { margin-bottom: 20px; }
+  .stage-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .stage-name { font-size: 14px; font-weight: 600; color: #374151; }
+  .stage-count { background: #e0e7ff; color: #3730a3; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .cand-card { background: #fff; border: 1px solid #e8eaed; border-radius: 10px; padding: 14px 16px; }
+  .cand-name { font-size: 13px; font-weight: 600; color: #1a1d23; margin-bottom: 4px; }
+  .cand-role { font-size: 12px; color: #6b7280; }
+  .cand-days { font-size: 11px; font-weight: 600; border-radius: 4px; padding: 1px 7px; display: inline-block; margin-bottom: 6px; }
+  .days-green { background: #f0fdf4; color: #15803d; }
+  .days-amber { background: #fffbeb; color: #92400e; }
+  .days-red { background: #fef2f2; color: #b91c1c; }
+
+  /* Shortage */
+  .shortage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .shortage-section { background: #fff; border: 1px solid #e8eaed; border-radius: 12px; padding: 16px; }
+  .shortage-section-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .shortage-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .badge-truly-empty { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .badge-sourcing { background: #fffbeb; color: #92400e; border: 1px solid #fcd34d; }
+  .badge-intro { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
+  .badge-some { background: #f0fdf4; color: #166534; border: 1px solid #86efac; }
+  .shortage-count { font-size: 11px; color: #6b7280; }
+  .shortage-role { font-size: 13px; color: #1a1d23; padding: 7px 0; border-bottom: 1px solid #f3f4f6; display: flex; align-items: flex-start; gap: 8px; }
+  .shortage-role:last-child { border-bottom: none; padding-bottom: 0; }
+  .shortage-role-text { flex: 1; }
+  .shortage-role-name { font-weight: 600; font-size: 13px; }
+  .shortage-role-meta { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+  .shortage-icon { font-size: 15px; flex-shrink: 0; }
+
+  /* Close to Hire */
+  .close-stage { margin-bottom: 24px; }
+  .close-stage-hdr { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .close-count { background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+  .close-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+  .close-card { background: #fff; border: 1px solid #e8eaed; border-radius: 10px; padding: 14px 16px; border-left: 4px solid #f59e0b; }
+  .close-card.trial { border-left-color: #8b5cf6; }
+  .close-card.ic { border-left-color: #6366f1; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 24px; font-size: 12px; color: #9ca3af; }
+
+  @media (max-width: 768px) {
+    .top-strip { grid-template-columns: 1fr 1fr; }
+    .shortage-grid { grid-template-columns: 1fr; }
+    .tab-nav { overflow-x: auto; width: 100%; }
+    .tab-btn { padding: 8px 12px; font-size: 12px; }
+  }
+  @media (max-width: 480px) {
+    .top-strip { grid-template-columns: 1fr; }
+    .stat-value { font-size: 26px; }
+    .top-strip, .tabs-container, .tab-content { padding-left: 12px; padding-right: 12px; }
+  }
 </style>
 </head>
 <body>
-<div class="page">
-<h1>Hiry Client Metrics Dashboard</h1>
-<div class="subtitle">August 24th, 2026 &mdash; Auto-generated by daily routine</div>
+
+<div class="header">
+  <div class="header-logo">Hiry</div>
+  <div class="header-date">Client Metrics Dashboard &mdash; August 26th, 2026</div>
+</div>
 
 <!-- TOP STRIP -->
 <div class="top-strip">
-  <div class="stat-card blue">
-    <div class="label">Active Clients</div>
-    <div class="value">33</div>
-    <div class="sublabel">with at least 1 active role</div>
+  <div class="stat-card">
+    <div class="stat-label">Active Clients</div>
+    <div class="stat-value">29</div>
+    <div class="stat-sub">with active placements</div>
   </div>
   <div class="stat-card">
-    <div class="label">Open Roles</div>
-    <div class="value">53</div>
-    <div class="sublabel">active placements in fulfillment</div>
+    <div class="stat-label">Open Roles</div>
+    <div class="stat-value">48</div>
+    <div class="stat-sub">active placements</div>
   </div>
-  <div class="stat-card blue">
-    <div class="label">Candidates In Play</div>
-    <div class="value">91</div>
-    <div class="sublabel">Introduced through Negotiation, non-rejected</div>
+  <div class="stat-card">
+    <div class="stat-label">In Play</div>
+    <div class="stat-value">94</div>
+    <div class="stat-sub">candidates viable</div>
   </div>
-  <div class="stat-card green">
-    <div class="label">Hires Last 7 Days</div>
-    <div class="value">4</div>
-    <div class="sublabel">0 churns this week</div>
+  <div class="stat-card">
+    <div class="stat-label">Last 7 Days</div>
+    <div class="stat-value" style="font-size:24px;line-height:1.1">2<span style="font-size:14px;color:#16a34a;margin-left:4px">hires</span></div>
+    <div class="stat-sub">
+      <span class="stat-hire">Hydrohealth &mdash; Copywriter (Aug 20th)</span>
+      <span class="stat-hire">Strawberry &mdash; Creative Strategist (Aug 26th)</span>
+      <span class="stat-churn">0 churns</span>
+    </div>
   </div>
 </div>
 
 <!-- TABS -->
-<input type="radio" name="tabs" id="t1" checked>
-<input type="radio" name="tabs" id="t2">
-<input type="radio" name="tabs" id="t3">
-<input type="radio" name="tabs" id="t4">
-<input type="radio" name="tabs" id="t5">
-<input type="radio" name="tabs" id="t6">
-
-<div class="tabs-wrapper">
-  <div class="tab-labels">
-    <label class="tab-label" for="t1">Pipeline Funnel</label>
-    <label class="tab-label" for="t2">Client Health</label>
-    <label class="tab-label" for="t3">Interview</label>
-    <label class="tab-label" for="t4">Assessment</label>
-    <label class="tab-label" for="t5">Candidate Shortage</label>
-    <label class="tab-label" for="t6">Close to Hire</label>
+<div class="tabs-container">
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab(this,'funnel')">Pipeline Funnel</button>
+    <button class="tab-btn" onclick="switchTab(this,'health')">Client Health</button>
+    <button class="tab-btn" onclick="switchTab(this,'interview')">Interview</button>
+    <button class="tab-btn" onclick="switchTab(this,'assessment')">Assessment</button>
+    <button class="tab-btn" onclick="switchTab(this,'shortage')">Candidate Shortage</button>
+    <button class="tab-btn" onclick="switchTab(this,'closehire')">Close to Hire</button>
   </div>
-
-  <!-- TAB 1: Pipeline Funnel -->
-  <div class="tab-content" id="c1">
-    <div style="margin-bottom:20px">
-      <div style="font-size:13px;color:#6b7280;margin-bottom:16px">Total non-rejected candidates across all active placements (incl. pre-intro pipeline)</div>
-      <div class="funnel">
-        <div class="funnel-row f-sourcing">
-          <div class="funnel-label">Sourcing / Pre-intro</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%">332</div></div>
-          <div class="funnel-count">332</div>
-        </div>
-        <div class="funnel-row f-intro">
-          <div class="funnel-label">Introduced</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:18%">60</div></div>
-          <div class="funnel-count">60</div>
-        </div>
-        <div class="funnel-row f-interview">
-          <div class="funnel-label">Interview</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:2.4%">&nbsp;</div></div>
-          <div class="funnel-count">8</div>
-        </div>
-        <div class="funnel-row f-assessment">
-          <div class="funnel-label">Assessment</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:4.2%">&nbsp;</div></div>
-          <div class="funnel-count">14</div>
-        </div>
-        <div class="funnel-row f-trial">
-          <div class="funnel-label">Trial</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:0.9%">&nbsp;</div></div>
-          <div class="funnel-count">3</div>
-        </div>
-        <div class="funnel-row f-negotiation">
-          <div class="funnel-label">Negotiation</div>
-          <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:1.8%">&nbsp;</div></div>
-          <div class="funnel-count">6</div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:28px;border-top:1px solid #e5e7eb;padding-top:20px">
-      <div class="section-title" style="border:none;padding:0;margin-bottom:12px">Hires &amp; Churn This Week</div>
-      <div style="font-size:13px;font-weight:600;color:#059669;margin-bottom:8px">Hires (4)</div>
-      <div class="event-list">
-        <div class="event-row"><div class="hire-dot"></div><div class="role">Nattyplussupps - CRO Manager</div><div class="date">August 17th</div></div>
-        <div class="event-row"><div class="hire-dot"></div><div class="role">Andor Willow - Customer Support Agent</div><div class="date">August 17th</div></div>
-        <div class="event-row"><div class="hire-dot"></div><div class="role">Maggie's Tanks - Creative Strategist</div><div class="date">August 18th</div></div>
-        <div class="event-row"><div class="hire-dot"></div><div class="role">Hydrohealth - Copywriter</div><div class="date">August 20th</div></div>
-      </div>
-      <div style="font-size:13px;font-weight:600;color:#dc2626;margin:16px 0 8px">Churn (0)</div>
-      <div class="empty-state">No churn events this week</div>
-    </div>
-  </div>
-
-  <!-- TAB 2: Client Health -->
-  <div class="tab-content" id="c2">
-    <div style="font-size:13px;color:#6b7280;margin-bottom:16px">Sorted by total viable ascending. <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600">UNCOV</span> = any role has &lt;3 in play. <span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600">COV</span> = all roles have 3+.</div>
-    <div class="client-list">
-
-      <!-- LUMINANCE -->
-      <details open>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Luminance</span>
-          <span class="viable-count">0 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">UGC Manager</div><div class="pl-num">12</div><div class="pl-num">1</div><div class="pl-num">0</div><div class="pl-num">2</div></div>
-          <div class="pl-row"><div class="pl-role">Supply Chain Manager</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- CUPIDS -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Cupids</span>
-          <span class="viable-count">0 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head Of Growth</div><div class="pl-num">5</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">7</div></div>
-        </div>
-      </details>
-
-      <!-- ERGOLAB -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">ErgoLab</span>
-          <span class="viable-count">0 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Email Marketer</div><div class="pl-num">3</div><div class="pl-num">2</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- HISTRIPS -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">HIStrips</span>
-          <span class="viable-count">0 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Subscription Strategist</div><div class="pl-num">5</div><div class="pl-num">2</div><div class="pl-num">0</div><div class="pl-num">2</div></div>
-        </div>
-      </details>
-
-      <!-- JELLO -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Jello</span>
-          <span class="viable-count">0 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">E-commerce Manager</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- ROSABELLA -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Rosabella</span>
-          <span class="viable-count">0 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Chief of Staff</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">4</div></div>
-        </div>
-      </details>
-
-      <!-- MOOV -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Moov</span>
-          <span class="viable-count">1 viable &middot; 3 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head of Product</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">2</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Ecommerce Manager</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- EDDIERON -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Eddieron</span>
-          <span class="viable-count">1 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">0</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Technical Operations Engineer</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- GARD PRO -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Gard Pro</span>
-          <span class="viable-count">1 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">0</div><div class="pl-num">3</div><div class="pl-num">1</div><div class="pl-num">4</div></div>
-        </div>
-      </details>
-
-      <!-- KORIDERM -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Koriderm</span>
-          <span class="viable-count">1 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head of Paid Media</div><div class="pl-num">3</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- MAILER PROFIT -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Mailer Profit</span>
-          <span class="viable-count">1 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Retention Manager</div><div class="pl-num">10</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">3</div></div>
-        </div>
-      </details>
-
-      <!-- MICHAEL TODD BEAUTY -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Michael Todd Beauty</span>
-          <span class="viable-count">1 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Landing Page Designer</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- TERNSETUPS -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">TernSetups</span>
-          <span class="viable-count">1 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">2</div><div class="pl-num">2</div><div class="pl-num">1</div><div class="pl-num">1</div></div>
-        </div>
-      </details>
-
-      <!-- ZIELLA -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Ziella</span>
-          <span class="viable-count">1 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">2</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">15</div></div>
-        </div>
-      </details>
-
-      <!-- HUME -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Hume</span>
-          <span class="viable-count">2 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Lead</div><div class="pl-num">2</div><div class="pl-num">1</div><div class="pl-num">0</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Growth Manager</div><div class="pl-num">3</div><div class="pl-num">1</div><div class="pl-num">2</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- FEELGOODS -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Feelgoods</span>
-          <span class="viable-count">2 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">11</div><div class="pl-num">8</div><div class="pl-num">2</div><div class="pl-num">11</div></div>
-        </div>
-      </details>
-
-      <!-- HIKE FOOTWEAR -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Hike Footwear</span>
-          <span class="viable-count">2 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head of Partnerships</div><div class="pl-num">8</div><div class="pl-num">1</div><div class="pl-num">2</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- SUNURIS -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Sunuris</span>
-          <span class="viable-count">2 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">5</div><div class="pl-num">1</div><div class="pl-num">2</div><div class="pl-num">6</div></div>
-        </div>
-      </details>
-
-      <!-- THE LION ADVISORY -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">The Lion Advisory</span>
-          <span class="viable-count">3 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head of Advertising</div><div class="pl-num">1</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Operations Manager (agency)</div><div class="pl-num">5</div><div class="pl-num">0</div><div class="pl-num">2</div><div class="pl-num">4</div></div>
-        </div>
-      </details>
-
-      <!-- SCALEHUSE (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">Scalehuse</span>
-          <span class="viable-count">3 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Influencer Marketer</div><div class="pl-num">5</div><div class="pl-num">0</div><div class="pl-num">3</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- CURA -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Cura</span>
-          <span class="viable-count">4 viable &middot; 4 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head Of Graphic Design</div><div class="pl-num">3</div><div class="pl-num">2</div><div class="pl-num">2</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Graphic Designer</div><div class="pl-num">5</div><div class="pl-num">8</div><div class="pl-num">1</div><div class="pl-num">4</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">9</div><div class="pl-num">14</div><div class="pl-num">1</div><div class="pl-num">15</div></div>
-          <div class="pl-row"><div class="pl-role">Lead Video Editor</div><div class="pl-num">2</div><div class="pl-num">2</div><div class="pl-num">0</div><div class="pl-num">1</div></div>
-        </div>
-      </details>
-
-      <!-- MAGGIES TANKS -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Maggie's Tanks</span>
-          <span class="viable-count">4 viable &middot; 4 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">4</div><div class="pl-num">1</div><div class="pl-num">2</div><div class="pl-num">5</div></div>
-          <div class="pl-row"><div class="pl-role">Graphic Designer</div><div class="pl-num">6</div><div class="pl-num">2</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">CRO Specialist</div><div class="pl-num">6</div><div class="pl-num">2</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">UGC Manager</div><div class="pl-num">13</div><div class="pl-num">5</div><div class="pl-num">0</div><div class="pl-num">1</div></div>
-        </div>
-      </details>
-
-      <!-- 250 LLC -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">250 LLC</span>
-          <span class="viable-count">4 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">13</div><div class="pl-num">5</div><div class="pl-num">2</div><div class="pl-num">7</div></div>
-          <div class="pl-row"><div class="pl-role">Media Buyer</div><div class="pl-num">4</div><div class="pl-num">1</div><div class="pl-num">2</div><div class="pl-num">8</div></div>
-        </div>
-      </details>
-
-      <!-- PELSBARN -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Pelsbarn</span>
-          <span class="viable-count">4 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Affiliate Marketer</div><div class="pl-num">3</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">6</div><div class="pl-num">0</div><div class="pl-num">3</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- STRAWBERRY -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Strawberry</span>
-          <span class="viable-count">4 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Landing Page Builder &amp; Designer</div><div class="pl-num">5</div><div class="pl-num">1</div><div class="pl-num">3</div><div class="pl-num">2</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">18</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">29</div></div>
-        </div>
-      </details>
-
-      <!-- THEUZZLE (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">theUzzle</span>
-          <span class="viable-count">4 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">AI Video Editor</div><div class="pl-num">5</div><div class="pl-num">4</div><div class="pl-num">4</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- EVERSTRIDE -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Everstride</span>
-          <span class="viable-count">5 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Head of Retention</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">1</div></div>
-          <div class="pl-row"><div class="pl-role">Head of Operations</div><div class="pl-num">4</div><div class="pl-num">1</div><div class="pl-num">4</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- PESTLAB -->
-      <details>
-        <summary>
-          <span class="badge uncov">UNCOV</span>
-          <span class="client-name-cell">Pestlab</span>
-          <span class="viable-count">5 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">0</div><div class="pl-num">1</div><div class="pl-num">4</div><div class="pl-num">22</div></div>
-          <div class="pl-row"><div class="pl-role">Landing Page Builder &amp; Designer</div><div class="pl-num">3</div><div class="pl-num">1</div><div class="pl-num">1</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- PRIME PROMETICS (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">Prime Prometics</span>
-          <span class="viable-count">5 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">8</div><div class="pl-num">7</div><div class="pl-num">5</div><div class="pl-num">3</div></div>
-        </div>
-      </details>
-
-      <!-- LUXE COSMETICS (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">Luxe Cosmetics</span>
-          <span class="viable-count">6 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">13</div><div class="pl-num">4</div><div class="pl-num">3</div><div class="pl-num">2</div></div>
-          <div class="pl-row"><div class="pl-role">Copywriter</div><div class="pl-num">3</div><div class="pl-num">1</div><div class="pl-num">3</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- D-DOUBLEU (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">D-Doubleu</span>
-          <span class="viable-count">6 viable &middot; 1 role</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">3</div><div class="pl-num">0</div><div class="pl-num">6</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- CLICKBAIT AGENCY (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">Clickbait Agency</span>
-          <span class="viable-count">7 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Video Editor</div><div class="pl-num">5</div><div class="pl-num">1</div><div class="pl-num">3</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">5</div><div class="pl-num">0</div><div class="pl-num">4</div><div class="pl-num">0</div></div>
-        </div>
-      </details>
-
-      <!-- EDENLABS (COV) -->
-      <details>
-        <summary>
-          <span class="badge cov">COV</span>
-          <span class="client-name-cell">Edenlabs</span>
-          <span class="viable-count">11 viable &middot; 2 roles</span>
-        </summary>
-        <div class="pl-breakdown">
-          <div class="pl-header"><div>Role</div><div class="pl-num">Matched</div><div class="pl-num">Approved</div><div class="pl-num">Intro+</div><div class="pl-num">Rejected</div></div>
-          <div class="pl-row"><div class="pl-role">Jr Creative Strategist</div><div class="pl-num">3</div><div class="pl-num">2</div><div class="pl-num">5</div><div class="pl-num">0</div></div>
-          <div class="pl-row"><div class="pl-role">Creative Strategist</div><div class="pl-num">5</div><div class="pl-num">0</div><div class="pl-num">6</div><div class="pl-num">1</div></div>
-        </div>
-      </details>
-
-    </div>
-  </div>
-
-  <!-- TAB 3: Interview -->
-  <div class="tab-content" id="c3">
-    <div class="section-title">Interview to Schedule (09) &mdash; 1</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Mykolas Baubinas</div><div class="cand-role">Edenlabs - Creative Strategist</div><span style="font-size:12px;color:#6b7280">18d</span></div>
-    </div>
-
-    <div class="section-title">Interview Scheduled (10) &mdash; 5</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Cristopher Roman Reyes</div><div class="cand-role">Moov - Head of Product</div><span style="font-size:12px;color:#6b7280">3d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Katarina Bartolovic Landeka</div><div class="cand-role">Pelsbarn - Affiliate Marketer</div><span style="font-size:12px;color:#6b7280">2d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Anna Paula Dias Bernardes</div><div class="cand-role">Pestlab - Creative Strategist</div><span style="font-size:12px;color:#6b7280">4d</span></div>
-      <div class="cand-row"><div class="dot amber"></div><div class="cand-name">Goutaman Ramachandran</div><div class="cand-role">Pestlab - Creative Strategist</div><span style="font-size:12px;color:#6b7280">12d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Jesame Bantula</div><div class="cand-role">The Lion Advisory - Operations Manager (agency)</div><span style="font-size:12px;color:#6b7280">0d</span></div>
-    </div>
-
-    <div class="section-title">Interview Completed (11) &mdash; 2</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot amber"></div><div class="cand-name">Kelsey Eyers</div><div class="cand-role">Hike Footwear - Head of Partnerships</div><span style="font-size:12px;color:#6b7280">9d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Matteo Gatti</div><div class="cand-role">D-Doubleu - Creative Strategist</div><span style="font-size:12px;color:#6b7280">4d</span></div>
-    </div>
-    <div style="margin-top:16px;font-size:12px;color:#9ca3af">Dot: green = 0-7d, amber = 7-14d, red = 14d+</div>
-  </div>
-
-  <!-- TAB 4: Assessment -->
-  <div class="tab-content" id="c4">
-    <div class="section-title">To Send (13) &mdash; 1</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Enrique Rafael Rios Benavent</div><div class="cand-role">Maggie's Tanks - Video Editor</div><span style="font-size:12px;color:#6b7280">3d</span></div>
-    </div>
-
-    <div class="section-title">Assessment Shared (14) &mdash; 6</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">John Marc Napari</div><div class="cand-role">Clickbait Agency - Video Editor</div><span style="font-size:12px;color:#6b7280">3d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Desserie Riegn Cruz</div><div class="cand-role">Clickbait Agency - Video Editor</div><span style="font-size:12px;color:#6b7280">5d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">David Jonathan Tapiador Bravo</div><div class="cand-role">Feelgoods - Video Editor</div><span style="font-size:12px;color:#6b7280">2d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Araniza Jaye Bangis</div><div class="cand-role">250 LLC - Video Editor</div><span style="font-size:12px;color:#6b7280">3d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Dragan Klevernić</div><div class="cand-role">Maggie's Tanks - Video Editor</div><span style="font-size:12px;color:#6b7280">2d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Daniel Jonas</div><div class="cand-role">Clickbait Agency - Creative Strategist</div><span style="font-size:12px;color:#6b7280">3d</span></div>
-    </div>
-
-    <div class="section-title">Assessment In Progress (15) &mdash; 4</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Kumail Saleh</div><div class="cand-role">Clickbait Agency - Video Editor</div><span style="font-size:12px;color:#6b7280">2d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Dragan Klevernić</div><div class="cand-role">250 LLC - Video Editor</div><span style="font-size:12px;color:#6b7280">27d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Thomas Just</div><div class="cand-role">Clickbait Agency - Creative Strategist</div><span style="font-size:12px;color:#6b7280">0d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Jaouad Lahlali</div><div class="cand-role">Clickbait Agency - Creative Strategist</div><span style="font-size:12px;color:#6b7280">2d</span></div>
-    </div>
-
-    <div class="section-title">Assessment Completed (16) &mdash; 3</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Jan Romański</div><div class="cand-role">Edenlabs - Jr Creative Strategist</div><span style="font-size:12px;color:#6b7280">6d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Luis Fernando Sanchez</div><div class="cand-role">Hume - Growth Manager</div><span style="font-size:12px;color:#6b7280">0d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Kia Canja</div><div class="cand-role">Ziella - Creative Strategist</div><span style="font-size:12px;color:#6b7280">6d</span></div>
-    </div>
-    <div style="margin-top:16px;font-size:12px;color:#9ca3af">Dot: green = 0-7d, amber = 7-14d, red = 14d+</div>
-  </div>
-
-  <!-- TAB 5: Candidate Shortage -->
-  <div class="tab-content" id="c5">
-    <div class="tier-label t1">Tier 1 - Truly Empty <span class="count-badge">5</span> &mdash; 0 viable, 0 close-to-intro, 0 sourcing</div>
-    <div style="overflow-x:auto">
-    <table class="shortage-table">
-      <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>CSM Tags</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>0</td><td>0</td><td>Moov - Creative Strategist</td><td></td></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>Jello - E-commerce Manager</td><td></td></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>Luminance - Supply Chain Manager</td><td></td></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>Moov - Ecommerce Manager</td><td></td></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>Rosabella - Chief of Staff</td><td>Need More Sourcing</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <div class="tier-label t2">Tier 2 - Sourcing in Motion <span class="count-badge">3</span> &mdash; 0 viable, fresh sourcing only</div>
-    <div style="overflow-x:auto">
-    <table class="shortage-table">
-      <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>CSM Tags</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>0</td><td>2</td><td>Gard Pro - Creative Strategist</td><td>Need More Sourcing</td></tr>
-        <tr><td>0</td><td>0</td><td>1</td><td>Hume - Creative Lead</td><td></td></tr>
-        <tr><td>0</td><td>0</td><td>1</td><td>Cura - Lead Video Editor</td><td>Need More Sourcing</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <div class="tier-label t3">Tier 3 - Intro Incoming <span class="count-badge">5</span> &mdash; 0 viable, fresh close-to-intro candidates</div>
-    <div style="overflow-x:auto">
-    <table class="shortage-table">
-      <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>CSM Tags</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>2</td><td>0</td><td>ErgoLab - Email Marketer</td><td></td></tr>
-        <tr><td>0</td><td>2</td><td>0</td><td>HIStrips - Subscription Strategist</td><td>Need More Sourcing</td></tr>
-        <tr><td>0</td><td>1</td><td>0</td><td>Cupids - Head Of Growth</td><td></td></tr>
-        <tr><td>0</td><td>1</td><td>0</td><td>Luminance - UGC Manager</td><td></td></tr>
-        <tr><td>0</td><td>1</td><td>0</td><td>Eddieron - Technical Operations Engineer</td><td></td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <div class="tier-label t4">Tier 4 - Some In Play <span class="count-badge">26</span> &mdash; 1-2 viable</div>
-    <div style="overflow-x:auto">
-    <table class="shortage-table">
-      <thead><tr><th>In Play</th><th>Close to Intro</th><th>Sourcing</th><th>Role</th><th>CSM Tags</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>0</td><td>0</td><td>Moov - Head of Product</td><td></td></tr>
-        <tr><td>1</td><td>0</td><td>0</td><td>Eddieron - Creative Strategist</td><td></td></tr>
-        <tr><td>1</td><td>3</td><td>0</td><td>Gard Pro - Creative Strategist</td><td>Need More Sourcing</td></tr>
-        <tr><td>1</td><td>1</td><td>3</td><td>Koriderm - Head of Paid Media</td><td></td></tr>
-        <tr><td>1</td><td>0</td><td>0</td><td>Mailer Profit - Retention Manager</td><td>Need More Sourcing</td></tr>
-        <tr><td>1</td><td>1</td><td>1</td><td>Michael Todd Beauty - Landing Page Designer</td><td></td></tr>
-        <tr><td>1</td><td>2</td><td>2</td><td>TernSetups - Creative Strategist</td><td></td></tr>
-        <tr><td>1</td><td>0</td><td>0</td><td>Ziella - Creative Strategist</td><td>Need More Sourcing</td></tr>
-        <tr><td>2</td><td>1</td><td>3</td><td>Hume - Growth Manager</td><td></td></tr>
-        <tr><td>2</td><td>8</td><td>11</td><td>Feelgoods - Video Editor</td><td>Awaiting Client Feedback</td></tr>
-        <tr><td>2</td><td>1</td><td>8</td><td>Hike Footwear - Head of Partnerships</td><td></td></tr>
-        <tr><td>2</td><td>1</td><td>5</td><td>Sunuris - Creative Strategist</td><td>Need More Sourcing</td></tr>
-        <tr><td>1</td><td>0</td><td>0</td><td>The Lion Advisory - Head of Advertising</td><td></td></tr>
-        <tr><td>2</td><td>0</td><td>5</td><td>The Lion Advisory - Operations Manager (agency)</td><td>Need More Sourcing</td></tr>
-        <tr><td>2</td><td>14</td><td>9</td><td>Cura - Video Editor</td><td></td></tr>
-        <tr><td>1</td><td>8</td><td>5</td><td>Cura - Graphic Designer</td><td>Awaiting Candidate Feedback</td></tr>
-        <tr><td>2</td><td>2</td><td>1</td><td>Cura - Head Of Graphic Design</td><td>Need More Sourcing</td></tr>
-        <tr><td>1</td><td>2</td><td>6</td><td>Maggie's Tanks - Graphic Designer</td><td></td></tr>
-        <tr><td>1</td><td>2</td><td>6</td><td>Maggie's Tanks - CRO Specialist</td><td></td></tr>
-        <tr><td>2</td><td>1</td><td>4</td><td>Maggie's Tanks - Video Editor</td><td></td></tr>
-        <tr><td>2</td><td>5</td><td>13</td><td>Maggie's Tanks - UGC Manager</td><td></td></tr>
-        <tr><td>2</td><td>5</td><td>13</td><td>250 LLC - Video Editor</td><td>Awaiting Client Feedback</td></tr>
-        <tr><td>2</td><td>1</td><td>4</td><td>250 LLC - Media Buyer</td><td>Need More Sourcing</td></tr>
-        <tr><td>1</td><td>0</td><td>3</td><td>Pelsbarn - Affiliate Marketer</td><td></td></tr>
-        <tr><td>1</td><td>1</td><td>18</td><td>Strawberry - Creative Strategist</td><td>Awaiting Client Feedback</td></tr>
-        <tr><td>1</td><td>1</td><td>3</td><td>Pestlab - Landing Page Builder &amp; Designer</td><td></td></tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
-
-  <!-- TAB 6: Close to Hire -->
-  <div class="tab-content" id="c6">
-    <div class="section-title">Negotiation (12) &mdash; 6</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Matej Draksler</div><div class="cand-role">The Lion Advisory - Head of Advertising</div><span style="font-size:12px;color:#6b7280">0d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Ermal Smajli</div><div class="cand-role">Prime Prometics - Video Editor</div><span style="font-size:12px;color:#6b7280">43d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Hawkins Hermosa</div><div class="cand-role">Prime Prometics - Video Editor</div><span style="font-size:12px;color:#6b7280">44d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Desserie Riegn Cruz</div><div class="cand-role">Prime Prometics - Video Editor</div><span style="font-size:12px;color:#6b7280">44d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Joshua Santiago</div><div class="cand-role">Prime Prometics - Video Editor</div><span style="font-size:12px;color:#6b7280">44d</span></div>
-      <div class="cand-row"><div class="dot amber"></div><div class="cand-name">Angel Bunch M. Franco</div><div class="cand-role">The Lion Advisory - Operations Manager (agency)</div><span style="font-size:12px;color:#6b7280">10d</span></div>
-    </div>
-
-    <div class="section-title">Trial (13-14) &mdash; 3</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Matthias Turner</div><div class="cand-role">Eddieron - Creative Strategist</div><span style="font-size:12px;color:#6b7280">16d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Nik Jancic</div><div class="cand-role">Pestlab - Creative Strategist</div><span style="font-size:12px;color:#6b7280">17d</span></div>
-      <div class="cand-row"><div class="dot red"></div><div class="cand-name">Joanne Rapunzel Sandejas</div><div class="cand-role">Gard Pro - Creative Strategist</div><span style="font-size:12px;color:#6b7280">17d</span></div>
-    </div>
-
-    <div class="section-title">Interview Completed &mdash; 2</div>
-    <div class="cand-list">
-      <div class="cand-row"><div class="dot amber"></div><div class="cand-name">Kelsey Eyers</div><div class="cand-role">Hike Footwear - Head of Partnerships</div><span style="font-size:12px;color:#6b7280">9d</span></div>
-      <div class="cand-row"><div class="dot green"></div><div class="cand-name">Matteo Gatti</div><div class="cand-role">D-Doubleu - Creative Strategist</div><span style="font-size:12px;color:#6b7280">4d</span></div>
-    </div>
-    <div style="margin-top:16px;font-size:12px;color:#9ca3af">Dot: green = 0-7d, amber = 7-14d, red = 14d+</div>
-  </div>
-
-</div><!-- end tabs-wrapper -->
-
-<div style="margin-top:16px;font-size:11px;color:#9ca3af;text-align:right">Generated August 24th, 2026 at 09:09 UTC &middot; Hiry Metrics Bot</div>
 </div>
+
+<!-- TAB 1: PIPELINE FUNNEL -->
+<div id="tab-funnel" class="tab-content active">
+  <div class="funnel-wrap">
+    <div class="section-title">Pipeline Funnel (viable candidates, excluding rejected-rated)</div>
+
+    <div class="funnel-bar">
+      <div class="funnel-label">Sourcing / Pre-intro</div>
+      <div class="funnel-track"><div class="funnel-fill f1" style="width:100%">249</div></div>
+      <div class="funnel-count">249</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Introduced</div>
+      <div class="funnel-track"><div class="funnel-fill f2" style="width:24.5%">61</div></div>
+      <div class="funnel-count">61</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Interview</div>
+      <div class="funnel-track"><div class="funnel-fill f3" style="width:4.8%"></div></div>
+      <div class="funnel-count">12</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Assessment</div>
+      <div class="funnel-track"><div class="funnel-fill f4" style="width:4.8%"></div></div>
+      <div class="funnel-count">12</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Trial</div>
+      <div class="funnel-track"><div class="funnel-fill f5" style="width:1.2%"></div></div>
+      <div class="funnel-count">3</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Negotiation</div>
+      <div class="funnel-track"><div class="funnel-fill f6" style="width:2.4%"></div></div>
+      <div class="funnel-count">6</div>
+    </div>
+
+    <div class="funnel-total">Total viable: <strong>343</strong> candidates across 48 roles</div>
+  </div>
+</div>
+
+<!-- TAB 2: CLIENT HEALTH -->
+<div id="tab-health" class="tab-content">
+  <div class="section-title">Client Health (29 clients with active placements, sorted by in-play ascending)</div>
+  <div class="client-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Status</th>
+          <th>Roles</th>
+          <th>In Play</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody id="health-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TAB 3: INTERVIEW -->
+<div id="tab-interview" class="tab-content">
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Interview to Schedule</div>
+      <div class="stage-count">5</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">0 days</div>
+        <div class="cand-name">Sona Hovhannisyan</div>
+        <div class="cand-role">The Lion Advisory &mdash; Operations Manager</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">0 days</div>
+        <div class="cand-name">Tolga Devrim Salha</div>
+        <div class="cand-role">Pelsbarn &mdash; Creative Strategist</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">0 days</div>
+        <div class="cand-name">Vivek Mohanta</div>
+        <div class="cand-role">Pestlab &mdash; Creative Strategist</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">0 days</div>
+        <div class="cand-name">Ilya Tchantsev</div>
+        <div class="cand-role">The Lion Advisory &mdash; Operations Manager</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-red">20 days</div>
+        <div class="cand-name">Mykolas Baubinas</div>
+        <div class="cand-role">Edenlabs &mdash; Creative Strategist</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Interview Scheduled</div>
+      <div class="stage-count">5</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">1 day</div>
+        <div class="cand-name">Jesame Bantula</div>
+        <div class="cand-role">The Lion Advisory &mdash; Operations Manager</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">4 days</div>
+        <div class="cand-name">Katarina Bartolovic Landeka</div>
+        <div class="cand-role">Pelsbarn &mdash; Affiliate Marketer</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">5 days</div>
+        <div class="cand-name">Cristopher Roman Reyes</div>
+        <div class="cand-role">Moov &mdash; Head of Product</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">6 days</div>
+        <div class="cand-name">Anna Paula Dias Bernardes</div>
+        <div class="cand-role">Pestlab &mdash; Creative Strategist</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-amber">14 days</div>
+        <div class="cand-name">Goutaman Ramachandran</div>
+        <div class="cand-role">Pestlab &mdash; Creative Strategist</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Interview Completed</div>
+      <div class="stage-count">2</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">6 days</div>
+        <div class="cand-name">Matteo Gatti</div>
+        <div class="cand-role">D-Doubleu &mdash; Creative Strategist</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-amber">11 days</div>
+        <div class="cand-name">Kelsey Eyers</div>
+        <div class="cand-role">Hike Footwear &mdash; Head of Partnerships</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TAB 4: ASSESSMENT -->
+<div id="tab-assessment" class="tab-content">
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Assessment To Send</div>
+      <div class="stage-count">1</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">0 days</div>
+        <div class="cand-name">Matteo Gatti</div>
+        <div class="cand-role">Clickbait Agency &mdash; Creative Strategist</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Assessment Shared</div>
+      <div class="stage-count">5</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">4 days</div>
+        <div class="cand-name">David Jonathan Tapiador Bravo</div>
+        <div class="cand-role">Feelgoods &mdash; Video Editor</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">4 days</div>
+        <div class="cand-name">Dragan Klevernic</div>
+        <div class="cand-role">Maggie's Tanks &mdash; Video Editor</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">5 days</div>
+        <div class="cand-name">Araniza Jaye Bangis</div>
+        <div class="cand-role">250 LLC &mdash; Video Editor</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">5 days</div>
+        <div class="cand-name">John Marc Napari</div>
+        <div class="cand-role">Clickbait Agency &mdash; Video Editor</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">7 days</div>
+        <div class="cand-name">Desserie Cruz</div>
+        <div class="cand-role">Clickbait Agency &mdash; Video Editor</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Assessment In Progress</div>
+      <div class="stage-count">4</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">1 day</div>
+        <div class="cand-name">Thomas Just</div>
+        <div class="cand-role">Clickbait Agency &mdash; Creative Strategist</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">4 days</div>
+        <div class="cand-name">Kumail Saleh</div>
+        <div class="cand-role">Clickbait Agency &mdash; Video Editor</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">4 days</div>
+        <div class="cand-name">Jaouad Lahlali</div>
+        <div class="cand-role">Clickbait Agency &mdash; Creative Strategist</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-red">29 days</div>
+        <div class="cand-name">Dragan Klevernic</div>
+        <div class="cand-role">250 LLC &mdash; Video Editor</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-section">
+    <div class="stage-header">
+      <div class="stage-name">Assessment Completed</div>
+      <div class="stage-count">2</div>
+    </div>
+    <div class="cards-grid">
+      <div class="cand-card">
+        <div class="cand-days days-green">1 day</div>
+        <div class="cand-name">Luis Fernando Sanchez</div>
+        <div class="cand-role">Hume &mdash; Growth Manager</div>
+      </div>
+      <div class="cand-card">
+        <div class="cand-days days-green">8 days</div>
+        <div class="cand-name">Jan Romanski</div>
+        <div class="cand-role">Edenlabs &mdash; Jr Creative Strategist</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TAB 5: CANDIDATE SHORTAGE -->
+<div id="tab-shortage" class="tab-content">
+  <div class="shortage-grid">
+
+    <div class="shortage-section">
+      <div class="shortage-section-hdr">
+        <span class="shortage-badge badge-truly-empty">Truly Empty</span>
+        <span class="shortage-count">4 roles</span>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔴</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Gard Pro &mdash; Video Editor</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔴</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Jello &mdash; Subscription Strategist</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔴</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Jello &mdash; E-commerce Manager</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔴</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Moov &mdash; E-commerce Specialist</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shortage-section">
+      <div class="shortage-section-hdr">
+        <span class="shortage-badge badge-sourcing">Sourcing in Motion</span>
+        <span class="shortage-count">5 roles</span>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟡</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Moov &mdash; Creative Strategist</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 6 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟡</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Cupids &mdash; Head Of Growth</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 2 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟡</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Eddieron &mdash; Technical Operations Engineer</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 1 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟡</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Moov &mdash; Ecommerce Manager</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 3 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟡</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Ziella &mdash; Creative Strategist</div>
+          <div class="shortage-role-meta">0 in play | 0 close-to-intro | 1 sourcing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shortage-section">
+      <div class="shortage-section-hdr">
+        <span class="shortage-badge badge-intro">Intro Incoming</span>
+        <span class="shortage-count">4 roles</span>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔵</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">ErgoLab &mdash; Email Marketer</div>
+          <div class="shortage-role-meta">0 in play | 2 close-to-intro | 3 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔵</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Hume &mdash; Creative Lead</div>
+          <div class="shortage-role-meta">0 in play | 1 close-to-intro | 4 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔵</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Koriderm &mdash; Head of Paid Media</div>
+          <div class="shortage-role-meta">0 in play | 1 close-to-intro | 1 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🔵</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Luminance &mdash; UGC Manager</div>
+          <div class="shortage-role-meta">0 in play | 1 close-to-intro | 5 sourcing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shortage-section">
+      <div class="shortage-section-hdr">
+        <span class="shortage-badge badge-some">Some in Play</span>
+        <span class="shortage-count">17 roles</span>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">D-Doubleu &mdash; Creative Strategist</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 2 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Eddieron &mdash; Creative Strategist</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Everstride &mdash; Head of Retention</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 2 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Gard Pro &mdash; Creative Strategist</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">HIStrips &mdash; Subscription Strategist</div>
+          <div class="shortage-role-meta">2 in play | 1 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Hike Footwear &mdash; Head of Partnerships</div>
+          <div class="shortage-role-meta">2 in play | 1 close-to-intro | 4 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Luminance &mdash; Supply Chain Manager</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Maggie's Tanks &mdash; CRO Specialist</div>
+          <div class="shortage-role-meta">1 in play | 2 close-to-intro | 6 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Maggie's Tanks &mdash; Video Editor</div>
+          <div class="shortage-role-meta">2 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Mailer Profit &mdash; Retention Manager</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Michael Todd Beauty &mdash; Landing Page Designer</div>
+          <div class="shortage-role-meta">1 in play | 1 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Moov &mdash; Head of Product</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Pelsbarn &mdash; Affiliate Marketer</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 3 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">Pestlab &mdash; Landing Page Builder and Designer</div>
+          <div class="shortage-role-meta">1 in play | 2 close-to-intro | 2 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">TernSetups &mdash; Creative Strategist</div>
+          <div class="shortage-role-meta">1 in play | 2 close-to-intro | 4 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">The Lion Advisory &mdash; Head of Advertising</div>
+          <div class="shortage-role-meta">1 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+      <div class="shortage-role">
+        <span class="shortage-icon">🟢</span>
+        <div class="shortage-role-text">
+          <div class="shortage-role-name">250 LLC &mdash; Video Editor</div>
+          <div class="shortage-role-meta">2 in play | 0 close-to-intro | 0 sourcing</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TAB 6: CLOSE TO HIRE -->
+<div id="tab-closehire" class="tab-content">
+
+  <div class="close-stage">
+    <div class="close-stage-hdr">
+      Negotiation
+      <span class="close-count">6</span>
+    </div>
+    <div class="close-cards">
+      <div class="close-card">
+        <div class="cand-days days-green">2 days</div>
+        <div class="cand-name">Matej Draksler</div>
+        <div class="cand-role">The Lion Advisory &mdash; Head of Advertising</div>
+      </div>
+      <div class="close-card">
+        <div class="cand-days days-amber">12 days</div>
+        <div class="cand-name">Angel Bunch M. Franco</div>
+        <div class="cand-role">The Lion Advisory &mdash; Operations Manager</div>
+      </div>
+      <div class="close-card">
+        <div class="cand-days days-red">45 days</div>
+        <div class="cand-name">Ermal Smajli</div>
+        <div class="cand-role">Prime Prometics &mdash; Video Editor</div>
+      </div>
+      <div class="close-card">
+        <div class="cand-days days-red">46 days</div>
+        <div class="cand-name">Hawkins Hermosa</div>
+        <div class="cand-role">Prime Prometics &mdash; Video Editor</div>
+      </div>
+      <div class="close-card">
+        <div class="cand-days days-red">46 days</div>
+        <div class="cand-name">Desserie Riegn Cruz</div>
+        <div class="cand-role">Prime Prometics &mdash; Video Editor</div>
+      </div>
+      <div class="close-card">
+        <div class="cand-days days-red">46 days</div>
+        <div class="cand-name">Joshua Santiago</div>
+        <div class="cand-role">Prime Prometics &mdash; Video Editor</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="close-stage">
+    <div class="close-stage-hdr">
+      Trial
+      <span class="close-count">3</span>
+    </div>
+    <div class="close-cards">
+      <div class="close-card trial">
+        <div class="cand-days days-amber">18 days</div>
+        <div class="cand-name">Matthias Turner</div>
+        <div class="cand-role">Eddieron &mdash; Creative Strategist</div>
+      </div>
+      <div class="close-card trial">
+        <div class="cand-days days-amber">19 days</div>
+        <div class="cand-name">Nik Jancic</div>
+        <div class="cand-role">Pestlab &mdash; Creative Strategist</div>
+      </div>
+      <div class="close-card trial">
+        <div class="cand-days days-amber">19 days</div>
+        <div class="cand-name">Joanne Rapunzel Sandejas</div>
+        <div class="cand-role">Gard Pro &mdash; Creative Strategist</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="close-stage">
+    <div class="close-stage-hdr">
+      Interview Completed
+      <span class="close-count">2</span>
+    </div>
+    <div class="close-cards">
+      <div class="close-card ic">
+        <div class="cand-days days-green">6 days</div>
+        <div class="cand-name">Matteo Gatti</div>
+        <div class="cand-role">D-Doubleu &mdash; Creative Strategist</div>
+      </div>
+      <div class="close-card ic">
+        <div class="cand-days days-amber">11 days</div>
+        <div class="cand-name">Kelsey Eyers</div>
+        <div class="cand-role">Hike Footwear &mdash; Head of Partnerships</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Hiry Client Metrics &mdash; August 26th, 2026 &mdash; Read-only. No Airtable records were modified.</div>
+
+<script>
+function switchTab(btn, tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+// Build client health table dynamically
+const clients = [
+  { name: "Cupids", uncovered: true, roles: 1, inPlay: 0, placements: [{ h: "Head Of Growth", ip: 0, matched: 5, approved: 0, ia: 0, rej: 7, csm: "" }] },
+  { name: "ErgoLab", uncovered: true, roles: 1, inPlay: 0, placements: [{ h: "Email Marketer", ip: 0, matched: 5, approved: 0, ia: 0, rej: 0, csm: "" }] },
+  { name: "Jello", uncovered: true, roles: 2, inPlay: 0, placements: [{ h: "Subscription Strategist", ip: 0, matched: 0, approved: 0, ia: 0, rej: 0, csm: "" }, { h: "E-commerce Manager", ip: 0, matched: 0, approved: 0, ia: 0, rej: 0, csm: "" }] },
+  { name: "Koriderm", uncovered: true, roles: 1, inPlay: 0, placements: [{ h: "Head of Paid Media", ip: 0, matched: 2, approved: 0, ia: 0, rej: 2, csm: "" }] },
+  { name: "Ziella", uncovered: true, roles: 1, inPlay: 0, placements: [{ h: "Creative Strategist", ip: 0, matched: 3, approved: 0, ia: 0, rej: 16, csm: "Need More Sourcing" }] },
+  { name: "D-Doubleu", uncovered: true, roles: 1, inPlay: 1, placements: [{ h: "Creative Strategist", ip: 1, matched: 3, approved: 0, ia: 1, rej: 5, csm: "" }] },
+  { name: "Eddieron", uncovered: true, roles: 2, inPlay: 1, placements: [{ h: "Creative Strategist", ip: 1, matched: 0, approved: 0, ia: 1, rej: 0, csm: "" }, { h: "Technical Operations Engineer", ip: 0, matched: 2, approved: 0, ia: 0, rej: 0, csm: "" }] },
+  { name: "Gard Pro", uncovered: true, roles: 2, inPlay: 1, placements: [{ h: "Video Editor", ip: 0, matched: 0, approved: 0, ia: 0, rej: 0, csm: "" }, { h: "Creative Strategist", ip: 1, matched: 3, approved: 0, ia: 1, rej: 4, csm: "Need More Sourcing" }] },
+  { name: "Luminance", uncovered: true, roles: 2, inPlay: 1, placements: [{ h: "UGC Manager", ip: 0, matched: 12, approved: 0, ia: 0, rej: 2, csm: "" }, { h: "Supply Chain Manager", ip: 1, matched: 0, approved: 0, ia: 1, rej: 0, csm: "" }] },
+  { name: "Mailer Profit", uncovered: true, roles: 1, inPlay: 1, placements: [{ h: "Retention Manager", ip: 1, matched: 10, approved: 0, ia: 1, rej: 3, csm: "Need More Sourcing" }] },
+  { name: "Michael Todd Beauty", uncovered: true, roles: 1, inPlay: 1, placements: [{ h: "Landing Page Designer", ip: 1, matched: 1, approved: 0, ia: 1, rej: 0, csm: "" }] },
+  { name: "Moov", uncovered: true, roles: 4, inPlay: 1, placements: [{ h: "Head of Product", ip: 1, matched: 0, approved: 0, ia: 1, rej: 2, csm: "" }, { h: "Creative Strategist", ip: 0, matched: 6, approved: 0, ia: 0, rej: 0, csm: "" }, { h: "E-commerce Specialist", ip: 0, matched: 0, approved: 0, ia: 0, rej: 0, csm: "" }, { h: "Ecommerce Manager", ip: 0, matched: 3, approved: 0, ia: 0, rej: 0, csm: "" }] },
+  { name: "TernSetups", uncovered: true, roles: 1, inPlay: 1, placements: [{ h: "Creative Strategist", ip: 1, matched: 6, approved: 0, ia: 1, rej: 1, csm: "" }] },
+  { name: "HIStrips", uncovered: true, roles: 1, inPlay: 2, placements: [{ h: "Subscription Strategist", ip: 2, matched: 7, approved: 0, ia: 2, rej: 2, csm: "Need More Sourcing" }] },
+  { name: "Hike Footwear", uncovered: true, roles: 1, inPlay: 2, placements: [{ h: "Head of Partnerships", ip: 2, matched: 9, approved: 0, ia: 2, rej: 0, csm: "" }] },
+  { name: "Hume", uncovered: true, roles: 2, inPlay: 3, placements: [{ h: "Creative Lead", ip: 0, matched: 5, approved: 0, ia: 0, rej: 0, csm: "" }, { h: "Growth Manager", ip: 3, matched: 3, approved: 0, ia: 3, rej: 0, csm: "" }] },
+  { name: "Scalehuse", uncovered: false, roles: 1, inPlay: 3, placements: [{ h: "Influencer Marketer", ip: 3, matched: 5, approved: 0, ia: 3, rej: 0, csm: "" }] },
+  { name: "Pelsbarn", uncovered: true, roles: 2, inPlay: 4, placements: [{ h: "Affiliate Marketer", ip: 1, matched: 3, approved: 0, ia: 1, rej: 0, csm: "" }, { h: "Creative Strategist", ip: 3, matched: 6, approved: 0, ia: 3, rej: 0, csm: "" }] },
+  { name: "Feelgoods", uncovered: false, roles: 1, inPlay: 4, placements: [{ h: "Video Editor", ip: 4, matched: 17, approved: 0, ia: 4, rej: 11, csm: "Awaiting Client Feedback" }] },
+  { name: "250 LLC", uncovered: true, roles: 2, inPlay: 5, placements: [{ h: "Video Editor", ip: 2, matched: 18, approved: 0, ia: 2, rej: 7, csm: "Awaiting Client Feedback" }, { h: "Media Buyer", ip: 3, matched: 4, approved: 0, ia: 3, rej: 8, csm: "Need More Sourcing" }] },
+  { name: "Everstride", uncovered: true, roles: 2, inPlay: 5, placements: [{ h: "Head of Retention", ip: 1, matched: 4, approved: 0, ia: 1, rej: 1, csm: "" }, { h: "Head of Operations", ip: 4, matched: 5, approved: 0, ia: 4, rej: 0, csm: "" }] },
+  { name: "Pestlab", uncovered: true, roles: 2, inPlay: 5, placements: [{ h: "Landing Page Builder & Designer", ip: 1, matched: 4, approved: 0, ia: 1, rej: 0, csm: "" }, { h: "Creative Strategist", ip: 4, matched: 1, approved: 0, ia: 4, rej: 22, csm: "Awaiting Client Feedback" }] },
+  { name: "The Lion Advisory", uncovered: true, roles: 2, inPlay: 5, placements: [{ h: "Head of Advertising", ip: 1, matched: 1, approved: 0, ia: 1, rej: 0, csm: "" }, { h: "Operations Manager", ip: 4, matched: 3, approved: 0, ia: 4, rej: 4, csm: "Need More Sourcing" }] },
+  { name: "Prime Prometics", uncovered: false, roles: 1, inPlay: 5, placements: [{ h: "Video Editor", ip: 5, matched: 15, approved: 0, ia: 5, rej: 3, csm: "Awaiting Client Feedback" }] },
+  { name: "theUzzle", uncovered: false, roles: 1, inPlay: 6, placements: [{ h: "AI Video Editor", ip: 6, matched: 7, approved: 0, ia: 6, rej: 0, csm: "" }] },
+  { name: "Clickbait Agency", uncovered: false, roles: 2, inPlay: 7, placements: [{ h: "Video Editor", ip: 4, matched: 6, approved: 0, ia: 4, rej: 0, csm: "" }, { h: "Creative Strategist", ip: 3, matched: 7, approved: 0, ia: 3, rej: 0, csm: "" }] },
+  { name: "Luxe Cosmetics", uncovered: false, roles: 2, inPlay: 7, placements: [{ h: "Video Editor", ip: 4, matched: 16, approved: 0, ia: 4, rej: 2, csm: "" }, { h: "Copywriter", ip: 3, matched: 4, approved: 0, ia: 3, rej: 0, csm: "" }] },
+  { name: "Maggie's Tanks", uncovered: true, roles: 4, inPlay: 10, placements: [{ h: "Graphic Designer", ip: 3, matched: 5, approved: 0, ia: 3, rej: 0, csm: "" }, { h: "CRO Specialist", ip: 1, matched: 8, approved: 0, ia: 1, rej: 0, csm: "" }, { h: "Video Editor", ip: 2, matched: 4, approved: 0, ia: 2, rej: 5, csm: "" }, { h: "UGC Manager", ip: 4, matched: 13, approved: 0, ia: 4, rej: 1, csm: "" }] },
+  { name: "Edenlabs", uncovered: false, roles: 2, inPlay: 13, placements: [{ h: "Jr Creative Strategist", ip: 7, matched: 3, approved: 0, ia: 7, rej: 0, csm: "" }, { h: "Creative Strategist", ip: 6, matched: 5, approved: 0, ia: 6, rej: 1, csm: "" }] },
+];
+
+function csmTag(csm) {
+  if (!csm) return '';
+  const cls = csm.includes('Awaiting') ? 'csm-awaitclient' : 'csm-needmore';
+  return `<span class="csm-tag ${cls}">${csm}</span>`;
+}
+
+const tbody = document.getElementById('health-tbody');
+clients.forEach((c, idx) => {
+  const statusBadge = c.uncovered
+    ? '<span class="badge-uncovered">Uncovered</span>'
+    : '<span class="badge-covered">Covered</span>';
+  const rowId = `expand-${idx}`;
+  let placRows = '';
+  c.placements.forEach(p => {
+    placRows += `<tr class="placement-detail" id="${rowId}" style="display:none">
+      <td colspan="5">
+        <div class="placement-row">
+          <strong>${c.name} &mdash; ${p.h}</strong>
+          ${csmTag(p.csm)}
+          &nbsp;&nbsp;
+          <span class="num-pill" title="In Play">${p.ip} in play</span>
+          &nbsp;
+          <span class="num-pill" title="Matched">${p.matched} matched</span>
+          &nbsp;
+          <span class="num-pill" title="Rejected">${p.rej} rejected</span>
+        </div>
+      </td>
+    </tr>`;
+  });
+  const toggle = c.placements.length > 1 ? `<button class="expand-btn" onclick="toggleExpand('${rowId}',this)" title="Show placements">+</button>` : '';
+  tbody.innerHTML += `
+    <tr>
+      <td><span class="client-name">${c.name}</span>${toggle}</td>
+      <td>${statusBadge}</td>
+      <td>${c.roles}</td>
+      <td><span class="num-pill">${c.inPlay}</span></td>
+      <td style="font-size:12px;color:#6b7280">${c.placements.map(p => p.h + (p.csm ? ' ' + csmTag(p.csm) : '')).join('<br>')}</td>
+    </tr>
+    ${placRows}
+  `;
+});
+
+function toggleExpand(rowId, btn) {
+  const rows = document.querySelectorAll(`#${rowId}`);
+  const isHidden = rows[0].style.display === 'none';
+  rows.forEach(r => r.style.display = isHidden ? 'table-row' : 'none');
+  btn.textContent = isHidden ? '-' : '+';
+}
+</script>
+
 </body>
 </html>
