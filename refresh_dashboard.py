@@ -30,7 +30,11 @@ from datetime import datetime, date, timezone
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(HERE, "dashboard_config.json")
 LOG_PATH = os.path.join(HERE, "refresh.log")
-DASHBOARDS_DIR = os.path.abspath(os.path.join(HERE, "..", "01 Dashboards"))
+# Archive location for the daily HTML copy. The runner lives outside the vault
+# (macOS TCC blocks launchd from ~/Desktop), so the relative path would resolve
+# to the home folder. run_daily.sh sets this explicitly to the vault folder.
+DASHBOARDS_DIR = (os.environ.get("HIRY_DASHBOARDS_DIR")
+                  or os.path.abspath(os.path.join(HERE, "..", "01 Dashboards")))
 
 TODAY = date.today()  # today is 2026-07-02 per the run environment
 
