@@ -158,6 +158,16 @@ ACTIVE_PLACEMENT_STATUSES = {
 
 REJECTED_RATING = "Candidate - Rejected"
 
+# Placements hidden from the dashboard while still ACTIVE in Airtable.
+# Keyed by record id so a headline rename cannot silently un-hide them.
+# This only affects THIS dashboard. Matching Priorities, Client FUP and
+# Candidate Stage Review still see these roles. If a role is truly dead,
+# the right fix is to pause it in Airtable, not to grow this list.
+EXCLUDED_PLACEMENT_IDS = {
+    "recnWju9i6wKrGTk5": "Hydrohealth - Native Creative Strategist (05 - Sourcing since 2026-04-10, hidden 2026-09-21 per Tom)",
+    "reckz1i3kiWpu4jPu": "Eddieron - Technical Operations Engineer (10 - Sourcing To Start since 2026-07-13, hidden 2026-09-21 per Tom)",
+}
+
 # Viable / live-pipeline candidate statuses (from Matching Priorities skill)
 VIABLE_STATUSES = {
     "08 - Introduced",
@@ -368,11 +378,17 @@ def main():
     log("Placements pulled (all): %d" % len(placements))
 
     active_placements = {}   # pid -> fields (with createdTime added)
+    hidden = []
     for p in placements:
         f = p["fields"]
         if f.get(F_PL_STATUS) in ACTIVE_PLACEMENT_STATUSES:
+            if p["id"] in EXCLUDED_PLACEMENT_IDS:
+                hidden.append(f.get(F_PL_HEADLINE) or p["id"])
+                continue
             f["_createdTime"] = p.get("createdTime")  # store createdTime as a special field
             active_placements[p["id"]] = f
+    if hidden:
+        log("Hidden by EXCLUDED_PLACEMENT_IDS (%d): %s" % (len(hidden), "; ".join(hidden)))
 
     # Active client = Fulfillment-Active AND owns >=1 active placement
     clients_with_active = set()
@@ -618,6 +634,13 @@ def main():
             if cd and cd.toordinal() >= cutoff:
                 hires.append((headline, hired_name_by_pl.get(p["id"], ""), cd))
         elif st == "-20 - Churned":
+            # Only clients still Fulfillment-Active. Without this, Airtable
+            # cleanups that archive roles of long-gone clients (Oct 1 2026:
+            # Doggo Labs, Viral Growth, Parabolic...) show up as fresh churn,
+            # because with no manual Churn Date the fallback is the status
+            # change timestamp, i.e. the cleanup day.
+            if link_id(f.get(F_PL_CLIENT)) not in active_client_ids:
+                continue
             cd = parse_date(f.get(F_PL_CHURN_DATE)) or parse_date(f.get(F_PL_CLOSED_TS))
             if cd and cd.toordinal() >= cutoff:
                 churns.append((headline, cd))
@@ -1163,8 +1186,10 @@ def st_pretty(st):
 # ---------------------------------------------------------------------------
 # GitHub publish (the ONLY write)
 # ---------------------------------------------------------------------------
-def publish_github(pat, repo, html):
-    api = "https://api.github.com/repos/%s/contents/index.html" % repo
+def publish_github(pat, repo, html, path="index.html", message=None):
+    """Commit one file to the Pages repo. Default path is the metrics
+    dashboard; other boards (e.g. stages/index.html) pass their own path."""
+    api = "https://api.github.com/repos/%s/contents/%s" % (repo, path)
     headers = {
         "Authorization": "Bearer " + pat,
         "Accept": "application/vnd.github+json",
@@ -1184,7 +1209,7 @@ def publish_github(pat, repo, html):
 
     content_b64 = base64.b64encode(html.encode("utf-8")).decode("ascii")
     payload = {
-        "message": "Dashboard %s" % TODAY.isoformat(),
+        "message": message or ("Dashboard %s" % TODAY.isoformat()),
         "content": content_b64,
         "branch": "main",
     }
