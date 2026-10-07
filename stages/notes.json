@@ -1,105 +1,113 @@
 {
- "generated": "2026-10-06 08:29",
+ "generated": "2026-10-07 07:22",
  "notes": {
   "rec18yFxCayLiXYox": {
    "summary": "",
    "call_date": null
   },
   "rec5G8lZllZYrEfmk": {
-   "summary": "Interview booked Wed 7 Oct 8pm Pakistan time",
+   "summary": "Interview booked Wed 7 Oct, 8:00pm Pakistan time with Toms.",
    "call_date": "2026-10-07"
   },
   "rec7WOEdSW4kUG8lu": {
-   "summary": "Interview booked Wed 7 Oct 1:30pm French time",
+   "summary": "Interview booked Wed 7 Oct, 1:30pm French time.",
    "call_date": "2026-10-07"
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Interview happened Wed 30 Sep 6:30am SAST",
+   "summary": "Interview happened Wed 30 Sep 06:30 SAST, awaiting feedback.",
    "call_date": "2026-09-30"
   },
   "recCwspCKIfH5R0xt": {
-   "summary": "Missed rescheduled call (sick), rethinking opportunity",
-   "call_date": null
+   "summary": "Missed rescheduled call (sick), still rethinking opportunity.",
+   "call_date": "2026-09-29"
   },
   "recD77PvnwlopdOLq": {
-   "summary": "Client didn't give us feedback yet",
+   "summary": "Client didn't give feedback yet",
    "call_date": "2026-09-22"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Interview booked Tue 6 Oct 4pm GMT+7",
+   "summary": "Interview booked Tue 6 Oct, 4:00pm GMT+7.",
    "call_date": "2026-10-06"
   },
   "recFaqcIwHhT1mw70": {
-   "summary": "",
+   "summary": "Checking if candidate replied.",
    "call_date": null
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "Ghosting client, no replies yet",
+   "summary": "Checking for replies; candidate ghosting client.",
    "call_date": "2026-09-22"
   },
   "recFpVlwVpAsbnB0i": {
-   "summary": "No-show on Gard Pro call, asked what happened",
+   "summary": "No-show on call; asked for explanation.",
    "call_date": "2026-10-05"
   },
   "recGQrw7jDfWQP86N": {
-   "summary": "No reply to link; withdrawn if no reply by Thu 8 Oct",
+   "summary": "No reply to link; final notice with 48-hour withdrawal deadline.",
    "call_date": null
   },
   "recKbtTIdtosbh0iB": {
-   "summary": "Confirmed interest, moved to Offer Approved",
+   "summary": "Confirmed interest; ready for introduction.",
    "call_date": null
   },
   "recNx3cqY0XtKdp3G": {
-   "summary": "Interview booked Wed 7 Oct 9:30am Colombia time",
+   "summary": "Interview booked Wed 7 Oct, 9:30am Colombia time.",
    "call_date": "2026-10-07"
   },
   "recRhEhd5B17SyilX": {
-   "summary": "Rescheduled by candidate to Wed 7 Oct 9:30pm PKT",
+   "summary": "Rescheduled to Wed 7 Oct, same time due to urgency.",
    "call_date": "2026-10-07"
   },
   "recc0KOb4nIzm2AlM": {
-   "summary": "Interview happened Fri 2 Oct 12:30 SAST, waiting feedback",
+   "summary": "Interview happened Fri 2 Oct 12:30 SAST; awaiting feedback.",
    "call_date": "2026-10-02"
   },
+  "reccahUMq1HIdbGpf": {
+   "summary": "",
+   "call_date": null
+  },
+  "recdVHD70QEAMCNC6": {
+   "summary": "",
+   "call_date": null
+  },
   "receMaMD4n4qGExHJ": {
-   "summary": "Client no-show on today's 18:00 SAST call",
+   "summary": "Client no-show on call; timezone issue suspected.",
    "call_date": "2026-10-05"
   },
   "recfilnsI0yx4QDtu": {
-   "summary": "Apologizing, will reach out directly to rebook call",
-   "call_date": null
+   "summary": "Apologizing for no-show; will rebook call.",
+   "call_date": "2026-10-02"
   },
   "recgXoZJe0KHQz4MV": {
    "summary": "",
    "call_date": null
   },
   "rech1HFWSnxASljGs": {
-   "summary": "Salary expectation stated: €150k per year",
+   "summary": "Salary expectation 150k euros/year; current 120k.",
    "call_date": null
   },
   "rechslCsYNwi09G9j": {
-   "summary": "Said \"i will proceed\" once Higgsfield reimbursed",
+   "summary": "Candidate will proceed once Higgsfield access reimbursed.",
    "call_date": null
   },
   "reci1bJJXfLZBC3Vu": {
-   "summary": "Handled by client-candidate directly",
+   "summary": "Handled by client-candidate directly.",
    "call_date": "2026-09-09"
   },
   "reciVsRgBludQcKFF": {
-   "summary": "Client didn't give us feedback yet",
+   "summary": "Client didn't give feedback yet",
    "call_date": "2026-09-22"
   },
   "recq7HC9mTgJzPKsd": {
-   "summary": "Interview booked Tue 6 Oct 5pm GMT+7 with founder",
+   "summary": "Interview booked Tue 6 Oct, 5:00pm GMT+7.",
    "call_date": "2026-10-06"
   },
   "recsYvatGrtmIZCz5": {
-   "summary": "Never received Tom's offer email, needs resending",
+   "summary": "Never received offer email; needs resending.",
    "call_date": "2026-09-30"
   },
   "recu8JgCreDHp2mxR": {
-   "summary": "Client didn't see call on calendar, waiting confirmation",
-   "call_date": null
+   "summary": "Client didn't have call on calendar; waiting for confirmation.",
+   "call_date": "2026-10-01"
   },
   "recwxGeGuUTkYnec6": {
    "summary": "",
