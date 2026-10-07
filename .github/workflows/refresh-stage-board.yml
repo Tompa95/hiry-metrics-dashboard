@@ -1,0 +1,40 @@
+# Source copy. Lives in the Pages repo at .github/workflows/refresh-stage-board.yml
+# and is pushed there by "(C) sync-repo.py". Edit here, then re-run the installer.
+#
+# Triggered by the "Refresh data" button on the stage board (Run workflow).
+# Rebuilds the board on GitHub's servers with live Airtable data. No AI here,
+# it reuses the comment notes saved by the morning run on Tom's Mac.
+name: Refresh stage board
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stage-board
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      HIRY_AIRTABLE_PAT: ${{ secrets.HIRY_AIRTABLE_PAT }}
+      HIRY_GITHUB_PAT: ${{ secrets.HIRY_GITHUB_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check secrets are set
+        run: |
+          test -n "$HIRY_AIRTABLE_PAT" || { echo "::error::Missing repo secret HIRY_AIRTABLE_PAT"; exit 1; }
+          test -n "$HIRY_GITHUB_PAT"   || { echo "::error::Missing repo secret HIRY_GITHUB_PAT"; exit 1; }
+
+      - name: Rebuild stage board (live data, morning notes)
+        run: python3 stage_board.py --no-ai
