@@ -1,108 +1,116 @@
 {
- "generated": "2026-10-10 08:47",
+ "generated": "2026-10-12 07:12",
  "notes": {
   "rec18yFxCayLiXYox": {
    "summary": "",
    "call_date": null
   },
   "rec7WOEdSW4kUG8lu": {
-   "summary": "Interview booked Wed 7 Oct, 1:30pm French time.",
+   "summary": "Interview booked for Wed 7 Oct at 1:30pm French time",
    "call_date": "2026-10-07"
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Interview happened Wed 30 Sep 06:30 SAST, awaiting feedback.",
+   "summary": "Interview happened Wed 30 Sep; waiting on client feedback",
    "call_date": "2026-09-30"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Interview booked Tue 6 Oct, 4:00pm GMT+7.",
+   "summary": "Interview booked for Tue 6 Oct at 4:00pm GMT+7",
    "call_date": "2026-10-06"
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "Candidate ghosting client, asking about replies.",
+   "summary": "No replies from her; she is ghosting the client",
    "call_date": "2026-09-22"
   },
   "recKbtTIdtosbh0iB": {
-   "summary": "Confirmed interest with acknowledgement, ready for introduction.",
+   "summary": "Confirmed interest YES; status moved to Offer Approved",
    "call_date": null
   },
   "recNx3cqY0XtKdp3G": {
-   "summary": "WhatsApp sent thanking her, requesting reference letter.",
+   "summary": "Alpha Lion reference letter received, PDF attached",
    "call_date": "2026-10-07"
   },
+  "recP3JowaYKdDiO9D": {
+   "summary": "",
+   "call_date": null
+  },
   "recPDK0S6KK2bqzSC": {
-   "summary": "Client likes portfolio and interview, moving to trial task.",
+   "summary": "Client sending trial directly; nothing for us to send",
    "call_date": null
   },
   "recRhEhd5B17SyilX": {
-   "summary": "WhatsApp sent asking when trial starts and if paid.",
+   "summary": "Asked when trial week starts and whether paid",
    "call_date": "2026-10-07"
   },
   "recb5qUhH5lEZz1mH": {
-   "summary": "Booked interview for Wed 14 Oct, time not shared.",
+   "summary": "Booked interview for Wed 14 Oct; time not shared",
    "call_date": "2026-10-14"
   },
   "reccahUMq1HIdbGpf": {
-   "summary": "Interview booked Thu 8 Oct 10:30am EST.",
+   "summary": "Withdrew after founder call; not right work style fit",
    "call_date": "2026-10-08"
   },
   "recdVHD70QEAMCNC6": {
-   "summary": "Says he booked interview 7 Oct, date and time not shared.",
+   "summary": "Booked on 7 Oct but date/time not yet shared",
    "call_date": null
   },
   "receMaMD4n4qGExHJ": {
-   "summary": "Client no-show on today's call, needs new time.",
-   "call_date": null
+   "summary": "Client no-show on today's call; needs new time",
+   "call_date": "2026-10-05"
   },
   "recgXoZJe0KHQz4MV": {
-   "summary": "Asking if still pursuing role, hired by Gard Pro.",
+   "summary": "Hired by Gard Pro; question if still chasing",
    "call_date": null
   },
   "rechslCsYNwi09G9j": {
-   "summary": "Drama trial sent with 24h deadline to submit.",
+   "summary": "Trial not sent; draft ready, due 24h after send",
    "call_date": null
   },
   "recil3iTr15r4NuXR": {
-   "summary": "WhatsApp sent with good luck for today's call.",
+   "summary": "Good luck message for today's 16:30 call",
    "call_date": "2026-10-09"
   },
-  "recjEHyMCNTdQWoHa": {
-   "summary": "Sent by Florian directly.",
+  "recjEHyMCNwHa": {
+   "summary": "Interview link sent by Florian directly",
    "call_date": null
   },
   "recpJ63egFNp5Qahx": {
-   "summary": "Confirmed for today's 12:00 Spain call via WhatsApp.",
+   "summary": "Confirmed on for today's 12:00 Spain call",
    "call_date": "2026-10-09"
   },
   "recq7HC9mTgJzPKsd": {
-   "summary": "Client cancelled call on 8 Oct, needs rebook.",
+   "summary": "Client cancelled call before it happened; needs rebook",
+   "call_date": null
+  },
+  "recsScx5rVGPKqLFF": {
+   "summary": "Trial sent; $75 due Thu 15 Oct 18:00 IST",
    "call_date": null
   },
   "recsYvatGrtmIZCz5": {
-   "summary": "Never received offer email, needs resending.",
+   "summary": "Never received offer email; needs resending",
    "call_date": "2026-09-30"
   },
   "recu8JgCreDHp2mxR": {
-   "summary": "Email confirms Carlos call went well, met Sam earlier.",
-   "call_date": "2026-10-08"
+   "summary": "Call went well with Carlos; also met Sam; decision pending",
+   "call_date": "2026-10-07"
   },
   "recwAMDDFVYVGcYAF": {
-   "summary": "Sent by Florian directly.",
+   "summary": "Interview link sent by Florian directly",
    "call_date": null
   },
   "recwGAS1h7rbnNxg8": {
-   "summary": "Role closed successfully, hired on different role.",
+   "summary": "Role closed; stop chasing; no interview to book",
    "call_date": null
   },
   "recwGiwjH6q615ri6": {
-   "summary": "Still interested, WhatsApp contact provided.",
+   "summary": "No brief on record; asking if client sending trial",
    "call_date": null
   },
   "recwJaAgLLxMx9SVh": {
-   "summary": "Interview link sent via email and WhatsApp.",
+   "summary": "Interview link sent via email and WhatsApp",
    "call_date": null
   },
   "recwxGeGuUTkYnec6": {
-   "summary": "",
+   "summary": "Trial draft ready; on hold pending Tom's decision",
    "call_date": null
   }
  }
