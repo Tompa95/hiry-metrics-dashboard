@@ -1,132 +1,116 @@
 {
- "generated": "2026-10-15 07:29",
+ "generated": "2026-10-15 08:21",
  "notes": {
   "rec18yFxCayLiXYox": {
-   "summary": "No reply from candidate.",
+   "summary": "No reply from candidate",
    "call_date": null
   },
   "rec6pyEW9rbOVtkvw": {
-   "summary": "Trial submitted to Lukas 14 Oct with video hooks and notes.",
+   "summary": "Trial submitted 14 Oct 22:55 with two video hooks",
    "call_date": null
   },
   "rec7WOEdSW4kUG8lu": {
-   "summary": "Interview booked Wed 7 Oct, 1:30pm French time.",
+   "summary": "Asked her how the call went",
    "call_date": "2026-10-07"
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Interview with Daan happened Wed 30 Sep 06:30 SAST, awaiting feedback.",
+   "summary": "Interview with Daan was 30 Sep 06:30 SAST, waiting on feedback",
    "call_date": "2026-09-30"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Met the founder, waiting on Pestlab trial task.",
+   "summary": "Met founder, waiting on trial task",
    "call_date": "2026-10-06"
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "No replies from candidate, ghosting the client.",
+   "summary": "No replies from candidate, ghosting client",
    "call_date": "2026-09-22"
   },
+  "recGOk01j3htHRtEK": {
+   "summary": "Interview invite sent, asked to pick slot",
+   "call_date": null
+  },
   "recHV0km3E0eUCuaE": {
-   "summary": "Trial submitted to Daniel with video link and portfolio.",
+   "summary": "Trial submitted 15 Oct with video link and portfolio",
    "call_date": null
   },
   "recNx3cqY0XtKdp3G": {
-   "summary": "Reference letter acknowledged, asking about next steps.",
+   "summary": "Reference letter acknowledged, asking about next steps",
    "call_date": "2026-10-07"
   },
   "recP3JowaYKdDiO9D": {
-   "summary": "Checking.",
+   "summary": "Checking if Saturday slot works for Hugo",
    "call_date": "2026-10-17"
   },
-  "recPDK0S6KK2bqzSC": {
-   "summary": "Client sending trial directly.",
-   "call_date": null
-  },
   "recPemU38xVG6kwgX": {
-   "summary": "Interview booked Tue 20 Oct, 08:30 CET with Charlie, confirmed.",
+   "summary": "Interview booked Tue 20 Oct 08:30 CET with Charlie",
    "call_date": "2026-10-20"
   },
   "recRhEhd5B17SyilX": {
-   "summary": "Asked when trial week starts and if paid.",
+   "summary": "Candidate ghosted our client",
    "call_date": "2026-10-07"
   },
   "recShEsxmKeiSmPTf": {
-   "summary": "Interview booked Mon 19 Oct, 08:00-08:30 WET with Jude.",
+   "summary": "Interview booked Mon 19 Oct 08:00 WET with Jude",
    "call_date": "2026-10-19"
   },
   "recWzHD19i7HG8W82": {
-   "summary": "Drama trial sent, due Thu 15 Oct 11:00 BRT.",
+   "summary": "Assessment link fixed, candidate confirmed receipt",
    "call_date": null
   },
   "recb5qUhH5lEZz1mH": {
-   "summary": "Interview rescheduled to Thu 15 Oct, 4:15pm Spanish time.",
+   "summary": "Interview rescheduled to Thu 15 Oct 4:15pm Spanish time",
    "call_date": "2026-10-15"
   },
   "recdVHD70QEAMCNC6": {
-   "summary": "Candidate booked interview, date/time not shared.",
+   "summary": "Asked if call went ahead and how it went",
    "call_date": null
   },
   "receMaMD4n4qGExHJ": {
-   "summary": "Client no-show on today's 18:00 SAST call, needs rebook.",
-   "call_date": null
+   "summary": "Client no-show on 5 Oct 18:00 SAST call",
+   "call_date": "2026-10-05"
   },
   "recfuMGB1ba6igsS8": {
-   "summary": "Interview link sent 14 Oct.",
+   "summary": "Interview link sent 14 Oct",
    "call_date": null
   },
   "rechslCsYNwi09G9j": {
-   "summary": "Trial not sent, candidate not replying, client asking.",
+   "summary": "Trial not sent, candidate not replying to follow-ups",
    "call_date": null
   },
   "recil3iTr15r4NuXR": {
-   "summary": "Second-call link sent 14 Oct.",
+   "summary": "Second-call link sent 14 Oct",
    "call_date": "2026-10-09"
   },
   "recpJ63egFNp5Qahx": {
-   "summary": "Call went well, understood brand needs, felt nervous on one platform.",
+   "summary": "Interview went well, nervous on one platform question",
    "call_date": "2026-10-09"
   },
-  "recq7HC9mTgJzPKsd": {
-   "summary": "Chasing client.",
-   "call_date": null
-  },
   "recs6GC8VPIZjjUl6": {
-   "summary": "Interview booked Mon 19 Oct, 5pm CET with portfolio sent.",
+   "summary": "Interview booked Mon 19 Oct 5pm CET with portfolio",
    "call_date": "2026-10-19"
   },
   "recsScx5rVGPKqLFF": {
-   "summary": "Assessment completed and shared with Ahmed via Loom.",
+   "summary": "Assessment submitted with Loom walkthrough video",
    "call_date": null
   },
   "recsYvatGrtmIZCz5": {
-   "summary": "Never received offer email, needs resending.",
+   "summary": "Never received offer email, needs resending",
    "call_date": "2026-09-30"
   },
   "recu8JgCreDHp2mxR": {
-   "summary": "Offer pushback, $8k/mo below expectations, sent counteroffer.",
-   "call_date": "2026-10-07"
+   "summary": "Offer pushback: 8k/mo below expectations, counteroffer sent",
+   "call_date": "2026-10-08"
   },
   "recv8H8IaIcQAk6lm": {
-   "summary": "Trial sent, $100, due Thu 15 Oct 18:00 IST.",
-   "call_date": null
-  },
-  "recwGAS1h7rbnNxg8": {
-   "summary": "Role closed, stop chasing, candidate placed elsewhere.",
-   "call_date": null
-  },
-  "recwGiwjH6q615ri6": {
-   "summary": "No brief on record, waiting on client trial details.",
-   "call_date": null
-  },
-  "recwJaAgLLxMx9SVh": {
-   "summary": "Cancelled call with Patrick, needs followup and rebook.",
+   "summary": "Trial sent, awaiting submission status",
    "call_date": null
   },
   "recyfSFKyKWItbAsX": {
-   "summary": "Drama trial sent, $100, due Thu 15 Oct 16:00 CEST.",
+   "summary": "Brief link working, candidate started on assessment",
    "call_date": null
   },
   "reczm11MUVoekMNDj": {
-   "summary": "Drama trial sent, $100, due Thu 15 Oct 19:00 PKT.",
+   "summary": "Drama trial sent, due Thu 15 Oct 19:00 PKT",
    "call_date": null
   }
  }
