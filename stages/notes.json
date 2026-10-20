@@ -1,116 +1,96 @@
 {
- "generated": "2026-10-19 07:36",
+ "generated": "2026-10-20 08:03",
  "notes": {
+  "rec18yFxCayLiXYox": {
+   "summary": "Wished speedy recovery, will provide update when available",
+   "call_date": null
+  },
   "rec6pyEW9rbOVtkvw": {
-   "summary": "Email sent confirming assessment submission received.",
+   "summary": "Assessment received and passed to team for review",
    "call_date": null
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Interview with Daan happened Wed 30 Sep 06:30 SAST, awaiting feedback.",
+   "summary": "Awaiting feedback from Daan on Sep 30 interview",
    "call_date": "2026-09-30"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Met founder, waiting on Pestlab trial task.",
+   "summary": "Followed up on assessment",
    "call_date": "2026-10-06"
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "No replies from candidate, ghosting client.",
+   "summary": "Followed up on assessment",
    "call_date": "2026-09-22"
   },
-  "recGOk01j3htHRtEK": {
-   "summary": "Reschedule requested from Oct 19 4pm to Oct 21 3:30pm CET.",
-   "call_date": "2026-10-19"
-  },
   "recHV0km3E0eUCuaE": {
-   "summary": "Email sent confirming assessment submission received.",
+   "summary": "Assessment received and passed to team for review",
    "call_date": null
   },
   "recNx3cqY0XtKdp3G": {
-   "summary": "Contacted reference Steph, awaiting reply to Elie.",
+   "summary": "Following up with Steph on reference letter",
    "call_date": "2026-10-07"
   },
-  "recPemU38xVG6kwgX": {
-   "summary": "Interview booked Tue Oct 20 08:30 CET with Charlie.",
-   "call_date": "2026-10-20"
-  },
   "recRhEhd5B17SyilX": {
-   "summary": "Candidate claims communication with client, confusion ongoing.",
+   "summary": "In trial week, communicating with client on Slack",
    "call_date": "2026-10-07"
   },
   "recShEsxmKeiSmPTf": {
-   "summary": "Email sent confirming interview time.",
+   "summary": "Candidate confirmed interview took place",
    "call_date": "2026-10-19"
   },
-  "recWzHD19i7HG8W82": {
-   "summary": "Trial confirmed, link issue fixed.",
+  "receMaMD4n4qGExHJ": {
+   "summary": "Spoke to client today, went well",
    "call_date": null
   },
-  "recb5qUhH5lEZz1mH": {
-   "summary": "Candidate accepted offer after successful interview.",
-   "call_date": "2026-10-15"
-  },
-  "receMaMD4n4qGExHJ": {
-   "summary": "Client call today went well.",
-   "call_date": "2026-10-16"
-  },
   "recePvB3m4hW9f2ix": {
-   "summary": "Awaiting manual booking link from client.",
+   "summary": "Waiting for client to send correct booking link",
    "call_date": null
   },
   "recfGfgbkGs8ehuVb": {
-   "summary": "Clarified brief-writing vs design role, confirmed full-time.",
+   "summary": "Works with designer on briefs, confirmed full-time role",
    "call_date": null
   },
   "recfuMGB1ba6igsS8": {
-   "summary": "Chased to book interview, send date and timezone.",
-   "call_date": null
+   "summary": "Interview went well, waiting to hear back",
+   "call_date": "2026-10-19"
   },
   "rechslCsYNwi09G9j": {
-   "summary": "Chased to submit trial to Lukas.",
+   "summary": "Trial not submitted, withdrawal if no reply by Oct 21",
    "call_date": null
   },
   "recil3iTr15r4NuXR": {
-   "summary": "Chased to book second call, send date and timezone.",
+   "summary": "Second call not booked, gave deadline for yes or no",
    "call_date": "2026-10-09"
   },
   "recjEHyMCNTdQWoHa": {
-   "summary": "Interview completed 2 days prior, forwarding to owner.",
+   "summary": "Interview completed 2 days ago, went great",
    "call_date": "2026-10-12"
   },
   "recpJ63egFNp5Qahx": {
-   "summary": "Second call booked Wed Oct 21 1:30pm CEST.",
+   "summary": "Booked second interview for Wed Oct 21 at 1:30pm CEST",
    "call_date": "2026-10-21"
   },
-  "recs6GC8VPIZjjUl6": {
-   "summary": "Interview booked Mon Oct 19 5pm CET.",
-   "call_date": "2026-10-19"
-  },
   "recsScx5rVGPKqLFF": {
-   "summary": "Email sent acknowledging assessment receipt.",
+   "summary": "Assessment revision now with Maggie's Tanks for review",
    "call_date": null
   },
-  "recsYvatGrtmIZCz5": {
-   "summary": "Offer email not received, needs resending.",
-   "call_date": "2026-09-30"
-  },
   "recu8JgCreDHp2mxR": {
-   "summary": "Counteroffer sent after rejecting $8k/mo base salary.",
-   "call_date": "2026-10-08"
+   "summary": "Received counteroffer, salary below expectations",
+   "call_date": "2026-10-09"
   },
   "recv8H8IaIcQAk6lm": {
-   "summary": "Trial submitted with two video versions.",
+   "summary": "Trial submitted to Daniel with two video versions",
    "call_date": null
   },
   "recwAMDDFVYVGcYAF": {
-   "summary": "Interview with Dori completed Mon Oct 12 1:30pm GMT+8.",
+   "summary": "Interview with Dori on Oct 12, awaiting feedback",
    "call_date": "2026-10-12"
   },
   "recyfSFKyKWItbAsX": {
-   "summary": "Trial submitted with both hooks, minor typo in Hook 2.",
+   "summary": "Trial submitted with both hooks complete",
    "call_date": null
   },
   "reczm11MUVoekMNDj": {
-   "summary": "Submitted hooks only, body scripts missing from brief.",
+   "summary": "Trial submitted with hooks only, body scripts missing",
    "call_date": null
   }
  }
