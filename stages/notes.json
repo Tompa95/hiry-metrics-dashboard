@@ -1,16 +1,16 @@
 {
- "generated": "2026-10-20 08:03",
+ "generated": "2026-10-21 07:39",
  "notes": {
   "rec18yFxCayLiXYox": {
-   "summary": "Wished speedy recovery, will provide update when available",
+   "summary": "Need to book final call with Luke",
    "call_date": null
   },
   "rec6pyEW9rbOVtkvw": {
-   "summary": "Assessment received and passed to team for review",
+   "summary": "Email sent confirming assessment received and passed to team",
    "call_date": null
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Awaiting feedback from Daan on Sep 30 interview",
+   "summary": "Interview with Daan on Wed 30 Sep 06:30 SAST, awaiting feedback",
    "call_date": "2026-09-30"
   },
   "recDOTITFaUhfEvt2": {
@@ -22,15 +22,19 @@
    "call_date": "2026-09-22"
   },
   "recHV0km3E0eUCuaE": {
-   "summary": "Assessment received and passed to team for review",
+   "summary": "Email sent confirming assessment received and passed to team",
    "call_date": null
   },
   "recNx3cqY0XtKdp3G": {
-   "summary": "Following up with Steph on reference letter",
+   "summary": "Client received reply to schedule feedback call this week",
    "call_date": "2026-10-07"
   },
+  "recQsIL9TAZjFpMm2": {
+   "summary": "",
+   "call_date": null
+  },
   "recRhEhd5B17SyilX": {
-   "summary": "In trial week, communicating with client on Slack",
+   "summary": "Candidate on Slack for trial week, talking to Rami Saleem",
    "call_date": "2026-10-07"
   },
   "recShEsxmKeiSmPTf": {
@@ -38,59 +42,55 @@
    "call_date": "2026-10-19"
   },
   "receMaMD4n4qGExHJ": {
-   "summary": "Spoke to client today, went well",
-   "call_date": null
+   "summary": "Florian replied confirming new booking link sent",
+   "call_date": "2026-10-16"
   },
   "recePvB3m4hW9f2ix": {
-   "summary": "Waiting for client to send correct booking link",
+   "summary": "Need to get correct booking link from client",
    "call_date": null
   },
   "recfGfgbkGs8ehuVb": {
-   "summary": "Works with designer on briefs, confirmed full-time role",
+   "summary": "Candidate confirmed design brief role, works with designer, full-time OK",
    "call_date": null
   },
   "recfuMGB1ba6igsS8": {
-   "summary": "Interview went well, waiting to hear back",
-   "call_date": "2026-10-19"
+   "summary": "Mentioned hiking trip, could start early November, check availability",
+   "call_date": null
   },
   "rechslCsYNwi09G9j": {
-   "summary": "Trial not submitted, withdrawal if no reply by Oct 21",
+   "summary": "Trial not submitted, threatened withdrawal if no reply by Wed 21",
    "call_date": null
   },
   "recil3iTr15r4NuXR": {
-   "summary": "Second call not booked, gave deadline for yes or no",
+   "summary": "Request for someone else to contact candidate",
    "call_date": "2026-10-09"
   },
   "recjEHyMCNTdQWoHa": {
-   "summary": "Interview completed 2 days ago, went great",
-   "call_date": "2026-10-12"
+   "summary": "Duplicate Airtable record noted for candidate",
+   "call_date": null
   },
   "recpJ63egFNp5Qahx": {
-   "summary": "Booked second interview for Wed Oct 21 at 1:30pm CEST",
+   "summary": "Candidate booked second call for Wed 13:30-14:00 CEST Madrid",
    "call_date": "2026-10-21"
   },
   "recsScx5rVGPKqLFF": {
-   "summary": "Assessment revision now with Maggie's Tanks for review",
+   "summary": "Assessment revision received and forwarded to client for review",
    "call_date": null
   },
   "recu8JgCreDHp2mxR": {
-   "summary": "Received counteroffer, salary below expectations",
-   "call_date": "2026-10-09"
+   "summary": "Asked to clarify salary banding misalignment, counteroffer submitted",
+   "call_date": "2026-10-08"
   },
   "recv8H8IaIcQAk6lm": {
-   "summary": "Trial submitted to Daniel with two video versions",
+   "summary": "Trial with two versions submitted to Daniel with invoice",
    "call_date": null
   },
   "recwAMDDFVYVGcYAF": {
-   "summary": "Interview with Dori on Oct 12, awaiting feedback",
+   "summary": "Candidate withdrew after interview, work style expectations misaligned",
    "call_date": "2026-10-12"
   },
-  "recyfSFKyKWItbAsX": {
-   "summary": "Trial submitted with both hooks complete",
-   "call_date": null
-  },
   "reczm11MUVoekMNDj": {
-   "summary": "Trial submitted with hooks only, body scripts missing",
+   "summary": "Trial hooks submitted, questions about missing body scripts",
    "call_date": null
   }
  }
