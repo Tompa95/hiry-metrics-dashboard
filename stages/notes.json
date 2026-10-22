@@ -1,92 +1,108 @@
 {
- "generated": "2026-10-21 08:20",
+ "generated": "2026-10-22 08:03",
  "notes": {
   "rec18yFxCayLiXYox": {
-   "summary": "Sent Luke the final-call booking link and asked him to book the earliest slot today",
+   "summary": "Sent final-call booking link; asked Luke to book earliest slot today and reply with details.",
    "call_date": null
   },
   "rec2kjC6RXyc1swWb": {
-   "summary": "Interview booked for Friday 23 Oct at 10:00 AM EST, confirmed by candidate by email",
+   "summary": "Interview booked for Fri 23 Oct, 10:00 AM EST; candidate confirmed by email.",
    "call_date": "2026-10-23"
   },
   "rec6pyEW9rbOVtkvw": {
-   "summary": "Flagged a duplicate Airtable record for this candidate on the same placement",
+   "summary": "Correction: check-in with César not yet sent; drafted to confirm he contacted Lukas.",
    "call_date": null
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Interview with Daan was 30 Sep, followed up by email and WhatsApp, waiting on feedback",
+   "summary": "Followed up on Daan interview (30 Sep) by email and WhatsApp; awaiting feedback.",
    "call_date": "2026-09-30"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Followed up on the assessment with no new update recorded",
+   "summary": "Followed up on the assessment.",
    "call_date": "2026-10-06"
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "Followed up on the assessment with no new update recorded",
+   "summary": "Trial going well with Gard Pro team per email (20 Oct); will reach out if needed.",
    "call_date": "2026-09-22"
   },
   "recHV0km3E0eUCuaE": {
-   "summary": "Sent email confirming we received her assessment and passed it to the team",
+   "summary": "Sent email confirming receipt of assessment submission, passed on to the team.",
    "call_date": null
   },
   "recNx3cqY0XtKdp3G": {
-   "summary": "Client got a reply from Stephanie and will try to schedule a feedback call this week",
+   "summary": "Client says Stephanie replied and will schedule a call this week for phone feedback.",
    "call_date": "2026-10-07"
   },
   "recQsIL9TAZjFpMm2": {
-   "summary": "Sent the interview booking link and asked him to reply with date, time and timezone",
-   "call_date": null
+   "summary": "Booked Fri 23 Oct, 9:45-10:30 Madrid time; he confirmed by email.",
+   "call_date": "2026-10-23"
   },
   "recRhEhd5B17SyilX": {
-   "summary": "Says he is on Slack with the client for the trial week and talking to Rami Saleem",
+   "summary": "He says he is on Slack with the client; we should check Rami is the right contact.",
    "call_date": "2026-10-07"
   },
   "recShEsxmKeiSmPTf": {
-   "summary": "Candidate confirmed by email the interview took place, moved to Interview Completed",
+   "summary": "Candidate confirmed interview took place (email, 19 Oct); status moved to Interview Completed.",
    "call_date": "2026-10-19"
   },
+  "recTGqyw7vMLCexPl": {
+   "summary": "",
+   "call_date": null
+  },
+  "recTziNaOZ2gCd772": {
+   "summary": "",
+   "call_date": null
+  },
+  "recWTNokxpxf9dLuk": {
+   "summary": "",
+   "call_date": null
+  },
   "receMaMD4n4qGExHJ": {
-   "summary": "Candidate replied no worries to the new booking link, no rebooked call yet",
-   "call_date": "2026-10-05"
+   "summary": "Florian's email (14 Oct) replied 'No worries, thanks for the update' to the new booking link.",
+   "call_date": null
   },
   "recePvB3m4hW9f2ix": {
-   "summary": "Still waiting on the correct booking link from the client, who wants to book manually",
+   "summary": "Still need the correct link from the client; he wants to book manually.",
    "call_date": null
   },
   "recfGfgbkGs8ehuVb": {
-   "summary": "Sent her portfolio and said designer Lance would handle the design side",
+   "summary": "Sent portfolio (20 Oct); says designer Lance would work on designs if selected.",
    "call_date": null
   },
   "recfuMGB1ba6igsS8": {
-   "summary": "Told Thomas the call went well and asked for his availability and earliest start date",
+   "summary": "Says he's finishing current trials, could start first week of November; will reply next week.",
    "call_date": null
   },
   "recil3iTr15r4NuXR": {
-   "summary": "Candidate replied to Abby, and team asked to check how her interview went yesterday",
-   "call_date": "2026-10-09"
+   "summary": "Erina says she had her second call with the client; Abby is asking how it went.",
+   "call_date": "2026-10-20"
   },
   "recjEHyMCNTdQWoHa": {
-   "summary": "Flagged a duplicate Airtable record for this candidate on the same placement",
+   "summary": "Flagged Airtable duplicate record for this candidate on the same placement.",
    "call_date": "2026-10-12"
   },
+  "reckFf7Ehxe1RSxj1": {
+   "summary": "Said yes to the offer (19 Oct) after reading the JD; shared portfolio link.",
+   "call_date": null
+  },
   "recpJ63egFNp5Qahx": {
-   "summary": "Sent Maria a good-luck note before her 13:30 call today and asked for an update",
+   "summary": "Sent good-luck note before her 13:30 call on 21 Oct; asked for an update after.",
    "call_date": "2026-10-21"
   },
   "recsScx5rVGPKqLFF": {
-   "summary": "Thanked him for the revision and said it is now with Maggie's Tanks for review",
+   "summary": "Replied to Sudhanshu (20 Oct) confirming his revision is now with Maggie's Tanks for review.",
    "call_date": null
   },
   "recu8JgCreDHp2mxR": {
-   "summary": "Logged his salary banding pushback from 13 Oct and his Notion counteroffer link",
+   "summary": "Andre's salary banding query (13 Oct) and his counteroffer, shared via Notion.",
    "call_date": "2026-10-08"
   },
   "recv8H8IaIcQAk6lm": {
-   "summary": "Logged his trial submission to Daniel on 16 Oct, Hiry cc'd, with the $100 invoice",
+   "summary": "Trial submitted to Daniel (16 Oct, 21:00 SAST) with two video versions and invoice.",
    "call_date": null
   },
   "recwAMDDFVYVGcYAF": {
-   "summary": "Correction logged, she stays at Interview Completed rather than moving to Ghosted/Failed",
+   "summary": "Correction: status kept at Interview Completed, not moved to 096.",
    "call_date": "2026-10-12"
   }
  }
