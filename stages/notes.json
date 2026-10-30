@@ -1,44 +1,48 @@
 {
- "generated": "2026-10-30 07:36",
+ "generated": "2026-10-30 08:56",
  "notes": {
   "rec0xVuehd9prfeQ3": {
-   "summary": "Followed up by email on how his Elm and Herb interview went.",
+   "summary": "Followed up by email on how his Elm & Herb interview went",
    "call_date": "2026-10-28"
   },
   "rec10y8D3oMgljS3Z": {
-   "summary": "Sent the interview booking link and asked him to reply with date, time and timezone.",
+   "summary": "Sent Rostyslav the interview booking link and asked him to reply with date, time and timezone",
+   "call_date": null
+  },
+  "rec1dqn0NHZKVo0FX": {
+   "summary": "Internal team chat about finishing up, no candidate update",
    "call_date": null
   },
   "rec2kjC6RXyc1swWb": {
-   "summary": "Emailed him that the team is checking on his Pestlab test.",
+   "summary": "Emailed Matthew that the team is checking on his Pestlab test",
    "call_date": "2026-10-23"
   },
   "rec4TPTXl1dDtWF0e": {
-   "summary": "Confirmed his Elm and Herb interview took place and said we will update once the client responds.",
+   "summary": "Confirmed his Elm & Herb interview took place and we will be in touch once the client replies",
    "call_date": "2026-10-26"
   },
   "rec5ILNuqwKgWsBhj": {
-   "summary": "Rumi invite on hold until Tom approves, as Fernanda is in another client process.",
+   "summary": "Rumi invite on hold until Tom approves, as Fernanda is in another client's process",
    "call_date": null
   },
   "rec6kTGOGVIVrzyEc": {
-   "summary": "Confirmed her Hume interview for Mon 2 Nov and wished her luck.",
+   "summary": "Confirmed her Hume interview for Mon 2 Nov at 4:00 PM Vilnius time and wished her luck",
    "call_date": "2026-11-02"
   },
   "recA7PvZ0JeFMHOhS": {
-   "summary": "Followed up by email and WhatsApp for Daan's feedback after the interview; still waiting.",
+   "summary": "Following up on Pelsbarn feedback from Daan's interview, still waiting on it",
    "call_date": "2026-09-30"
   },
   "recBKJgZptS6NLroI": {
-   "summary": "Sent the Rumi interview invite with booking link and asked for date and timezone.",
+   "summary": "Sent Shoaib the Rumi interview booking link and asked for date, time and timezone",
    "call_date": null
   },
   "recCiGEBMngbNb1aB": {
-   "summary": "Told him the client is reviewing and asked to be kept updated; moved to Interview Completed.",
+   "summary": "Emailed Maaz that the client is reviewing and asked him to update us if he hears directly",
    "call_date": "2026-10-27"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Followed up to check whether the Pestlab trial task reached him.",
+   "summary": "Followed up with Martin on whether the Pestlab trial task reached him",
    "call_date": "2026-10-06"
   },
   "recEphnsL6IIkX6hA": {
@@ -46,71 +50,63 @@
    "call_date": null
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "Replied to her trial update and said we are here if she needs anything.",
+   "summary": "Replied to Desserie's trial update and told her we are here if she needs anything",
    "call_date": "2026-09-22"
   },
   "recHFQM3nckTX0m4j": {
-   "summary": "Booked Rumi interview for Wed 4 Nov after WhatsApp follow-up; moved to Interview Scheduled.",
+   "summary": "Siim booked his Rumi interview for Wed 4 Nov at 1:30 PM CET and I wished him luck",
    "call_date": "2026-11-04"
   },
   "recKVwJ49hAlqBVpL": {
-   "summary": "Pestlab invite on hold until Tom approves, as Fernanda is in the TernSetups process.",
+   "summary": "Pestlab invite on hold until Tom approves, as Fernanda is in the TernSetups process",
    "call_date": null
   },
-  "recNmaygSo8RWWLnU": {
-   "summary": "Told him Rumi is reviewing everyone and will be in touch about a second round.",
-   "call_date": "2026-10-29"
-  },
   "recO0424tGycCy0B1": {
-   "summary": "Assessment submitted; moved to Assessment Completed.",
+   "summary": "Enkela submitted her assessment and the record moved to Assessment Completed",
    "call_date": null
   },
   "recOJGkSg1bHgIYDO": {
-   "summary": "Told him Elm and Herb is reviewing candidates and will be in touch if they proceed.",
+   "summary": "Replied after Randolph's interview, Elm & Herb is reviewing and will be in touch",
    "call_date": "2026-10-29"
   },
   "recOYpCtFTLjijYZF": {
-   "summary": "Replied after Elm and Herb call and advised caution about an unverified unpaid trial offer.",
+   "summary": "Replied after his Elm & Herb call and advised caution on the unpaid trial offer",
    "call_date": "2026-10-27"
   },
   "recQsIL9TAZjFpMm2": {
-   "summary": "Confirmed interview took place; asked team to chase Elm and Herb for feedback.",
+   "summary": "Confirmed his Elm & Herb interview took place and asked the team to check for feedback",
    "call_date": "2026-10-23"
   },
   "recRUOZSLCPl3oRDc": {
-   "summary": "Asked whether his Rumi interview has happened and for the date, time and timezone.",
+   "summary": "Emailed John asking whether his Rumi interview has happened and for date, time and timezone",
    "call_date": null
   },
   "recShEsxmKeiSmPTf": {
-   "summary": "Candidate confirmed interview took place on 19 Oct; moved to Interview Completed.",
+   "summary": "Candidate confirmed the Lion Advisory interview took place on 19 Oct",
    "call_date": "2026-10-19"
   },
-  "recTGqyw7vMLCexPl": {
-   "summary": "Followed up by email on how her Rumi interview went.",
-   "call_date": "2026-10-28"
-  },
   "recTRWBJYIrCPs4zn": {
-   "summary": "Asked her which day and time the Elm and Herb interview took place, with timezone.",
+   "summary": "Emailed Kimberly asking which day and time her Elm & Herb interview took place",
    "call_date": "2026-10-28"
   },
   "recTziNaOZ2gCd772": {
-   "summary": "Sent prep email asking salary expectations and long-term goals before today's call.",
+   "summary": "Sent Fernanda a prep email before today's TernSetups call, asking for salary and long-term goals",
    "call_date": "2026-10-30"
   },
   "recUz8jZLQrmatkIU": {
-   "summary": "Moved to Interview Completed; she awaits a task brief and CEO interview.",
+   "summary": "Laiba completed her Andor Willow interview and is expecting a task brief and a CEO interview",
    "call_date": "2026-10-28"
   },
   "recWLTzWHTCeBo36T": {
-   "summary": "Followed up by email on how his Rumi interview went on Wed 28 Oct.",
+   "summary": "Followed up by email on how his Rumi interview went",
    "call_date": "2026-10-28"
   },
   "recWTNokxpxf9dLuk": {
-   "summary": "Followed up on how his Selene call went on 29 Oct.",
+   "summary": "Post-call email says the Selene lead will reach out within 24 hours if he is a fit",
    "call_date": "2026-10-29"
   },
   "recX5kj728TL6e7IK": {
-   "summary": "Followed up by email on how her Elm and Herb interview went.",
+   "summary": "Followed up by email on how her Elm & Herb interview went",
    "call_date": "2026-10-28"
   },
   "recXFtXdTOCtOZxSN": {
@@ -118,71 +114,71 @@
    "call_date": null
   },
   "recYsCprfsQJhYCiv": {
-   "summary": "Said yes to the offer.",
+   "summary": "Said yes to the offer",
    "call_date": null
   },
   "recYuXGNlesfhkGWY": {
-   "summary": "Gareth confirmed Tue 3 Nov at 12:15 GMT and asked if the client is open to fractional.",
+   "summary": "Gareth confirmed Tue 3 Nov at 12:15 GMT and asked if Rumi is open to fractional",
    "call_date": "2026-11-03"
   },
   "rece9f8uz0ule0svo": {
-   "summary": "Confirmed part-time 20 hrs; pay range weighed against her current $3,000 per month.",
+   "summary": "Maria confirmed part-time 20 hrs, open question is whether the $2,000 to $4,000 range works against her $3,000 current pay",
    "call_date": null
   },
   "receMaMD4n4qGExHJ": {
-   "summary": "Florian says Lion's client stays hands-on, so delegating to senior profiles is uncertain.",
-   "call_date": "2026-10-16"
-  },
-  "recePvB3m4hW9f2ix": {
-   "summary": "Sent WhatsApp follow-up with the booking link and asked for date, time and timezone.",
-   "call_date": null
+   "summary": "Florian's feedback: client is still hands-on on their side and may struggle to delegate",
+   "call_date": "2026-10-15"
   },
   "recfuMGB1ba6igsS8": {
-   "summary": "Rumi agreed to a test period; waiting on Thomas's exact start date for Tom to confirm.",
-   "call_date": null
+   "summary": "Rumi call went well and they want a test period, Thomas is checking his start date",
+   "call_date": "2026-10-20"
   },
   "recjEHyMCNTdQWoHa": {
-   "summary": "Faisal says the $4,000 flat offer is too low; he countered and has not heard back.",
+   "summary": "Faisal says Lion's offer is too low and he has not heard back since countering",
    "call_date": "2026-10-12"
   },
   "reckFf7Ehxe1RSxj1": {
-   "summary": "Confirmed interview took place; asked team to check in with Elm and Herb for feedback.",
+   "summary": "Confirmed his Elm & Herb interview took place and asked the team to check for feedback",
    "call_date": "2026-10-23"
+  },
+  "recmZe2LN2iRtlk0y": {
+   "summary": "",
+   "call_date": null
   },
   "recmyl1XCNqPrzBjl": {
    "summary": "",
    "call_date": null
   },
   "recpaWyLRZlHKfZCA": {
-   "summary": "Thanked her for portfolio and AI samples and wished her luck on the 250 LLC test.",
+   "summary": "Thanked Joan for her portfolio and AI samples and wished her luck on the 250 LLC test project",
    "call_date": null
   },
   "recsXca6RcZAQlQ2F": {
-   "summary": "Trial submitted to the client on 28 Oct; moved to Assessment Completed.",
+   "summary": "Trial submitted to Lukáš on 28 Oct and moved to Assessment Completed",
    "call_date": null
   },
   "recuVOCBBUXeNxd4e": {
-   "summary": "Sent reminder and good-luck note for today's Elm and Herb interview at 1:30 PM CET.",
+   "summary": "Sent Matija a reminder and good-luck note for today's Elm & Herb interview at 1:30 PM CET",
    "call_date": "2026-10-30"
   },
   "recuewcs2RlPDhlQu": {
-   "summary": "Confirmed his interview took place; will update once the client responds; moved to Interview Completed.",
+   "summary": "Confirmed Tajdar's Elm & Herb interview took place and will follow up once the client replies",
    "call_date": "2026-10-26"
   },
   "recv8H8IaIcQAk6lm": {
-   "summary": "Emailed that Venom liked his trial and asked if he has accepted anything elsewhere.",
+   "summary": "Emailed Kunal that Venom liked his trial and asked if he has accepted anything elsewhere",
    "call_date": null
   },
   "recvPlCaa3Ib77TlB": {
-   "summary": "Asked what happened on the missed Tuesday call before going back to Selene about rebooking.",
+   "summary": "Following up on the missed Selene call, asking what happened before rebooking with the client",
    "call_date": "2026-10-27"
   },
   "recwAMDDFVYVGcYAF": {
-   "summary": "Thanked her for explaining her withdrawal; asked for her presentation for her profile.",
+   "summary": "Thanked Sofya for explaining why she withdrew and asked for her presentation for her profile",
    "call_date": "2026-10-12"
   },
   "recwgZ0a1MInL2Q3j": {
-   "summary": "Confirmed Rumi interview for Tue 3 Nov, 3:30 PM IST with Maksis; wished him luck.",
+   "summary": "Confirmed Anurag's Rumi interview for Tue 3 Nov at 3:30 PM IST and wished him luck",
    "call_date": "2026-11-03"
   }
  }
