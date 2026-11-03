@@ -303,7 +303,7 @@ def candidate_row(r, base):
     ) + note_line(r) + '</div>'
 
 
-def render(rows, n_roles, base, run_label="morning run", notes_source="", repo=""):
+def render(rows, n_roles, base, run_label="updated", notes_source="", repo=""):
     by_status = {}
     for r in rows:
         by_status.setdefault(r["status"], []).append(r)
@@ -443,7 +443,7 @@ def main():
     for r in rows:
         if notes:
             r["note"] = notes.get(r["id"], {"summary": "", "date": None, "when": None})
-    run_label = "manual refresh" if manual else "morning run"
+    run_label = "refreshed from GitHub" if manual else "updated"
     counts = {label: sum(1 for r in rows if r["status"] in {s for s, _ in subs})
               for _, label, _, subs in STAGES}
     rd.log("Stage board: %d candidates on %d active roles %s" % (len(rows), n_roles, counts))
