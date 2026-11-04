@@ -1,168 +1,250 @@
 {
- "generated": "2026-11-04 07:47",
+ "generated": "2026-11-04 09:07",
  "notes": {
   "rec0xVuehd9prfeQ3": {
-   "summary": "Followed up by email on how his Elm & Herb interview went (30 Oct).",
+   "summary": "Followed up by email on how his Elm & Herb interview went.",
+   "source": "airtable",
+   "update_date": "2026-10-30",
    "call_date": "2026-10-28"
   },
   "rec1dqn0NHZKVo0FX": {
-   "summary": "Sent new 60-min Everstride booking link on 2 Nov after the old link broke.",
+   "summary": "Sent the new 60-min Everstride booking link and asked for his date and time.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "rec2kjC6RXyc1swWb": {
-   "summary": "Checked on Pestlab test; he had not received it yet (30 Oct reply).",
+   "summary": "Test task hasn't reached him; Tom asked client to share it so he can send it today.",
+   "source": "slack",
+   "update_date": "2026-11-02",
    "call_date": "2026-10-23"
   },
   "rec3uk7sISLIJgy22": {
-   "summary": "Interview invite sent 2 Nov; awaiting her date, time and timezone.",
+   "summary": "Hydrohealth interview invite sent 2 Nov; waiting for her date, time and timezone.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "rec4TPTXl1dDtWF0e": {
-   "summary": "Confirmed his interview took place; client to come back with next steps.",
+   "summary": "Included in Tom's Elm & Herb snapshot: interviews done, asking which candidates to advance.",
+   "source": "slack",
+   "update_date": "2026-10-29",
    "call_date": "2026-10-26"
   },
   "rec6kTGOGVIVrzyEc": {
-   "summary": "Replied on salary question, suggested discussing package with Elie today, asked for CV.",
+   "summary": "Tom asked Elie Dib how her Hume interview went, to plan next steps.",
+   "source": "slack",
+   "update_date": "2026-11-04",
    "call_date": "2026-11-02"
   },
   "rec9ZrBof7hFFXuNQ": {
-   "summary": "Said yes to the offer (30 Oct), moved to Offer Approved.",
+   "summary": "Said yes to the AI Video Editor role on 30 Oct; moved to Offer Approved.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "recBKJgZptS6NLroI": {
-   "summary": "Checked his interview email arrived and re-shared the Rumi booking link.",
+   "summary": "Followed up on his interview email and re-shared the Rumi booking link.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "recBTXbpab52N7YCn": {
-   "summary": "Told her the role is full-time; her profile goes forward with part-time requirement noted.",
+   "summary": "Told freelance/part-time only; her profile goes to Rumi with that requirement stated.",
+   "source": "airtable",
+   "update_date": "2026-10-29",
    "call_date": null
   },
   "recCiGEBMngbNb1aB": {
-   "summary": "Confirmed his Elm & Herb interview took place; client reviewing, asked to be kept updated.",
+   "summary": "Included in Tom's Elm & Herb snapshot: interviews done, asking which candidates to advance.",
+   "source": "slack",
+   "update_date": "2026-10-29",
    "call_date": "2026-10-27"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Thanked Martin for his update and said we will leave things with him and Pestlab.",
+   "summary": "Thanked Martin and told him we'll leave things with him and Pestlab, as he asked.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": "2026-10-06"
   },
   "recFcAtnCKxCAYpd0": {
-   "summary": "Interview invite sent 2 Nov; awaiting her date, time and timezone.",
+   "summary": "Tom told Ani Mishra that Natasha is booked for her Hume interview.",
+   "source": "slack",
+   "update_date": "2026-11-03",
    "call_date": null
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "Replied to her trial update; she says the trial is running smoothly.",
+   "summary": "Tom asked Gard Pro for a verdict; her trial has run about 18 days against a 2-week max.",
+   "source": "slack",
+   "update_date": "2026-10-30",
    "call_date": "2026-09-22"
   },
   "recHFQM3nckTX0m4j": {
-   "summary": "Cancelled his Wed 4 Nov Rumi call; encouraging him to rebook another time.",
+   "summary": "Cancelled his Wed 4 Nov Rumi call, citing Black Friday workload; we're encouraging a rebook.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "recO0424tGycCy0B1": {
-   "summary": "Thanked her for the trial video and promised an update once there is news.",
+   "summary": "Thanked her for the trial video and said we'll update her when we hear back.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "recOJGkSg1bHgIYDO": {
-   "summary": "Asked about new video editor openings and any client feedback on his application (31 Oct).",
+   "summary": "Emailed 31 Oct asking for new video editor openings and feedback from Elm & Herb.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": "2026-10-29"
   },
   "recRUOZSLCPl3oRDc": {
-   "summary": "Asked whether his Rumi interview has happened and for the date and timezone.",
-   "call_date": null
+   "summary": "Maksis said he has calls today with John and Hakim.",
+   "source": "slack",
+   "update_date": "2026-10-30",
+   "call_date": "2026-10-30"
   },
   "recUO5BQ15bmpXmPY": {
-   "summary": "Interview invite sent 2 Nov; awaiting his date, time and timezone.",
+   "summary": "Hydrohealth interview invite sent 2 Nov; waiting for his date, time and timezone.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
+  "recWLTzWHTCeBo36T": {
+   "summary": "Tom says Hakim's call moved to a new link and he met Maksis Friday.",
+   "source": "slack",
+   "update_date": "2026-11-04",
+   "call_date": "2026-10-30"
+  },
   "recXFtXdTOCtOZxSN": {
-   "summary": "",
+   "summary": "Sent the correct Slack community invite link after the earlier one expired.",
+   "source": "candidate",
+   "update_date": "2026-10-20",
    "call_date": null
   },
   "recYO1MTYapiqtEEV": {
-   "summary": "",
+   "summary": "Added as Creative Strategist candidate; intro bot summary posted and feedback requested.",
+   "source": "slack",
+   "update_date": "2026-11-03",
    "call_date": null
   },
   "recYsCprfsQJhYCiv": {
-   "summary": "Client has not yet shared their updated calendar link.",
+   "summary": "Client has not yet shared its updated calendar link.",
+   "source": "airtable",
+   "update_date": "2026-10-30",
+   "call_date": null
+  },
+  "rece9f8uz0ule0svo": {
+   "summary": "Client says she's possible, strong on creative pipeline with a Meta gap; worth a practical test.",
+   "source": "slack",
+   "update_date": "2026-10-28",
+   "call_date": null
+  },
+  "recepqxqiSVnqO6PR": {
+   "summary": "Tom said he's chasing Santiago after Harry found nothing on his calendar.",
+   "source": "slack",
+   "update_date": "2026-11-03",
+   "call_date": null
+  },
+  "recfuMGB1ba6igsS8": {
+   "summary": "Client asked for Thomas's status and whether he can start testing next week.",
+   "source": "slack",
+   "update_date": "2026-11-03",
+   "call_date": null
+  },
+  "recik9hpwYi8Oq1rv": {
+   "summary": "Hydrohealth interview invite sent 2 Nov; waiting for his date, time and timezone.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
+   "call_date": null
+  },
+  "recmZe2LN2iRtlk0y": {
+   "summary": "Emailed new 60-min Everstride link; he says he booked Wed 4 Nov 1 PM CET.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
+   "call_date": "2026-11-04"
+  },
+  "recmvnCL4LYnym72e": {
+   "summary": "Tom asked client if Shahroze's 12:30 Pakistan time call went ahead today.",
+   "source": "slack",
+   "update_date": "2026-11-04",
+   "call_date": "2026-11-04"
+  },
+  "recowK4nTlUW0DDcn": {
+   "summary": "Tom said he'll get Darren onto the client's Calendly and confirm once booked.",
+   "source": "slack",
+   "update_date": "2026-11-02",
+   "call_date": null
+  },
+  "recpitEvhGM0FRbYO": {
+   "summary": "Tom said Elvis is approved under Sr Media Buyer and is getting booked.",
+   "source": "slack",
+   "update_date": "2026-10-29",
+   "call_date": null
+  },
+  "recqWPSoxuH6YgfE1": {
+   "summary": "Tom told Harry H he's booking Lewis onto Impact's calendar now.",
+   "source": "slack",
+   "update_date": "2026-11-03",
+   "call_date": null
+  },
+  "recsXca6RcZAQlQ2F": {
+   "summary": "Emailed on 30 Oct chasing his submitted assignment and asking for a Luxe status update.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
+   "call_date": null
+  },
+  "recuVOCBBUXeNxd4e": {
+   "summary": "Followed up asking how his Friday Elm & Herb interview went.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
+   "call_date": "2026-10-30"
+  },
+  "recuewcs2RlPDhlQu": {
+   "summary": "Included in Tom's Elm & Herb snapshot: interviews done, asking which candidates to advance.",
+   "source": "slack",
+   "update_date": "2026-10-29",
+   "call_date": "2026-10-26"
+  },
+  "recv8H8IaIcQAk6lm": {
+   "summary": "Emailed Venom Scent on 31 Oct chasing his $100 invoice and adding PayPal details.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
+   "call_date": null
+  },
+  "recvPlCaa3Ib77TlB": {
+   "summary": "Asked on 30 Oct to rebook his missed Selene call; rebooking is for Tom and Selene.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
+   "call_date": null
+  },
+  "recx1FJDk3aFspUGa": {
+   "summary": "Booked an intro call with Sinead for 21 Sep 2026.",
+   "source": "candidate",
+   "update_date": "2026-09-16",
+   "call_date": "2026-09-21"
+  },
+  "recxGfe4mbXMsWNbx": {
+   "summary": "Hydrohealth interview invite sent 2 Nov; waiting for her date, time and timezone.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "recYuXGNlesfhkGWY": {
-   "summary": "Confirmed his Rumi interview and suggested he raise the fractional question directly.",
+   "summary": "Confirmed his Rumi interview; suggested he raise the fractional question directly with them.",
+   "source": "airtable",
+   "update_date": "2026-11-02",
    "call_date": "2026-11-03"
   },
   "recbAotse7XkgqjTw": {
    "summary": "",
+   "source": null,
+   "update_date": null,
    "call_date": null
   },
   "recc2bnuBS1CEx7ro": {
    "summary": "",
-   "call_date": null
-  },
-  "rece9f8uz0ule0svo": {
-   "summary": "Confirmed part-time 20 hrs; pay question open against her $3,000/month current salary.",
-   "call_date": null
-  },
-  "recepqxqiSVnqO6PR": {
-   "summary": "Interview request on hold: Zoom link is masked, so a real link or booking page is needed.",
-   "call_date": null
-  },
-  "recfuMGB1ba6igsS8": {
-   "summary": "Asked him to confirm his exact November start date and salary expectations with Rumi.",
-   "call_date": null
-  },
-  "recik9hpwYi8Oq1rv": {
-   "summary": "Interview invite sent 2 Nov; awaiting his date, time and timezone.",
-   "call_date": null
-  },
-  "recmZe2LN2iRtlk0y": {
-   "summary": "Emailed him Charlie's new 60-min Everstride booking link.",
-   "call_date": "2026-11-04"
-  },
-  "recmvnCL4LYnym72e": {
-   "summary": "",
-   "call_date": null
-  },
-  "recowK4nTlUW0DDcn": {
-   "summary": "",
-   "call_date": null
-  },
-  "recpaWyLRZlHKfZCA": {
-   "summary": "Thanked her for samples and wished her luck on the 250 LLC test project.",
-   "call_date": null
-  },
-  "recpitEvhGM0FRbYO": {
-   "summary": "Sent his yes reply; profile goes to the client for consideration, record at 06.",
-   "call_date": null
-  },
-  "recqWPSoxuH6YgfE1": {
-   "summary": "Said yes to the offer (31 Oct), moved to Offer Approved.",
-   "call_date": null
-  },
-  "recsXca6RcZAQlQ2F": {
-   "summary": "Chasing for an update on his assignment submitted 4 days earlier (30 Oct).",
-   "call_date": null
-  },
-  "recuVOCBBUXeNxd4e": {
-   "summary": "Followed up to ask how his Friday Elm & Herb interview went.",
-   "call_date": "2026-10-30"
-  },
-  "recuewcs2RlPDhlQu": {
-   "summary": "Confirmed his interview took place; client will be in touch after hearing back.",
-   "call_date": "2026-10-26"
-  },
-  "recv8H8IaIcQAk6lm": {
-   "summary": "Followed up on his USD 100 invoice and added PayPal payment details (31 Oct).",
-   "call_date": null
-  },
-  "recvPlCaa3Ib77TlB": {
-   "summary": "Missed Tuesday's call and asked to rebook; rebooking is for Tom and Selene to decide.",
-   "call_date": null
-  },
-  "recx1FJDk3aFspUGa": {
-   "summary": "",
-   "call_date": null
-  },
-  "recxGfe4mbXMsWNbx": {
-   "summary": "Interview invite sent 2 Nov; awaiting her date, time and timezone.",
+   "source": null,
+   "update_date": null,
    "call_date": null
   }
  }
