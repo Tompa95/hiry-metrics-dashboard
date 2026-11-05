@@ -1,248 +1,218 @@
 {
- "generated": "2026-11-04 09:13",
+ "generated": "2026-11-05 08:47",
  "notes": {
   "rec0xVuehd9prfeQ3": {
-   "summary": "Followed up by email on how the Elm & Herb interview went",
+   "summary": "Followed up by email on how his Elm & Herb interview went.",
    "source": "airtable",
    "update_date": "2026-10-30",
    "call_date": "2026-10-28"
   },
   "rec1dqn0NHZKVo0FX": {
-   "summary": "Sent the new 60-minute Everstride booking link on 2 Nov and moved to Link Sent",
+   "summary": "Status moved to Link Sent; new 60-min Everstride booking link sent 2 Nov.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "rec2kjC6RXyc1swWb": {
-   "summary": "Tom asked for the test task deadline and comp so it can go out today",
+   "summary": "Matthew says the Pestlab test still hasn't reached him; Tom asked for deadline and pay.",
    "source": "slack",
    "update_date": "2026-11-02",
-   "call_date": null
+   "call_date": "2026-10-23"
   },
   "rec3uk7sISLIJgy22": {
-   "summary": "Hydrohealth interview invite sent 2 Nov, moved to Link Sent, awaiting date and time",
+   "summary": "Hydrohealth interview invite sent 2 Nov with booking link; asked for date and time.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "rec4TPTXl1dDtWF0e": {
-   "summary": "Tom asked Reinis and Kaspars for a read on the five interviewed editors and who moves forward",
+   "summary": "Tom asked Reinis and Kaspars which of the five interviewed editors, including Kunal, should move forward.",
    "source": "slack",
    "update_date": "2026-10-31",
    "call_date": "2026-10-26"
   },
   "rec6kTGOGVIVrzyEc": {
-   "summary": "Tom asked Elie Dib how Aiste's interview went so they can plan next steps",
+   "summary": "Tom asked Elie Dib how Aiste's interview went, so they can plan next steps.",
    "source": "slack",
    "update_date": "2026-11-04",
    "call_date": "2026-11-02"
   },
   "rec9ZrBof7hFFXuNQ": {
-   "summary": "Maksis asked Tom for Darren's calendar and Tom replied it was sent",
-   "source": "slack",
-   "update_date": "2026-11-03",
-   "call_date": null
-  },
-  "recBKJgZptS6NLroI": {
-   "summary": "Followed up on whether the interview email arrived, re-shared the Rumi link and asked for a time",
+   "summary": "Replied yes by email (30 Oct) that the job sounds interesting; moved to Offer Approved.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
+  "recBKJgZptS6NLroI": {
+   "summary": "Maksis says yesterday's call went really well and an offer has been sent.",
+   "source": "slack",
+   "update_date": "2026-11-05",
+   "call_date": "2026-11-04"
+  },
   "recBTXbpab52N7YCn": {
-   "summary": "Told Charlotte the role is full-time and the profile goes forward with the part-time requirement stated",
+   "summary": "Told Charlotte the role is full-time; her part-time/freelance requirement goes to Rumi.",
    "source": "airtable",
    "update_date": "2026-10-29",
    "call_date": null
   },
   "recCiGEBMngbNb1aB": {
-   "summary": "Tom asked Reinis and Kaspars for a read on the five interviewed editors and who moves forward",
+   "summary": "Tom asked Reinis and Kaspars who moves forward from five interviewed editors, Maaz included.",
    "source": "slack",
    "update_date": "2026-10-31",
    "call_date": "2026-10-27"
   },
   "recDOTITFaUhfEvt2": {
-   "summary": "Thanked Martin for the update and said we'll leave things with Martin and Pestlab",
+   "summary": "Thanked Martin for his update and said we'll leave things with him and Pestlab.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": "2026-10-06"
   },
   "recFcAtnCKxCAYpd0": {
-   "summary": "Tom told Ani Mishra that Natasha is booked, after Ani shared a calendar link",
+   "summary": "Tom told Ani Mishra that Natasha has booked the interview.",
    "source": "slack",
    "update_date": "2026-11-03",
    "call_date": null
   },
   "recFjT6e9dvIB8mIz": {
-   "summary": "Tom asked Gard Pro for an update on the trial, which has run about 18 days",
+   "summary": "Tom asked Gard Pro for a trial update; trial has run about 18 days, max 2 weeks.",
    "source": "slack",
    "update_date": "2026-10-30",
    "call_date": "2026-09-22"
   },
   "recHFQM3nckTX0m4j": {
-   "summary": "Cancelled the Rumi call for Wed 4 Nov, citing a heavy Black Friday schedule",
+   "summary": "Cancelled his Wed 4 Nov Rumi call on WhatsApp; we're encouraging him to rebook.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recO0424tGycCy0B1": {
-   "summary": "Thanked Enkela for the trial video and said we'll update once there is news",
-   "source": "airtable",
-   "update_date": "2026-10-30",
+   "summary": "Tom asked Lukas for his thoughts on Enkela's assessment, done for a few days.",
+   "source": "slack",
+   "update_date": "2026-11-04",
    "call_date": null
   },
   "recOJGkSg1bHgIYDO": {
-   "summary": "Randolph asked for new video editor openings and any Elm & Herb feedback on the application",
+   "summary": "Emailed on 31 Oct asking for new video editor roles and any client feedback on his application.",
    "source": "airtable",
-   "update_date": "2026-10-31",
+   "update_date": "2026-11-02",
    "call_date": "2026-10-29"
   },
   "recRUOZSLCPl3oRDc": {
-   "summary": "Client said they have calls today with John and Hakim",
+   "summary": "Maksis says he has calls with John and Hakim today.",
    "source": "slack",
    "update_date": "2026-10-30",
    "call_date": "2026-10-30"
   },
   "recUO5BQ15bmpXmPY": {
-   "summary": "Hydrohealth interview invite sent 2 Nov, moved to Link Sent, awaiting date and time",
+   "summary": "Hydrohealth interview invite sent 2 Nov with booking link; asked for date and time.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recWLTzWHTCeBo36T": {
-   "summary": "Tom told Maksis Hakim did meet on Friday and asked if it was a calendar mix up",
+   "summary": "Maksis wrote that Hakim is also coming on board after Shoaib's offer.",
    "source": "slack",
-   "update_date": "2026-11-04",
+   "update_date": "2026-11-05",
    "call_date": "2026-10-30"
   },
   "recXFtXdTOCtOZxSN": {
-   "summary": "Lukas asked Tom to send the trial task, and Tom replied sure will do",
+   "summary": "Lukas asked Tom to send Haider the trial task; Tom replied 'sure will do'.",
    "source": "slack",
    "update_date": "2026-10-25",
    "call_date": null
   },
-  "recYO1MTYapiqtEEV": {
-   "summary": "Intro Bot thread reply says Adrian has led creative strategy and copywriting across 10+ DTC brands",
-   "source": "slack",
-   "update_date": "2026-11-03",
-   "call_date": null
-  },
   "recYsCprfsQJhYCiv": {
-   "summary": "Tom told Cindy Cooper and Maria Jose are being booked into the Wed and Thu windows now",
+   "summary": "Tom told Cindy Petersen he's booking Cooper into her Wed 1-3 and Thu 11-1 EST windows.",
    "source": "slack",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recYuXGNlesfhkGWY": {
-   "summary": "Confirmed Gareth's Rumi interview for Tue 3 Nov and suggested raising the fractional question with the client directly",
+   "summary": "Confirmed his Rumi interview on Tue 3 Nov, 12:15 GMT; suggested he raise fractional question directly.",
    "source": "airtable",
-   "update_date": "2026-10-30",
+   "update_date": "2026-11-02",
    "call_date": "2026-11-03"
   },
-  "recbAotse7XkgqjTw": {
-   "summary": "",
-   "source": null,
-   "update_date": null,
-   "call_date": null
-  },
-  "recc2bnuBS1CEx7ro": {
-   "summary": "",
-   "source": null,
-   "update_date": null,
-   "call_date": null
-  },
   "rece9f8uz0ule0svo": {
-   "summary": "Tom told Cindy Cooper and Maria Jose are being booked into the windows now",
+   "summary": "Tom told Cindy Petersen he's booking Maria Jose into her Wed 1-3 and Thu 11-1 EST windows.",
    "source": "slack",
    "update_date": "2026-11-02",
    "call_date": null
   },
-  "recepqxqiSVnqO6PR": {
-   "summary": "Tom told Harry H Santiago is being chased too, after Harry said Santiago isn't on the calendar yet",
-   "source": "slack",
-   "update_date": "2026-11-03",
-   "call_date": null
-  },
   "recfuMGB1ba6igsS8": {
-   "summary": "Maksis said Rumi already reached out to Thomas, and Tom offered to help",
+   "summary": "Tom said Thomas has a full-time offer elsewhere; Maksis says he already reached out.",
    "source": "slack",
    "update_date": "2026-11-03",
    "call_date": null
   },
   "recik9hpwYi8Oq1rv": {
-   "summary": "Hydrohealth interview invite sent 2 Nov, moved to Link Sent, awaiting date and time",
+   "summary": "Hydrohealth interview invite sent 2 Nov with booking link; asked for date and time.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recmZe2LN2iRtlk0y": {
-   "summary": "Emailed Charlie's new 60-minute Everstride booking link to Siim on 2 Nov",
+   "summary": "Emailed Charlie's new 60-min Everstride link; Siim had booked Wed 4 Nov, 1 PM CET.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": "2026-11-04"
   },
   "recmvnCL4LYnym72e": {
-   "summary": "Tom asked Maksis if Shahroze's call went ahead, and Maksis said it's in 30 minutes",
+   "summary": "Maksis said 'its in 30min' when Tom asked if Shahroze's 12:30 Pakistan-time call went ahead.",
    "source": "slack",
    "update_date": "2026-11-04",
    "call_date": "2026-11-04"
   },
   "recowK4nTlUW0DDcn": {
-   "summary": "Tom told Javier Darren will be put onto Javier's Calendly this week and will confirm once booked",
+   "summary": "Tom told Javier he'll put Darren on his Calendly this week; Javier wants to interview him.",
    "source": "slack",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recpitEvhGM0FRbYO": {
-   "summary": "Alex Dod said Elvis looks interesting and Tom replied on it to send the booking link",
+   "summary": "Tom told Hugo and Gonzalo that Elvis is approved and getting booked.",
    "source": "slack",
-   "update_date": "2026-11-03",
-   "call_date": null
-  },
-  "recqWPSoxuH6YgfE1": {
-   "summary": "Tom told Harry H Lewis is being booked onto Harry's calendar now for an HC1 interview",
-   "source": "slack",
-   "update_date": "2026-11-03",
+   "update_date": "2026-10-29",
    "call_date": null
   },
   "recsXca6RcZAQlQ2F": {
-   "summary": "Tom told Lukas it was sent to Suryansh after Lukas shared the extra test needed",
+   "summary": "Lukas asked for one more small test; Tom replied that it was sent to the candidate.",
    "source": "slack",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recuVOCBBUXeNxd4e": {
-   "summary": "Tom told Reinis Matija is being rebooked now, after Reinis said both sides had rebooked once",
+   "summary": "Tom told Reinis he is getting Matija rebooked now, after Reinis said Matija needs rebooking.",
    "source": "slack",
    "update_date": "2026-11-03",
-   "call_date": null
+   "call_date": "2026-10-30"
   },
   "recuewcs2RlPDhlQu": {
-   "summary": "Tom asked Reinis and Kaspars for a read on the five interviewed editors and who moves forward",
+   "summary": "Tom asked Reinis and Kaspars who moves forward from five interviewed editors, Tajdar included.",
    "source": "slack",
    "update_date": "2026-10-31",
    "call_date": "2026-10-26"
   },
   "recv8H8IaIcQAk6lm": {
-   "summary": "Followed up with Venom Scent's Daniel on the $100 invoice and added PayPal details",
+   "summary": "Emailed Venom's Daniel on 31 Oct following up on his $100 invoice and adding PayPal details.",
    "source": "airtable",
-   "update_date": "2026-10-31",
+   "update_date": "2026-11-02",
    "call_date": null
   },
   "recvPlCaa3Ib77TlB": {
-   "summary": "Rami asked Tom to have Nedas reschedule, and Tom replied On it, will reach out to Nedas",
+   "summary": "Rami said he missed Nedas's call and would reschedule; Tom says he'll reach out to Nedas.",
    "source": "slack",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "recx1FJDk3aFspUGa": {
-   "summary": "Lukas asked Tom to send the trial task, and Tom replied on it",
+   "summary": "Lukas asked Tom to send Tajdar the trial; Tom replied 'yoopo Lukas on it'.",
    "source": "slack",
    "update_date": "2026-11-02",
    "call_date": "2026-09-21"
   },
   "recxGfe4mbXMsWNbx": {
-   "summary": "Hydrohealth interview invite sent 2 Nov, moved to Link Sent, awaiting date and time",
+   "summary": "Hydrohealth interview invite sent 2 Nov with booking link; asked for date, time and timezone.",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
