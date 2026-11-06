@@ -519,6 +519,12 @@ document.querySelectorAll('.tab').forEach(function(b){
 # Main
 # ---------------------------------------------------------------------------
 def main():
+    # Airtable is retired (Tom, 2026-11-06). atlas_board.py builds the board now and only
+    # borrows the page code from this file. Without this guard the old GitHub Refresh
+    # workflow would overwrite the Atlas board with dead Airtable data.
+    if "--airtable" not in sys.argv:
+        rd.log("Stage board: retired, atlas_board.py publishes the board. Nothing done.")
+        return 0
     no_publish = "--no-publish" in sys.argv
     cfg = rd.load_config()
     at = rd.Airtable(cfg["airtable_pat"], cfg["base"])
