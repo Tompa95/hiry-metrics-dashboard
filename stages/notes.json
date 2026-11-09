@@ -1,212 +1,224 @@
 {
- "generated": "2026-11-09 07:30",
+ "generated": "2026-11-09 08:30",
  "notes": {
-  "1279ab65-db89-4b91-9824-73c5c4470305": {
-   "summary": "Interview booked for Tuesday 10 Nov with the client, confirmed in Atlas.",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": "2026-11-10"
-  },
-  "a8ea0612-3081-49f0-8c21-a1feb64bec42": {
-   "summary": "Client confirmed Shahroze is coming on board after Tom checked on his call.",
-   "source": "slack",
-   "update_date": "2026-11-08",
-   "call_date": "2026-11-04"
-  },
-  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
-   "summary": "Sent the new booking link; waiting for him to book.",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": null
-  },
-  "09dd0165-5ed7-42d1-a0b9-4f71107fef81": {
-   "summary": "Sent the new booking link; waiting for him to book.",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": null
-  },
-  "9cb7e86f-95fb-4e5a-8ed6-9d145aa1f1c2": {
-   "summary": "Siim said the hiring process felt unclear; Sarah asked Tom to check next steps.",
-   "source": "airtable",
-   "update_date": "2026-11-06",
-   "call_date": "2026-11-04"
-  },
-  "0fe44d90-0fa3-45f2-9fcd-90b6730a3940": {
-   "summary": "Juan says his Hydrohealth interview went well.",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": "2026-11-04"
-  },
-  "3f598114-f1a6-4753-b95a-a96395c8f9be": {
-   "summary": "Rytis said the call went average; he has some Taboola experience and works on similar platforms.",
-   "source": "airtable",
-   "update_date": "2026-11-06",
-   "call_date": "2026-11-05"
-  },
-  "a0e05617-5663-4008-81c7-2139281c4e73": {
-   "summary": "Call is done; Tom asked the client for a yes or no on Matija.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-11-05"
-  },
-  "fcf95426-59d1-4063-b4b0-e47447ae728e": {
-   "summary": "Completed trial is with the client; Tom asked who to move forward with.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": null
-  },
-  "3ca19cf1-09f5-4fb8-b07f-44a5cb5a90eb": {
-   "summary": "Both trial tasks are done and with the client; Tom asked who to move forward with.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": null
-  },
-  "e2157e84-fec9-4186-8cfe-6601aa1884b0": {
-   "summary": "Completed trial is with the client; Tom asked who to move forward with.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": null
-  },
-  "b8134c7b-58ac-40ec-9e06-508c0747a5c2": {
-   "summary": "Sent congrats; asked whether he has heard from Maksis and his start date.",
-   "source": "airtable",
-   "update_date": "2026-11-06",
-   "call_date": null
-  },
-  "2f287b79-0267-4714-82c9-615752f16912": {
-   "summary": "Client says Erick's call is booked for 9 Nov.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-11-09"
-  },
-  "0f470404-d7dc-43d8-b10f-e5183823a85c": {
-   "summary": "Tom asked Reinis if he sends Kunal's trial directly; Reinis replied yes.",
-   "source": "slack",
-   "update_date": "2026-11-03",
-   "call_date": "2026-10-26"
-  },
-  "dc27a914-9850-4435-871b-7f940ed332c3": {
-   "summary": "Tom told the client Darren is approved, has the booking link, and is being locked in.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": null
-  },
-  "904bc726-5038-4984-a0d3-89421cea5804": {
-   "summary": "Call is done; Tom asked the client for a yes or no on Paul.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-28"
-  },
-  "7a482dc1-2dfd-488b-b8e9-c566fb02778e": {
-   "summary": "Elvis says Selene invited him for 11 Nov; Sarah asked Tom whether that date is right.",
-   "source": "airtable",
-   "update_date": "2026-11-06",
-   "call_date": "2026-11-04"
-  },
-  "5d2120e7-9bf2-4568-8236-1e00bab879a4": {
-   "summary": "Tom noted Laura's interview with the client is still to come.",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-11-05"
-  },
-  "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
-   "summary": "Cooper is free Friday 9am to 2pm EST and asked for the meeting link.",
-   "source": "airtable",
-   "update_date": "2026-11-06",
-   "call_date": null
-  },
-  "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
-   "summary": "Sarah asked the client to pick one of Maria's slots for today (EST).",
-   "source": "slack",
-   "update_date": "2026-11-09",
-   "call_date": null
-  },
-  "dee1f4ff-233c-419f-a4f8-d2c7c5061952": {
-   "summary": "Tom told the client Martin's trial is done and approved; payment is still pending.",
-   "source": "slack",
-   "update_date": "2026-11-06",
-   "call_date": "2026-10-06"
-  },
   "c78282a0-254c-4176-9a7d-3d65f3dee84b": {
-   "summary": "Darren says the Smooche call went well; trial starts only after Javier's go-ahead email.",
+   "summary": "Smooche call went well, trial on hold until Javier emails the go-ahead",
    "source": "airtable",
    "update_date": "2026-11-06",
    "call_date": "2026-11-03"
   },
-  "a077609c-10b4-432f-a25e-465f87ccf1aa": {
-   "summary": "Tom told the client Nedas is approved and the call with Rami is done.",
-   "source": "slack",
-   "update_date": "2026-11-06",
-   "call_date": "2026-11-04"
-  },
   "8f6dd902-8ea5-4fc0-b52f-180c4689afe1": {
-   "summary": "Natasha is not confident the Hume call went well; the role is Hume Care, not Health.",
+   "summary": "Hume call done, Natasha is not confident it went well as her prep was off target",
    "source": "airtable",
    "update_date": "2026-11-09",
    "call_date": "2026-11-04"
   },
   "eef5ee98-ec0c-4914-961b-53d2b4e9acea": {
-   "summary": "Tom asked the client about calls so far; Rugile's call is still to come.",
+   "summary": "Interview done, Rugile says all good and the client will reach candidates in a few days",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": "2026-11-05"
+  },
+  "618bcc8e-9b51-45c5-84a0-b36d71b26a46": {
+   "summary": "Alex Dod at Selene agreed to resend Kisha her link and book her once a slot is locked",
+   "source": "slack",
+   "update_date": "2026-11-06",
+   "call_date": null
+  },
+  "fb3eee21-6d8b-44a1-b79f-249b23b17414": {
+   "summary": "Tom says Zahidul's Hydrohealth call is still to come, booking not confirmed",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": null
+  },
+  "09dd0165-5ed7-42d1-a0b9-4f71107fef81": {
+   "summary": "New Impact booking link sent, waiting for Lewis to book a slot",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": null
+  },
+  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
+   "summary": "New Impact booking link sent, waiting for Santiago to book a slot",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": null
+  },
+  "556e17aa-7143-43db-a1fb-97f059e77575": {
+   "summary": "Invite with Charlie's booking link sent, waiting for Erick to book",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": null
+  },
+  "1279ab65-db89-4b91-9824-73c5c4470305": {
+   "summary": "Interview booked with Alex Dod at Selene for Tue 10 Nov, 12:00 ART",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": "2026-11-10"
+  },
+  "9cb7e86f-95fb-4e5a-8ed6-9d145aa1f1c2": {
+   "summary": "Siim felt Everstride's hiring process was unclear, no concrete answer on next steps",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": "2026-11-04"
+  },
+  "0fe44d90-0fa3-45f2-9fcd-90b6730a3940": {
+   "summary": "Juan says his Hydrohealth interview went well",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": "2026-11-04"
+  },
+  "3f598114-f1a6-4753-b95a-a96395c8f9be": {
+   "summary": "Rytis says his Hydrohealth call went average, with limited Taboola experience",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": "2026-11-05"
+  },
+  "a0e05617-5663-4008-81c7-2139281c4e73": {
+   "summary": "Call done, Tom asked Reinis for a yes or no on Matija",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-11-05"
   },
+  "fcf95426-59d1-4063-b4b0-e47447ae728e": {
+   "summary": "Trial submitted and listed as complete, Tom asking Luxe who they want to move forward with",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": null
+  },
+  "3ca19cf1-09f5-4fb8-b07f-44a5cb5a90eb": {
+   "summary": "Both trial tasks submitted, Tom asking Luxe who they want to move forward with",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": null
+  },
+  "e2157e84-fec9-4186-8cfe-6601aa1884b0": {
+   "summary": "Trial submitted and listed as complete, Tom asking Luxe who they want to move forward with",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": null
+  },
+  "b8134c7b-58ac-40ec-9e06-508c0747a5c2": {
+   "summary": "Congratulated Hakim, asked if he has heard from Maksis and for his start date",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": null
+  },
+  "2f287b79-0267-4714-82c9-615752f16912": {
+   "summary": "Panda Drum client says Erick is booked for Nov 9",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-11-09"
+  },
+  "0f470404-d7dc-43d8-b10f-e5183823a85c": {
+   "summary": "Interview done, Tom asked Reinis and Kaspars who they want to move forward with",
+   "source": "slack",
+   "update_date": "2026-10-29",
+   "call_date": "2026-10-26"
+  },
+  "dc27a914-9850-4435-871b-7f940ed332c3": {
+   "summary": "Tom told Maksis that Darren is approved and they're getting him locked in",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": null
+  },
+  "904bc726-5038-4984-a0d3-89421cea5804": {
+   "summary": "Call done, Tom asked Reinis for a yes or no on Paul",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-10-28"
+  },
+  "7a482dc1-2dfd-488b-b8e9-c566fb02778e": {
+   "summary": "Elvis says Selene invited him for 11 Nov, date still being checked",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": "2026-11-04"
+  },
+  "5d2120e7-9bf2-4568-8236-1e00bab879a4": {
+   "summary": "Tom says Laura's Hydrohealth call is still to come",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-11-05"
+  },
+  "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
+   "summary": "Cooper says he is free Fri 9am to 2pm EST and asks for the meeting link",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": null
+  },
+  "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
+   "summary": "Sarah sent Cindy 9am to 4pm EST slots for Maria today, waiting on her pick",
+   "source": "slack",
+   "update_date": "2026-11-09",
+   "call_date": null
+  },
+  "dee1f4ff-233c-419f-a4f8-d2c7c5061952": {
+   "summary": "Holding reply sent to Martin on his trial payment, still waiting on Pestlab",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": "2026-10-06"
+  },
+  "a077609c-10b4-432f-a25e-465f87ccf1aa": {
+   "summary": "Nedas is approved and his call with Rami is done, per Tom",
+   "source": "slack",
+   "update_date": "2026-11-06",
+   "call_date": "2026-11-04"
+  },
   "3e07a709-2f16-485f-92e4-1f37396d6c6c": {
-   "summary": "Interview with Everstride is booked for Thursday 5 Nov, 11:30 GMT.",
+   "summary": "Interview booked with Charlie for Thu 5 Nov, 11:30 GMT",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": "2026-11-05"
   },
   "4c183456-0b43-4581-ba37-1956d6056724": {
-   "summary": "Completed trial is with the client; Tom asked who to move forward with.",
+   "summary": "Trial listed as complete, Tom asking Luxe who they want to move forward with",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": null
   },
   "64efbfdd-b98a-4995-8726-e032f9f92539": {
-   "summary": "Siim cancelled his Rumi call citing Black Friday workload; Sarah is encouraging a rebook.",
+   "summary": "Siim cancelled his booked Rumi call, Sarah is encouraging him to rebook",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": null
   },
   "7cff67ef-3548-4375-8094-44e67cf0a7dc": {
-   "summary": "Rumi interview confirmed for Tue 3 Nov, 12:15 GMT; Gareth asked about fractional work.",
+   "summary": "Rumi interview booked for Tue 3 Nov, 12:15 GMT, no outcome logged",
    "source": "airtable",
    "update_date": "2026-11-02",
    "call_date": "2026-11-03"
   },
   "f3311969-193b-4cb0-90ab-ef4e03702e12": {
-   "summary": "Call is done; Tom asked the client for a yes or no on Randolph.",
+   "summary": "Call done, Tom asked Reinis for a yes or no on Randolph",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-10-29"
   },
   "70ed34c8-384b-49da-8904-8c28513208df": {
-   "summary": "Call is done; Tom asked the client for a yes or no on Tajdar.",
+   "summary": "Call done, Tom asked Reinis for a yes or no on Tajdar",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-10-26"
   },
   "3e394b68-c7af-469d-a297-493b524c75a0": {
-   "summary": "Call is done; Tom asked the client for a yes or no on Maaz.",
+   "summary": "Call done, Tom asked Reinis for a yes or no on Maaz",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-10-27"
   },
   "781bb41d-bcfa-4091-bc92-8c76daa1ca22": {
-   "summary": "Matthew was approved after the call, but his test task has still not reached him.",
+   "summary": "Approved after the call, but Pestlab's test task still has not reached him",
    "source": "slack",
    "update_date": "2026-11-06",
    "call_date": "2026-10-23"
   },
   "739a7b68-f3a7-4eae-93b9-25f2643e76f7": {
-   "summary": "Tom asked the client for a verdict; no feedback on Kunal's assessment yet.",
+   "summary": "Tom chased Venom Scent for a verdict on Kunal, who finished his assessment 17 days ago",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": null
   },
   "1443794f-a721-47b6-ae87-6dc20846b901": {
-   "summary": "Desserie says the trial is going great; she asked to take on another client via Hiry.",
+   "summary": "Desserie says the Gard Pro trial is going great and asked to take on another client",
    "source": "airtable",
    "update_date": "2026-11-03",
    "call_date": "2026-09-22"
