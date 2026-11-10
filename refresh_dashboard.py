@@ -160,15 +160,15 @@ REJECTED_RATING = "Candidate - Rejected"
 
 # Placements hidden from the dashboard while still ACTIVE in Airtable.
 # Keyed by record id so a headline rename cannot silently un-hide them.
-# This only affects THIS dashboard. Matching Priorities, Client FUP and
-# Candidate Stage Review still see these roles. If a role is truly dead,
+# This only affects THIS dashboard. Client FUP and the other projects
+# still see these roles. If a role is truly dead,
 # the right fix is to pause it in Airtable, not to grow this list.
 EXCLUDED_PLACEMENT_IDS = {
     "recnWju9i6wKrGTk5": "Hydrohealth - Native Creative Strategist (05 - Sourcing since 2026-04-10, hidden 2026-09-21 per Tom)",
     "reckz1i3kiWpu4jPu": "Eddieron - Technical Operations Engineer (10 - Sourcing To Start since 2026-07-13, hidden 2026-09-21 per Tom)",
 }
 
-# Viable / live-pipeline candidate statuses (from Matching Priorities skill)
+# Viable / live-pipeline candidate statuses (source of truth for the viable set)
 VIABLE_STATUSES = {
     "08 - Introduced",
     "081 - Intro sent: full transcript",
