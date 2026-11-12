@@ -1,263 +1,299 @@
 {
- "generated": "2026-11-11 09:35",
+ "generated": "2026-11-12 08:22",
  "notes": {
-  "5c54a4fe-906a-4c9a-a1b3-f0f4958207c4": {
-   "summary": "Impact interview invite sent with booking link, waiting for Orestis to book",
+  "a1cc3735-6666-4d09-9835-99644ab9991e": {
+   "summary": "Picked Fri 13 Nov, 11:00 to 11:30 AM EST with Alexa; invite still to be sent.",
    "source": "airtable",
-   "update_date": "2026-11-11",
+   "update_date": "2026-11-12",
+   "call_date": "2026-11-13"
+  },
+  "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
+   "summary": "Asked Cooper how yesterday's interview with Cindy went; feedback to follow when he replies.",
+   "source": "airtable",
+   "update_date": "2026-11-12",
+   "call_date": "2026-11-11"
+  },
+  "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
+   "summary": "Asked Maria how yesterday's interview with Cindy went; feedback to follow when she replies.",
+   "source": "airtable",
+   "update_date": "2026-11-12",
+   "call_date": "2026-11-11"
+  },
+  "8ed796d5-2292-4e55-a487-93b19843f6bf": {
+   "summary": "Picked Tue 17 Nov, 8:00 to 8:30 PM Dubai; will join audio only that day.",
+   "source": "airtable",
+   "update_date": "2026-11-12",
+   "call_date": "2026-11-17"
+  },
+  "618bcc8e-9b51-45c5-84a0-b36d71b26a46": {
+   "summary": "First Selene interview done 11 Nov; next-round technical interview invite drafted with Hugo's link.",
+   "source": "airtable",
+   "update_date": "2026-11-12",
+   "call_date": "2026-11-11"
+  },
+  "01b9b0dc-4be5-4cb7-bac0-ae5d3c14aaf7": {
+   "summary": "",
+   "source": null,
+   "update_date": null,
    "call_date": null
   },
-  "22954344-bdb0-471c-9bd3-36d8e6fdb436": {
-   "summary": "Impact interview invite sent with booking link, waiting for Richa to book",
+  "d92ef0b8-e2d0-4e11-9ea7-effd85a814d1": {
+   "summary": "Sent Alexa's Fri 13 Nov slots (11:00, 11:30 or 12:00 EST, 30 min); waiting on her pick.",
    "source": "airtable",
-   "update_date": "2026-11-11",
+   "update_date": "2026-11-12",
    "call_date": null
   },
-  "19a25a41-0591-4508-a920-6142eddbcd03": {
-   "summary": "Everstride interview invite sent with booking link, waiting for Charlotte to book",
+  "a15059bb-b383-4bba-9d8c-53c2ebd38922": {
+   "summary": "Sent Alexa's Fri 13 Nov slots (11:00, 11:30 or 12:00 EST, 30 min); waiting on her pick.",
    "source": "airtable",
-   "update_date": "2026-11-11",
+   "update_date": "2026-11-12",
    "call_date": null
   },
-  "556e17aa-7143-43db-a1fb-97f059e77575": {
-   "summary": "Nudged again to book the Everstride interview, waiting to hear back",
+  "7a482dc1-2dfd-488b-b8e9-c566fb02778e": {
+   "summary": "Selene call with Alex went pretty well; one more interview with their head of strategy.",
    "source": "airtable",
    "update_date": "2026-11-11",
-   "call_date": null
+   "call_date": "2026-11-11"
   },
-  "77c19015-1698-46d5-b44a-c1bcbcb69fa6": {
-   "summary": "Listed as waiting on feedback for the Sr Video Editor role",
+  "98016c9e-1730-49b1-8ab6-415b1ebdfeb9": {
+   "summary": "Alex approved Manuela; Tom replied he is sending her the booking link.",
    "source": "slack",
-   "update_date": "2026-11-06",
+   "update_date": "2026-11-10",
    "call_date": null
   },
-  "9a0c9dd1-15b8-4066-92e5-cace69e326bb": {
-   "summary": "Listed as waiting on feedback for the Sr Video Editor role",
-   "source": "slack",
-   "update_date": "2026-11-06",
-   "call_date": null
+  "3f598114-f1a6-4753-b95a-a96395c8f9be": {
+   "summary": "Dorien says the call went well on their side; still gathering details before deciding.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-05"
   },
-  "6e3d21a7-a85c-465f-9eea-1ed7418a8224": {
-   "summary": "Listed as waiting on feedback for the Sr Video Editor role",
-   "source": "slack",
-   "update_date": "2026-11-06",
-   "call_date": null
+  "0fe44d90-0fa3-45f2-9fcd-90b6730a3940": {
+   "summary": "Juan says the interview went well.",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": "2026-11-04"
   },
-  "1013a906-dbe5-4e84-b145-87f977766b4a": {
-   "summary": "Listed as waiting on feedback for the Sr Video Editor role",
+  "eef5ee98-ec0c-4914-961b-53d2b4e9acea": {
+   "summary": "Interview done; Rugile says it went well and the client will reach candidates in a few days.",
+   "source": "airtable",
+   "update_date": "2026-11-09",
+   "call_date": "2026-11-08"
+  },
+  "5d2120e7-9bf2-4568-8236-1e00bab879a4": {
+   "summary": "Replied to Laura that we are getting Dorien's feedback.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-05"
+  },
+  "fb3eee21-6d8b-44a1-b79f-249b23b17414": {
+   "summary": "Says the call went well; Dorien said she would follow up with him.",
+   "source": "airtable",
+   "update_date": "2026-11-11",
+   "call_date": "2026-11-09"
+  },
+  "ceb95144-ebe7-4735-ab69-168de4539da7": {
+   "summary": "Tom told Hugo and Gonzalo that Frankie is waiting on their feedback.",
    "source": "slack",
    "update_date": "2026-11-06",
    "call_date": null
   },
   "90178f09-6419-4c51-866d-1842ce15e477": {
-   "summary": "Listed as waiting on feedback for the Sr Video Editor role",
-   "source": "slack",
-   "update_date": "2026-11-06",
+   "summary": "Confirmed full-time; Rami's booking link sent today.",
+   "source": "airtable",
+   "update_date": "2026-11-12",
    "call_date": null
   },
-  "ceb95144-ebe7-4735-ab69-168de4539da7": {
-   "summary": "Tom tagged Rami and Hugo, Frankie is waiting on their feedback for Lead Video Editor",
-   "source": "slack",
-   "update_date": "2026-11-06",
+  "1013a906-dbe5-4e84-b145-87f977766b4a": {
+   "summary": "Asked Dajt to confirm he's available full-time; booking link follows once he confirms.",
+   "source": "airtable",
+   "update_date": "2026-11-11",
    "call_date": null
   },
-  "5193770c-aed9-45f7-a4e5-4ec900e7c5f1": {
-   "summary": "Client asked Tom for their calendar in Farooq's thread, and Tom replied",
-   "source": "slack",
-   "update_date": "2026-11-10",
+  "6e3d21a7-a85c-465f-9eea-1ed7418a8224": {
+   "summary": "Matthew pulled out of Selene, saying he is more interested in managerial/HOD roles at this moment.",
+   "source": "airtable",
+   "update_date": "2026-11-12",
    "call_date": null
   },
-  "3e07a709-2f16-485f-92e4-1f37396d6c6c": {
-   "summary": "Checked in on how the Everstride call went, waiting to hear back on feedback",
+  "9a0c9dd1-15b8-4066-92e5-cace69e326bb": {
+   "summary": "Confirmed full-time; Rami's booking link sent today.",
    "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-05"
+   "update_date": "2026-11-12",
+   "call_date": null
   },
-  "7a482dc1-2dfd-488b-b8e9-c566fb02778e": {
-   "summary": "Sent confirmation for Wed 11 Nov interview with Alex",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-11"
-  },
-  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
-   "summary": "Sent confirmation for interview with Harry, booked for Thu 12 Nov 5:15 PM UTC",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-12"
-  },
-  "618bcc8e-9b51-45c5-84a0-b36d71b26a46": {
-   "summary": "Interview booked for Wed 11 Nov with Hugo, confirmed by Kisha",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-11"
-  },
-  "dc022488-c408-4874-a13d-63a12cffd4e4": {
-   "summary": "Client booked an intro call with Joshua for Nov 17",
+  "77c19015-1698-46d5-b44a-c1bcbcb69fa6": {
+   "summary": "Asked Erion to confirm he's available full-time; booking link follows once he confirms.",
    "source": "airtable",
    "update_date": "2026-11-11",
-   "call_date": "2026-11-17"
+   "call_date": null
   },
-  "ef64855f-3bf3-4b0e-ba9f-c03499cb22b7": {
-   "summary": "Replied to Yassine, apologised for the profile mix up, and asked for his case study and portfolio",
+  "3ca19cf1-09f5-4fb8-b07f-44a5cb5a90eb": {
+   "summary": "Tom asked for a monthly estimate of ads wanted from Suryansh to base invoicing on.",
+   "source": "slack",
+   "update_date": "2026-11-11",
+   "call_date": null
+  },
+  "2f287b79-0267-4714-82c9-615752f16912": {
+   "summary": "Panda Drum may consider him for a trial after Q4 peak, will discuss with the team first.",
    "source": "airtable",
    "update_date": "2026-11-10",
-   "call_date": "2026-11-05"
-  },
-  "1fbdc59c-3507-447e-a366-13e7bafae69e": {
-   "summary": "Interview booked for Wed 11 Nov with Rumi Cosmetiques",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-11"
-  },
-  "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
-   "summary": "Interview with Cindy set for today, invites sent after the client picked a slot",
-   "source": "airtable",
-   "update_date": "2026-11-11",
-   "call_date": "2026-11-11"
-  },
-  "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
-   "summary": "Interview with Cindy set for today, invites sent after the client picked a slot",
-   "source": "airtable",
-   "update_date": "2026-11-11",
-   "call_date": "2026-11-11"
-  },
-  "3e394b68-c7af-469d-a297-493b524c75a0": {
-   "summary": "Tom asked Reinis for a yes or no, with Maaz listed as call done",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-27"
-  },
-  "70ed34c8-384b-49da-8904-8c28513208df": {
-   "summary": "Tom asked Reinis for a yes or no, with Tajdar listed as call done",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-26"
-  },
-  "f3311969-193b-4cb0-90ab-ef4e03702e12": {
-   "summary": "Tom asked Reinis for a yes or no, with Randolph listed as call done",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-29"
-  },
-  "904bc726-5038-4984-a0d3-89421cea5804": {
-   "summary": "Tom asked Reinis for a yes or no, with Paul listed as call done",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-28"
-  },
-  "a0e05617-5663-4008-81c7-2139281c4e73": {
-   "summary": "Tom asked Reinis for a yes or no, with Matija listed as call done",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-11-05"
-  },
-  "9cb7e86f-95fb-4e5a-8ed6-9d145aa1f1c2": {
-   "summary": "Tom checked with the client on next steps after Siim's call",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-04"
-  },
-  "8f6dd902-8ea5-4fc0-b52f-180c4689afe1": {
-   "summary": "Tom chased Hume for feedback again",
-   "source": "airtable",
-   "update_date": "2026-11-11",
-   "call_date": "2026-11-04"
-  },
-  "2c60602a-0e1e-4c3c-a73c-cd7b6dcc7a16": {
-   "summary": "Tom reminded Sarah to update the status after Adrian's call with Maksis",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": "2026-11-06"
-  },
-  "7cff67ef-3548-4375-8094-44e67cf0a7dc": {
-   "summary": "Gareth wants Rumi's feedback, Sarah asked Tom for help chasing the client",
-   "source": "airtable",
-   "update_date": "2026-11-11",
-   "call_date": "2026-11-03"
+   "call_date": null
   },
   "c78282a0-254c-4176-9a7d-3d65f3dee84b": {
-   "summary": "Assessment will be sent directly by the client",
+   "summary": "Assessment will be sent directly by the client.",
    "source": "airtable",
    "update_date": "2026-11-11",
    "call_date": "2026-11-03"
   },
+  "556e17aa-7143-43db-a1fb-97f059e77575": {
+   "summary": "Nudged Erick again to book with Charlie; waiting to hear back.",
+   "source": "airtable",
+   "update_date": "2026-11-11",
+   "call_date": null
+  },
+  "1fbdc59c-3507-447e-a366-13e7bafae69e": {
+   "summary": "Interview with Rumi booked for Wed 11 Nov, 4:30 AM PST; confirmed by Andres.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-11"
+  },
+  "ef64855f-3bf3-4b0e-ba9f-c03499cb22b7": {
+   "summary": "Replied to Yassine, apologised, and asked for his exact case study and portfolio link.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-05"
+  },
   "09dd0165-5ed7-42d1-a0b9-4f71107fef81": {
-   "summary": "Client set up a Slack channel and is sending Lewis a trial to complete in 48 hours",
+   "summary": "Client is sending Lewis a 48 hour trial, in a Slack channel set up with Tom.",
    "source": "airtable",
    "update_date": "2026-11-11",
    "call_date": "2026-11-10"
   },
-  "739a7b68-f3a7-4eae-93b9-25f2643e76f7": {
-   "summary": "Tom asked Daniel to review Kunal's completed Venom Scent assessment and shared both versions",
+  "dc022488-c408-4874-a13d-63a12cffd4e4": {
+   "summary": "Introductory call with Panda Drum booked for 17 November.",
+   "source": "airtable",
+   "update_date": "2026-11-11",
+   "call_date": "2026-11-17"
+  },
+  "7cff67ef-3548-4375-8094-44e67cf0a7dc": {
+   "summary": "Maksis says the client wants everyone full time, answering whether a fractional start would work.",
    "source": "slack",
+   "update_date": "2026-11-11",
+   "call_date": "2026-11-03"
+  },
+  "5193770c-aed9-45f7-a4e5-4ec900e7c5f1": {
+   "summary": "Tom replied 'on it!' to Maksis's request to send the calendar invite.",
+   "source": "slack",
+   "update_date": "2026-11-10",
+   "call_date": null
+  },
+  "19a25a41-0591-4508-a920-6142eddbcd03": {
+   "summary": "Sent Charlotte the Everstride invite with Charlie's booking link; waiting for her to book.",
+   "source": "airtable",
    "update_date": "2026-11-11",
    "call_date": null
   },
-  "781bb41d-bcfa-4091-bc92-8c76daa1ca22": {
-   "summary": "Tom asked Gregorio to share the test task, as Matthew still has not received it",
-   "source": "slack",
-   "update_date": "2026-11-06",
-   "call_date": "2026-10-23"
-  },
-  "0f470404-d7dc-43d8-b10f-e5183823a85c": {
-   "summary": "Sarah asked Kunal whether Elm & Herb has emailed him about a trial",
+  "22954344-bdb0-471c-9bd3-36d8e6fdb436": {
+   "summary": "Sent Richa the Impact invite with Harry's booking link; waiting for her to book.",
    "source": "airtable",
    "update_date": "2026-11-11",
-   "call_date": "2026-10-27"
+   "call_date": null
+  },
+  "5c54a4fe-906a-4c9a-a1b3-f0f4958207c4": {
+   "summary": "Sent Orestis the Impact invite with Harry's booking link; waiting for him to book.",
+   "source": "airtable",
+   "update_date": "2026-11-11",
+   "call_date": null
   },
   "dee1f4ff-233c-419f-a4f8-d2c7c5061952": {
-   "summary": "Tom says Pestlab was already chased on the trial payment, with no answer yet",
+   "summary": "Tom says he already chased Pestlab on the trial payment, with no answer.",
    "source": "airtable",
    "update_date": "2026-11-10",
    "call_date": "2026-10-06"
   },
+  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
+   "summary": "Sent Santiago confirmation for Fri 13 Nov, 1:15 AM Lombok time with Harry.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-13"
+  },
+  "2c60602a-0e1e-4c3c-a73c-cd7b6dcc7a16": {
+   "summary": "Had a good conversation with Maksis and sent him examples of his work.",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": "2026-11-06"
+  },
+  "8f6dd902-8ea5-4fc0-b52f-180c4689afe1": {
+   "summary": "Tom confirmed to Ani Mishra that Natasha's interview was for the Sr Media Buyer role.",
+   "source": "slack",
+   "update_date": "2026-11-11",
+   "call_date": "2026-11-04"
+  },
+  "904bc726-5038-4984-a0d3-89421cea5804": {
+   "summary": "Told Paul he can do the Smooche test edit first, since it is his top choice.",
+   "source": "airtable",
+   "update_date": "2026-11-05",
+   "call_date": "2026-10-28"
+  },
+  "3e07a709-2f16-485f-92e4-1f37396d6c6c": {
+   "summary": "Checked in with Gareth on his call with Charlie; waiting to hear back.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-05"
+  },
+  "9cb7e86f-95fb-4e5a-8ed6-9d145aa1f1c2": {
+   "summary": "Tom checked with the client about Siim's next steps.",
+   "source": "airtable",
+   "update_date": "2026-11-10",
+   "call_date": "2026-11-04"
+  },
+  "a0e05617-5663-4008-81c7-2139281c4e73": {
+   "summary": "Interview completed; Matija thinks it went well and is waiting for feedback.",
+   "source": "airtable",
+   "update_date": "2026-11-06",
+   "call_date": "2026-11-05"
+  },
   "b8134c7b-58ac-40ec-9e06-508c0747a5c2": {
-   "summary": "Sent congrats, asked if he has heard from Maksis and about his start date",
+   "summary": "Congratulated Hakim and asked if he has heard from Maksis and his start date.",
    "source": "airtable",
    "update_date": "2026-11-06",
    "call_date": null
   },
-  "2f287b79-0267-4714-82c9-615752f16912": {
-   "summary": "Panda Drum may consider him for a trial after Q4 peak, still discussing with the team",
+  "0f470404-d7dc-43d8-b10f-e5183823a85c": {
+   "summary": "Kunal says Elm & Herb ended the partnership on 11 Nov and he is open again.",
    "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": null
+   "update_date": "2026-11-12",
+   "call_date": "2026-10-26"
   },
-  "3ca19cf1-09f5-4fb8-b07f-44a5cb5a90eb": {
-   "summary": "Luxe is considering him for a task-based hire",
+  "f3311969-193b-4cb0-90ab-ef4e03702e12": {
+   "summary": "Told Randolph Elm & Herb feedback is not in yet; will update him as soon as received.",
    "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": null
+   "update_date": "2026-11-02",
+   "call_date": "2026-10-29"
   },
-  "fb3eee21-6d8b-44a1-b79f-249b23b17414": {
-   "summary": "Call went well, Dorien will follow up with him on WhatsApp",
+  "70ed34c8-384b-49da-8904-8c28513208df": {
+   "summary": "Tajdar confirmed the interview took place; we'll be in touch once the client replies.",
    "source": "airtable",
+   "update_date": "2026-10-28",
+   "call_date": "2026-10-26"
+  },
+  "3e394b68-c7af-469d-a297-493b524c75a0": {
+   "summary": "Confirmed his Elm & Herb interview took place; client is reviewing.",
+   "source": "airtable",
+   "update_date": "2026-10-28",
+   "call_date": "2026-10-27"
+  },
+  "781bb41d-bcfa-4091-bc92-8c76daa1ca22": {
+   "summary": "Tom told Gregorio Matthew's test task still needs to reach him and asked if he's still considered.",
+   "source": "slack",
    "update_date": "2026-11-11",
-   "call_date": "2026-11-09"
+   "call_date": "2026-10-23"
   },
-  "5d2120e7-9bf2-4568-8236-1e00bab879a4": {
-   "summary": "Replied to Laura that we are getting Dorien's feedback after her call",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-05"
-  },
-  "eef5ee98-ec0c-4914-961b-53d2b4e9acea": {
-   "summary": "Interview done, Hydrohealth said they will reach candidates in a few days",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": "2026-11-08"
-  },
-  "0fe44d90-0fa3-45f2-9fcd-90b6730a3940": {
-   "summary": "Juan says his Hydrohealth call went well",
-   "source": "airtable",
-   "update_date": "2026-11-09",
-   "call_date": "2026-11-04"
-  },
-  "3f598114-f1a6-4753-b95a-a96395c8f9be": {
-   "summary": "Dorien says the call went well and they are gathering details before deciding",
-   "source": "airtable",
-   "update_date": "2026-11-10",
-   "call_date": "2026-11-05"
+  "904bc726-5038-4984-a0d3-89421cea5804_placeholder": {
+   "summary": "",
+   "source": null,
+   "update_date": null,
+   "call_date": null
   }
  }
 }
