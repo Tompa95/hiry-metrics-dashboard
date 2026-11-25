@@ -1,203 +1,191 @@
 {
- "generated": "2026-11-24 09:32",
+ "generated": "2026-11-25 08:21",
  "notes": {
-  "98016c9e-1730-49b1-8ab6-415b1ebdfeb9": {
-   "summary": "Tom asked Hugo for new slots for Manuela, or to use his Calendly link, since she is keen",
-   "source": "slack",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-16"
-  },
   "f074adaa-0d9d-4a13-8893-f38db6e19d3b": {
-   "summary": "Tom is rescheduling the call with Gina",
+   "summary": "Call completed; candidate says it went well and a proposal will be submitted today.",
    "source": "airtable",
    "update_date": "2026-11-24",
-   "call_date": "2026-11-23"
+   "call_date": "2026-11-24"
+  },
+  "07adfed5-c738-47f1-a541-6f02b8abb48d": {
+   "summary": "Maksis says Adam is on a test trial.",
+   "source": "slack",
+   "update_date": "2026-11-25",
+   "call_date": "2026-11-13"
   },
   "09dd0165-5ed7-42d1-a0b9-4f71107fef81": {
-   "summary": "Lewis apologised to the client for missing the call, and they will arrange another",
+   "summary": "Lewis apologised to the client for missing the call; the client will arrange another.",
    "source": "airtable",
    "update_date": "2026-11-22",
    "call_date": "2026-11-10"
   },
-  "1013a906-dbe5-4e84-b145-87f977766b4a": {
-   "summary": "Tom agreed with Sarah sending one more nudge before moving Dajt to withdrawn",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": null
-  },
-  "5e1f7bca-e8b5-4235-8960-ba4d04ef8d93": {
-   "summary": "Tom sent new slots to Ramiro and Jesus and is waiting for them to pick one",
+  "58002d02-83f5-41ad-bac9-e47811408342": {
+   "summary": "Client says Gabrielle was custom sourced for the role.",
    "source": "slack",
    "update_date": "2026-11-24",
    "call_date": null
   },
-  "09812210-e6d3-4942-aac4-c5647a9dbf42": {
-   "summary": "Cindy has not been replying, so Sarah is still trying to get Julius in this week",
-   "source": "airtable",
-   "update_date": "2026-11-23",
+  "ae3dacd5-f815-4ca9-bf72-eee85d203d01": {
+   "summary": "Tom sent Jesus new slots; waiting on Jesus to choose one.",
+   "source": "slack",
+   "update_date": "2026-11-24",
    "call_date": null
   },
-  "ae3dacd5-f815-4ca9-bf72-eee85d203d01": {
-   "summary": "Tom sent new interview slots to Jesus and Ramiro and is waiting for them to pick one",
+  "a1cc3735-6666-4d09-9835-99644ab9991e": {
+   "summary": "Tom says the assessment was handled and sent directly to Alexa.",
+   "source": "airtable",
+   "update_date": "2026-11-24",
+   "call_date": "2026-11-13"
+  },
+  "a67becfb-6f27-48fb-8293-8a44140cc7a5": {
+   "summary": "Maksis says Artem is getting an editing trial after yesterday's talk.",
+   "source": "slack",
+   "update_date": "2026-11-25",
+   "call_date": "2026-11-24"
+  },
+  "b276e180-09be-4bd2-940d-9dfec15d5a3e": {
+   "summary": "Tom emailed Adam to check how the test task is going.",
+   "source": "airtable",
+   "update_date": "2026-11-22",
+   "call_date": null
+  },
+  "5193770c-aed9-45f7-a4e5-4ec900e7c5f1": {
+   "summary": "Farooq is doing a test task with the client directly.",
+   "source": "airtable",
+   "update_date": "2026-11-23",
+   "call_date": "2026-11-18"
+  },
+  "4517f868-edf7-4766-8ae3-483f8aae5046": {
+   "summary": "Shayan says not yet added to Slack or given a first test task.",
+   "source": "airtable",
+   "update_date": "2026-11-24",
+   "call_date": "2026-11-18"
+  },
+  "5c54a4fe-906a-4c9a-a1b3-f0f4958207c4": {
+   "summary": "Call with Thomas held; waiting for the client to confirm next steps.",
+   "source": "airtable",
+   "update_date": "2026-11-22",
+   "call_date": null
+  },
+  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
+   "summary": "Call rescheduled for Wed 24 Nov at 4pm GMT.",
+   "source": "airtable",
+   "update_date": "2026-11-24",
+   "call_date": "2026-11-24"
+  },
+  "618bcc8e-9b51-45c5-84a0-b36d71b26a46": {
+   "summary": "Tom told Damien that Kisha's LinkedIn, portfolio and CV are being sent before the call.",
+   "source": "slack",
+   "update_date": "2026-11-25",
+   "call_date": "2026-11-26"
+  },
+  "0672eb35-ebd5-454b-a53c-1132ff67bca2": {
+   "summary": "Maksis says Joseph is fully on board.",
+   "source": "slack",
+   "update_date": "2026-11-25",
+   "call_date": "2026-11-24"
+  },
+  "3e07a709-2f16-485f-92e4-1f37396d6c6c": {
+   "summary": "Tom asked Sarah to go ahead and close Gareth.",
+   "source": "airtable",
+   "update_date": "2026-11-24",
+   "call_date": "2026-11-05"
+  },
+  "781bb41d-bcfa-4091-bc92-8c76daa1ca22": {
+   "summary": "Tom asked Mohamed when the test task will be ready to send to Matthew.",
+   "source": "slack",
+   "update_date": "2026-11-24",
+   "call_date": "2026-10-23"
+  },
+  "3b58e8ad-f2bb-484d-b212-073ef3cad4fb": {
+   "summary": "Maksis says Andres is experienced but work may not translate to beauty; not fully keen.",
+   "source": "slack",
+   "update_date": "2026-11-25",
+   "call_date": "2026-11-13"
+  },
+  "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
+   "summary": "Client needs Tom's view on the primary goal; thinks neither Maria nor Cooper fits fully.",
+   "source": "slack",
+   "update_date": "2026-11-13",
+   "call_date": "2026-11-11"
+  },
+  "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
+   "summary": "Sarah told Cindy Cooper should interview with someone else too and asked for the booking link.",
+   "source": "slack",
+   "update_date": "2026-11-17",
+   "call_date": "2026-11-11"
+  },
+  "98016c9e-1730-49b1-8ab6-415b1ebdfeb9": {
+   "summary": "Tom asked Hugo for new slots or permission to use his booking link for Manuela.",
+   "source": "slack",
+   "update_date": "2026-11-24",
+   "call_date": "2026-11-16"
+  },
+  "5e1f7bca-e8b5-4235-8960-ba4d04ef8d93": {
+   "summary": "Tom sent Ramiro new slots; waiting on Ramiro to choose one.",
    "source": "slack",
    "update_date": "2026-11-24",
    "call_date": null
   },
   "77c19015-1698-46d5-b44a-c1bcbcb69fa6": {
-   "summary": "Tom told Rami that Erion is booked for Wednesday at 16:30 CET",
+   "summary": "Tom told Rami that Erion is booked for Wednesday 16:30 CET.",
    "source": "slack",
    "update_date": "2026-11-24",
    "call_date": "2026-11-25"
   },
-  "618bcc8e-9b51-45c5-84a0-b36d71b26a46": {
-   "summary": "Tom told Damien that Kisha is booked for his Thursday 5 AM slot",
-   "source": "slack",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-26"
-  },
-  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
-   "summary": "Tom rescheduled Santiago's call for Wednesday 24 November at 4pm GMT",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-24"
-  },
-  "58002d02-83f5-41ad-bac9-e47811408342": {
-   "summary": "Julius told Richard that Gabrielle and the others were custom sourced for his role, and apologised over Kelsey",
-   "source": "slack",
-   "update_date": "2026-11-24",
-   "call_date": null
-  },
-  "3e394b68-c7af-469d-a297-493b524c75a0": {
-   "summary": "Tom asked Reinis for a yes or no on Maaz, still waiting on his read",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-27"
-  },
-  "70ed34c8-384b-49da-8904-8c28513208df": {
-   "summary": "Tom asked Reinis for a yes or no on Tajdar, still waiting on his read",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-26"
-  },
-  "f3311969-193b-4cb0-90ab-ef4e03702e12": {
-   "summary": "Tom asked Reinis for a yes or no on Randolph, still waiting on his read",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-10-29"
-  },
-  "904bc726-5038-4984-a0d3-89421cea5804": {
-   "summary": "Tom says Elm & Herb are ghosting him too, after Paul said they did not contact him",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-10-28"
-  },
-  "a0e05617-5663-4008-81c7-2139281c4e73": {
-   "summary": "Tom asked Reinis for a yes or no on Matija, whose call is done",
-   "source": "slack",
-   "update_date": "2026-11-07",
-   "call_date": "2026-11-05"
-  },
-  "781bb41d-bcfa-4091-bc92-8c76daa1ca22": {
-   "summary": "Tom asks Mohamed when Matthew's test task will be ready, or if he already sent it",
-   "source": "slack",
-   "update_date": "2026-11-24",
-   "call_date": "2026-10-23"
-  },
-  "0672eb35-ebd5-454b-a53c-1132ff67bca2": {
-   "summary": "Joe presents his audit to Maksis and Reiniss today at 1 PM CET",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-24"
-  },
-  "4517f868-edf7-4766-8ae3-483f8aae5046": {
-   "summary": "Shayan says he has not been added to the Slack or got a first task yet",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-18"
-  },
-  "5193770c-aed9-45f7-a4e5-4ec900e7c5f1": {
-   "summary": "Farooq is doing a test task with the client directly",
-   "source": "airtable",
-   "update_date": "2026-11-23",
-   "call_date": "2026-11-18"
-  },
   "22954344-bdb0-471c-9bd3-36d8e6fdb436": {
-   "summary": "Tom sent the client a message about the finished task to get a final say",
+   "summary": "Tom sent the client a message about the finished task to get a final say.",
    "source": "airtable",
    "update_date": "2026-11-22",
    "call_date": null
   },
-  "a1cc3735-6666-4d09-9835-99644ab9991e": {
-   "summary": "Tom says he handled it and passed it to Alexa on Slack",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-13"
-  },
-  "b276e180-09be-4bd2-940d-9dfec15d5a3e": {
-   "summary": "Tom emailed Adam to check how his test task is going",
-   "source": "airtable",
-   "update_date": "2026-11-22",
-   "call_date": null
-  },
-  "a67becfb-6f27-48fb-8293-8a44140cc7a5": {
-   "summary": "Artem thinks the interview went well and Maksis mentioned a 10-day trial, with details still to come",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-24"
-  },
-  "2f287b79-0267-4714-82c9-615752f16912": {
-   "summary": "Tom asked for a push to the client to see if they want to reconsider the hire for now",
-   "source": "airtable",
-   "update_date": "2026-11-22",
+  "8360f7b7-ca31-4804-89c9-a072f7aaffa8": {
+   "summary": "Maksis says Adrian discussed full-funnel strategy more than creative strategy; not fully keen.",
+   "source": "slack",
+   "update_date": "2026-11-25",
    "call_date": null
   },
   "70191c51-0c9e-47e9-81d8-d702bd964b93": {
-   "summary": "Tom says Laiba got the offer, asks Sarah to send it and book a Wednesday call",
+   "summary": "Offer letter is ready to send to Laiba; a kickoff call is needed for Wednesday.",
    "source": "airtable",
    "update_date": "2026-11-24",
    "call_date": "2026-11-17"
   },
-  "8360f7b7-ca31-4804-89c9-a072f7aaffa8": {
-   "summary": "Sarah asked what was missed for Adrian and whether they should change anything, saying they're on it",
-   "source": "slack",
-   "update_date": "2026-11-20",
-   "call_date": null
-  },
-  "07adfed5-c738-47f1-a541-6f02b8abb48d": {
-   "summary": "Adam says the Rumi trial is going well and he will pass his first video later today",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-13"
-  },
-  "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
-   "summary": "Sarah asked Cindy for a second interviewer's name and booking link so Cooper can interview with them",
-   "source": "slack",
-   "update_date": "2026-11-17",
-   "call_date": "2026-11-11"
-  },
-  "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
-   "summary": "Maria says the interview went great and she is open to future part-time roles",
-   "source": "airtable",
-   "update_date": "2026-11-13",
-   "call_date": "2026-11-11"
-  },
-  "3b58e8ad-f2bb-484d-b212-073ef3cad4fb": {
-   "summary": "Sarah told Maksis she is on it for Andres and Adrian and asked what was missed",
-   "source": "slack",
-   "update_date": "2026-11-20",
-   "call_date": "2026-11-13"
-  },
-  "3e07a709-2f16-485f-92e4-1f37396d6c6c": {
-   "summary": "Tom told Sarah to close Gareth, saying she has this",
-   "source": "airtable",
-   "update_date": "2026-11-24",
-   "call_date": "2026-11-05"
-  },
-  "5c54a4fe-906a-4c9a-a1b3-f0f4958207c4": {
-   "summary": "Tom had the call with Thomas and is waiting on the client to confirm next steps",
+  "2f287b79-0267-4714-82c9-615752f16912": {
+   "summary": "Tom will push the client to see if they want to reconsider hiring Erick.",
    "source": "airtable",
    "update_date": "2026-11-22",
    "call_date": null
+  },
+  "a0e05617-5663-4008-81c7-2139281c4e73": {
+   "summary": "Tom asked Reinis for a yes or no; Matija is listed as call done.",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-11-05"
+  },
+  "904bc726-5038-4984-a0d3-89421cea5804": {
+   "summary": "Paul says Elm & Herb have not been in touch; Sarah is nudging Reinis.",
+   "source": "airtable",
+   "update_date": "2026-11-24",
+   "call_date": "2026-10-28"
+  },
+  "f3311969-193b-4cb0-90ab-ef4e03702e12": {
+   "summary": "Tom asked Reinis for a yes or no; Randolph is listed as call done.",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-10-29"
+  },
+  "70ed34c8-384b-49da-8904-8c28513208df": {
+   "summary": "Tom asked Reinis for a yes or no; Tajdar is listed as call done.",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-10-26"
+  },
+  "3e394b68-c7af-469d-a297-493b524c75a0": {
+   "summary": "Tom asked Reinis for a yes or no; Maaz is listed as call done.",
+   "source": "slack",
+   "update_date": "2026-11-07",
+   "call_date": "2026-10-27"
   }
  }
 }
