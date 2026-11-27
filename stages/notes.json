@@ -1,179 +1,179 @@
 {
- "generated": "2026-11-27 07:57",
+ "generated": "2026-11-27 08:08",
  "notes": {
-  "98016c9e-1730-49b1-8ab6-415b1ebdfeb9": {
-   "summary": "Tom told Hugo the call with Manuela is booked for today at 6:30pm Bangkok time",
-   "source": "slack",
-   "update_date": "2026-11-27",
-   "call_date": "2026-11-27"
-  },
   "5e1f7bca-e8b5-4235-8960-ba4d04ef8d93": {
-   "summary": "Tom told Alexa he sent new slots to Ramiro and Jesus, who are waiting to pick one",
+   "summary": "Tom told Alexa he sent new slots to Ramiro and Jesus, waiting for them to pick one",
    "source": "slack",
    "update_date": "2026-11-24",
    "call_date": null
   },
   "09812210-e6d3-4942-aac4-c5647a9dbf42": {
-   "summary": "Cindy hasn't been replying, so Sarah is still trying to get Julius in with her this week",
+   "summary": "Cindy hasn't replied, so Sarah will still try to get Julius in with her this week",
    "source": "airtable",
    "update_date": "2026-11-23",
    "call_date": null
   },
   "618bcc8e-9b51-45c5-84a0-b36d71b26a46": {
-   "summary": "Kisha moved her call with Damien to Thu 26 Nov at 11:30 AM EST",
+   "summary": "Kisha moved her call with Damien to Thu 26 Nov, 11:30 AM EST",
    "source": "airtable",
    "update_date": "2026-11-25",
    "call_date": "2026-11-26"
   },
+  "98016c9e-1730-49b1-8ab6-415b1ebdfeb9": {
+   "summary": "Call is scheduled for today, Fri 27 Nov, 8:30 AM ART",
+   "source": "airtable",
+   "update_date": "2026-11-27",
+   "call_date": "2026-11-27"
+  },
   "3e394b68-c7af-469d-a297-493b524c75a0": {
-   "summary": "Tom listed Maaz's call as done, still waiting on Reinis's read, and asked for a yes or no",
+   "summary": "Tom asked Reinis for a yes or no on each candidate, with Maaz listed as call done",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-10-27"
   },
   "70ed34c8-384b-49da-8904-8c28513208df": {
-   "summary": "Tom listed Tajdar's call as done, still waiting on Reinis's read, and asked for a yes or no",
+   "summary": "Tom asked Reinis for a yes or no on each candidate, with Tajdar listed as call done",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-10-26"
   },
   "f3311969-193b-4cb0-90ab-ef4e03702e12": {
-   "summary": "Tom listed Randolph's call as done, still waiting on Reinis's read, and asked for a yes or no",
+   "summary": "Tom asked Reinis for a yes or no on each candidate, with Randolph listed as call done",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-10-29"
   },
   "904bc726-5038-4984-a0d3-89421cea5804": {
-   "summary": "Sarah told Paul she is chasing Elm & Herb for feedback today and will update him",
+   "summary": "Sarah told Paul she's chasing Elm & Herb for feedback and will update him once she hears",
    "source": "airtable",
    "update_date": "2026-11-26",
    "call_date": "2026-10-28"
   },
   "a0e05617-5663-4008-81c7-2139281c4e73": {
-   "summary": "Tom listed Matija's call as done, still waiting on Reinis's read, and asked for a yes or no",
+   "summary": "Tom asked Reinis for a yes or no on each candidate, with Matija listed as call done",
    "source": "slack",
    "update_date": "2026-11-07",
    "call_date": "2026-11-05"
   },
   "7e3aae38-774d-4fd8-8537-f39a888e9fbe": {
-   "summary": "Sarah says the recommendation is to advance Cooper, since the role was rescoped to be Meta first",
+   "summary": "Sarah recommended advancing Cooper over Maria, since the role was rescoped to Meta first",
    "source": "slack",
    "update_date": "2026-11-16",
    "call_date": "2026-11-11"
   },
   "a9a1fa5c-57e8-48ac-9693-2a0442c3fb5e": {
-   "summary": "Sarah says yes to Cindy also interviewing Cooper with someone else, and asks for the booking link",
+   "summary": "Cooper should meet a second person, and Sarah asked Cindy who and for the booking link",
    "source": "slack",
    "update_date": "2026-11-17",
    "call_date": "2026-11-11"
   },
-  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
-   "summary": "Interview with Richard done, but he asked for pay above his profile, and Tom is checking OTE",
-   "source": "airtable",
-   "update_date": "2026-11-26",
-   "call_date": "2026-11-24"
-  },
   "8360f7b7-ca31-4804-89c9-a072f7aaffa8": {
-   "summary": "Maksis says Adrian talked mostly about full-funnel and landing pages, and the role is on hold",
+   "summary": "Maksis said Adrian spoke a lot about full-funnel strategy and landing pages, less about creative strategy",
    "source": "airtable",
    "update_date": "2026-11-25",
    "call_date": null
   },
   "3b58e8ad-f2bb-484d-b212-073ef3cad4fb": {
-   "summary": "Maksis says Andres is clearly experienced but mostly in one niche, so unsure it translates to beauty",
+   "summary": "Maksis said Andres is experienced but mostly in men's testosterone, unsure it translates to beauty",
    "source": "airtable",
    "update_date": "2026-11-25",
    "call_date": "2026-11-13"
   },
   "ae3dacd5-f815-4ca9-bf72-eee85d203d01": {
-   "summary": "Call with Alexa done 25 Nov, she will come back after talking to the Cupids team next week",
+   "summary": "Alexa's call with Jesus was on 25 Nov, she'll talk it through with Cupids and come back",
    "source": "airtable",
    "update_date": "2026-11-27",
    "call_date": "2026-11-25"
   },
   "77c19015-1698-46d5-b44a-c1bcbcb69fa6": {
-   "summary": "Sarah says she has asked how the call with Rami went, no outcome recorded yet",
-   "source": "airtable",
-   "update_date": "2026-11-27",
+   "summary": "Tom asked Rami how the call with Erion went and whether he liked him",
+   "source": "slack",
+   "update_date": "2026-11-26",
    "call_date": "2026-11-25"
   },
   "781bb41d-bcfa-4091-bc92-8c76daa1ca22": {
-   "summary": "Matthew has made one advertorial and is making the other one today, as part of the test",
+   "summary": "Matthew made one advertorial and is making the other one today",
    "source": "airtable",
    "update_date": "2026-11-25",
    "call_date": "2026-10-23"
   },
   "4517f868-edf7-4766-8ae3-483f8aae5046": {
-   "summary": "Still no test task yet, Shayan thinks it will come today, and Sarah is asking Maksis",
+   "summary": "Shayan still has no test task, but thinks it will come today, and Sarah is asking Maksis",
    "source": "airtable",
    "update_date": "2026-11-27",
    "call_date": "2026-11-18"
   },
   "5193770c-aed9-45f7-a4e5-4ec900e7c5f1": {
-   "summary": "Sarah notes Farooq is doing a test task directly with the client",
+   "summary": "Farooq is doing a test task with the client directly",
    "source": "airtable",
    "update_date": "2026-11-23",
    "call_date": "2026-11-18"
   },
   "22954344-bdb0-471c-9bd3-36d8e6fdb436": {
-   "summary": "Tom sent the client a message about the finished task to get a final say",
+   "summary": "Sent the client a message about the finished task to get a final say",
    "source": "airtable",
    "update_date": "2026-11-22",
    "call_date": null
   },
   "5c54a4fe-906a-4c9a-a1b3-f0f4958207c4": {
-   "summary": "Had the call with Thomas, now waiting on the client to confirm next steps",
+   "summary": "Had the call with Thomas, waiting on the client to confirm next steps",
    "source": "airtable",
    "update_date": "2026-11-22",
    "call_date": null
   },
   "b276e180-09be-4bd2-940d-9dfec15d5a3e": {
-   "summary": "Mohamed says Adam is revising the videos from his test task, now on the second round",
+   "summary": "Mohamed said Adam is revising the videos from his test task, in a second round",
    "source": "slack",
    "update_date": "2026-11-26",
    "call_date": null
   },
   "a67becfb-6f27-48fb-8293-8a44140cc7a5": {
-   "summary": "Maksis confirmed he is giving Artem an editing trial, with the start date still to be confirmed",
+   "summary": "Maksis confirmed he's giving Artem an editing trial, start date still to be confirmed",
    "source": "airtable",
    "update_date": "2026-11-25",
    "call_date": "2026-11-24"
   },
   "07adfed5-c738-47f1-a541-6f02b8abb48d": {
-   "summary": "Maksis told Sarah that Adam is on a test trial, and Joseph is fully on board",
+   "summary": "Maksis said Adam is on a test trial and Joseph is fully on board",
    "source": "slack",
    "update_date": "2026-11-25",
    "call_date": "2026-11-13"
   },
   "dee1f4ff-233c-419f-a4f8-d2c7c5061952": {
-   "summary": "Mohamed told Tom the ad account running Martin's ads got banned, so they will relaunch",
+   "summary": "Mohamed said Martin's ad account got banned, so they will launch again on a new one",
    "source": "slack",
    "update_date": "2026-11-25",
    "call_date": null
   },
   "2f287b79-0267-4714-82c9-615752f16912": {
-   "summary": "Tom asked for a client push to see if they want to reconsider the hire for now",
+   "summary": "Send the client a push to see if they want to reconsider the hire for now",
    "source": "airtable",
    "update_date": "2026-11-22",
    "call_date": null
   },
   "3e07a709-2f16-485f-92e4-1f37396d6c6c": {
-   "summary": "Gareth confirmed the contract is all good and Sarah asked him to send it over",
+   "summary": "Sarah asked Gareth to send the signed contract, after he confirmed all good on WhatsApp",
    "source": "airtable",
    "update_date": "2026-11-26",
    "call_date": "2026-11-05"
   },
   "f074adaa-0d9d-4a13-8893-f38db6e19d3b": {
-   "summary": "Gina is going to sign with HIStrips, they just sent the final proposal",
+   "summary": "Gina is going to sign, final proposal sent and she's been looped in with the team",
    "source": "airtable",
    "update_date": "2026-11-27",
-   "call_date": null
+   "call_date": "2026-11-24"
   },
   "a1cc3735-6666-4d09-9835-99644ab9991e": {
-   "summary": "Final interview with Alexa is booked for Mon 30 Nov, Sarah sent Ivan a good luck note",
+   "summary": "Final interview with Alexa booked for Mon 30 Nov, and Sarah sent Ivan a good luck note",
    "source": "airtable",
    "update_date": "2026-11-26",
    "call_date": "2026-11-30"
+  },
+  "db25dad9-6788-4281-8424-d8c7f85f53a1": {
+   "summary": "Interview done with Richard, he asked for more base than his profile shows, Tom is checking OTE",
+   "source": "airtable",
+   "update_date": "2026-11-26",
+   "call_date": "2026-11-24"
   }
  }
 }
